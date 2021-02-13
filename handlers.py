@@ -1,8 +1,6 @@
 
 from random import randrange
 
-import schedule
-
 import subprocess
 
 from main import bot, dp, client
@@ -151,14 +149,10 @@ async def echohelp(message: Message):
         await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
     else:
         await message.answer(text="Sorry, you're not the admin")
-        
+
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
-
-@dp.message_handler(commands=['next'])
-async def echohelp(message: Message):
-    await message.answer(text=schedule.help_get_url())
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):
