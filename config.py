@@ -1,6 +1,8 @@
 BOT_TOKEN = "1587405934:AAEAKvidxADTdlu_Pr0w8TQHpO-QV7T4uEM" 
 BOT_WOLF_TOKEN = "P8PX47-KP489EE3R6"
 
+sUpdate = "update.sh"
+
 admin_id = 671836800
 
 highmath = "https://sumdu.webex.com/meet/y.kravchenko"

@@ -1,10 +1,12 @@
 
 from random import randrange
 
+import subprocess
+
 from main import bot, dp, client
 
 from aiogram.types import Message, User
-from config import admin_id, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json
+from config import admin_id, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json, sUpdate
 
 #from aiogram.methods import SendPhoto
 #from aiogram.api.methods import SendPhoto
@@ -120,6 +122,14 @@ async def echohelp(message: Message):
     if message.chat.id == admin_id :
         await bot.send_document(chat_id=message.chat.id, document=open(schedule1json, 'rb'))
         await bot.send_document(chat_id=message.chat.id, document=open(schedule2json, 'rb'))
+    else :
+        await message.answer(text="Sorry you're not the admin")
+
+@dp.message_handler(commands=['update'])
+async def echohelp(message: Message):
+    if message.chat.id == admin_id :
+        subprocess.call(sUpdate)
+        await message.answer(text="Schedules updated")
     else :
         await message.answer(text="Sorry you're not the admin")
 
