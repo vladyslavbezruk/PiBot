@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sUpdate="update.sh"
+chmod +x update.sh
+chmod +x createSource.sh
 
-./"@sUpdate"
+./update.sh
 
 python3 main.py
