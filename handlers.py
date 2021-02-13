@@ -1,6 +1,8 @@
 
 from random import randrange
 
+from schedule import help_get_url 
+
 import subprocess
 
 from main import bot, dp, client
@@ -153,6 +155,10 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
+
+@dp.message_handler(commands=['now'])
+async def echohelp(message: Message):
+    await message.answer(text=help_get_url())
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):
