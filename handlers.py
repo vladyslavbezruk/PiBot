@@ -1,10 +1,14 @@
 
 from random import randrange
 
+import schedule
+
+import subprocess
+
 from main import bot, dp, client
 
 from aiogram.types import Message, User
-from config import admin_id, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json
+from config import admin_id, admin_id2, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json, sUpdate
 
 #from aiogram.methods import SendPhoto
 #from aiogram.api.methods import SendPhoto
@@ -24,9 +28,9 @@ async def echo(message: Message):
     num = randrange(6) + 1
     ur = message.from_user.username
 
-    if f"__{ur}__" != "__None__" :
+    if f"__{ur}__" != "__None__":
         text = f"@{ur} Hello, {message.from_user.first_name}. Your message - {message.text} (test bot by @vladislavbezruk & @Hokage_Naruto_2020)"
-    else :
+    else:
         text = f"Hello, {message.from_user.first_name}. Your message - {message.text} (test bot by @vladislavbezruk & @Hokage_Naruto_2020)"
     await message.answer(text=text)
     randnum = f"Your random [1-6] number is {num}"
@@ -106,9 +110,9 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
     ur = message.from_user.username
-    if message.text == "/calc the biggest penis in the universe" :
+    if message.text == "/calc the biggest penis in the universe":
         await bot.send_message(chat_id=message.chat.id, text="Sorry, but the number does not fit in int, but his name is Vladislav Bezruk")
-    else :
+    else:
         query = message.text.replace("/calc ", "")
         res = client.query(query)
         output = next(res.results).text
@@ -117,11 +121,44 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getjson'])
 async def echohelp(message: Message):
-    if message.chat.id == admin_id :
+    if message.from_user.id == admin_id:
         await bot.send_document(chat_id=message.chat.id, document=open(schedule1json, 'rb'))
         await bot.send_document(chat_id=message.chat.id, document=open(schedule2json, 'rb'))
-    else :
-        await message.answer(text="Sorry you're not the admin")
+    elif message.from_user.id == admin_id2:
+        await bot.send_document(chat_id=message.chat.id, document=open(schedule1json, 'rb'))
+        await bot.send_document(chat_id=message.chat.id, document=open(schedule2json, 'rb'))
+    else:
+        await message.answer(text="Sorry, you're not the admin")
+
+@dp.message_handler(commands=['update'])
+async def echohelp(message: Message):
+    if message.from_user.id == admin_id:
+        subprocess.call([f'./{sUpdate}'])
+        await message.answer(text="Schedules updated")
+    elif message.from_user.id == admin_id2:
+        subprocess.call([f'./{sUpdate}'])
+        await message.answer(text="Schedules updated")
+    else:
+        await message.answer(text="Sorry, you're not the admin")
+
+@dp.message_handler(commands=['getSource'])
+async def echohelp(message: Message):
+    if message.from_user.id == admin_id:
+        subprocess.call(['./createSource.sh'])
+        await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
+    elif message.from_user.id == admin_id2:
+        subprocess.call(['./createSource.sh'])
+        await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
+    else:
+        await message.answer(text="Sorry, you're not the admin")
+        
+@dp.message_handler(commands=['getid'])
+async def echohelp(message: Message):
+    await message.answer(text=f"Your id - {str(message.from_user.id)}")
+
+@dp.message_handler(commands=['next'])
+async def echohelp(message: Message):
+    await message.answer(text=schedule.help_get_url())
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):
