@@ -1,7 +1,7 @@
 
 from random import randrange
 
-from schedule import help_get_url 
+from schedule import help_get_url, help_today, help_tomorrow 
 
 import subprocess
 
@@ -43,57 +43,9 @@ async def echohelp(message: Message):
 
     ur = message.from_user.username
  
-    await message.answer(text=f"/help1 - Вища мат. (лек.)\n/help2 - Вища мат. (практ.)\n/help3 - Дискр. мат. (all)\n/help4 - Акад. письмо (практ.)\n/help5 - Програм. (лек. + практ. /1)\n/help6 - Програм. (практ. /2)\n/help7 - Англ. (практ. /2, only for {engldate})\n/help8 - Англ. (практ. /1)\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/now - пари зараз")
+    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2")
     
     await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help1'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=highmath)
-    await bot.send_message(chat_id=admin_id, text=f"command = help1, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help2'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=mathpract)
-    await bot.send_message(chat_id=admin_id, text=f"command = help2, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help3'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=discmath)
-    await bot.send_message(chat_id=admin_id, text=f"command = help3, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help4'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=academ)
-    await bot.send_message(chat_id=admin_id, text=f"command = help4, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help5'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=progr)
-    await bot.send_message(chat_id=admin_id, text=f"command = help5, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help6'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=progr02)
-    await bot.send_message(chat_id=admin_id, text=f"command = help6, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help7'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=engl02)
-    await bot.send_message(chat_id=admin_id, text=f"command = help7, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['help8'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await message.answer(text=engl01)
-    await bot.send_message(chat_id=admin_id, text=f"command = help8, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
 @dp.message_handler(commands=['schedule1'])
 async def echohelp(message: Message):
@@ -170,6 +122,27 @@ async def echohelp(message: Message):
         await message.answer(text="There are no lessons today")
   
     subprocess.call([f'./{rmjsons}'])
+
+@dp.message_handler(commands=['today'])
+async def echohelp(message: Message):
+    subprocess.call([f'./{cpjsons}'])
+
+    result = help_today()
+
+    await message.answer(text=result)
+
+    subprocess.call([f'./{rmjsons}'])
+
+@dp.message_handler(commands=['tomorrow'])
+async def echohelp(message: Message):
+    subprocess.call([f'./{cpjsons}'])
+
+    result = help_tomorrow()
+
+    await message.answer(text=result)
+
+    subprocess.call([f'./{rmjsons}'])
+
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):
