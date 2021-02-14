@@ -1,7 +1,7 @@
 
 from random import randrange
 
-from schedule import help_get_url, help_today, help_tomorrow 
+from schedule import help_get_url, help_today, help_tomorrow, help_week 
 
 import subprocess
 
@@ -43,7 +43,7 @@ async def echohelp(message: Message):
 
     ur = message.from_user.username
  
-    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
+    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week - розклад на тиждень\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
     
     await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
@@ -104,6 +104,17 @@ async def echohelp(message: Message):
     else:
         await message.answer(text="Sorry, you're not the admin")
 
+@dp.message_handler(commands=['shutdown'])
+async def echohelp(message: Message):
+    if message.from_user.id == admin_id:
+        await message.answer(text="Goodbye ...")
+        subprocess.call(['reboot'])
+    elif message.from_user.id == admin_id2:
+        await message.answer(text="Goodbye ...")
+        subprocess.call(['reboot'])
+    else:
+        await message.answer(text="Sorry, you're not the admin")
+
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
@@ -143,6 +154,15 @@ async def echohelp(message: Message):
 
     subprocess.call([f'./{rmjsons}'])
 
+@dp.message_handler(commands=['week'])
+async def echohelp(message: Message):
+    subprocess.call([f'./{cpjsons}'])
+
+    result = help_week()
+
+    await message.answer(text=result)
+
+    subprocess.call([f'./{rmjsons}'])
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):

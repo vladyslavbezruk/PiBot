@@ -163,5 +163,35 @@ def help_tomorrow():
     else:
         return 'There are no lessons tomorrow.'
 
-''' ---------ОСНОВНЫЕ ФУНКЦИИ----------- '''
+def help_week():
+    date = list_of_subjects[0]['date']
+    flag = False
+    result = ''
+    for subject in list_of_subjects:
+        #Если дата текущая и время меньше, чем начало пары
+        if (subject['date'] == date):
+            if flag == False:
+                result += date + '\n'
+                flag = True
+            result += '\t' + subject['time'] + ' - ' + subject['name'] + '\n'
+        else:
+            flag = False
+            
+            date_arr = date.split('.')
+            today = int(date_arr[0])
+            today += 1
+            date = str(today) + '.' + date_arr[1] + '.' + date_arr[2]
 
+            if (subject['date'] == date):
+                if flag == False:
+                    result += date + '\n'
+                    flag = True
+                result += '\t' + subject['time'] + ' - ' + subject['name'] + '\n'
+                
+    if result != '':
+        return result
+    else:
+        return 'There are no lessons.'
+            
+
+''' ---------ОСНОВНЫЕ ФУНКЦИИ----------- '''
