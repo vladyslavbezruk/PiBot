@@ -1,30 +1,42 @@
 '''
 Модуль для работы с расписанием.
 
-help_get_url() возвращает словарь с полями subject (имя предмета),
+help_get_url()
+возвращает словарь с полями subject (имя предмета),
 teacher (имя преподователя), url, date, time для ближайшей пары
 или None, если такого не нашлось
+
+help_today()
+Возвращает строку в которой перечень занятий на сегодня
+
+help_tomorrow()
+Возвращает строку в которой перечень занятий на завтра
 
 Все остальные функции - вспомогательные, не трогать!
 '''
 
 import json    #Работаем с json
 
-from config import cpjsons, rmjsons
-
-import subprocess
-
 import codecs  #Читаем с учетом кодировки
 
 from datetime import datetime #Узнаем текущее время
 
-with codecs.open("schedule1.json", encoding='utf-8') as schedule_file:
+
+''' Читаем с .json список предметов и словарь преподователь-ссылка '''
+# !!!!!!!!!!!!!!!!!!!!
+with codecs.open("../../resources/json/schedule1.json", encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule = json.loads(schedule_file.read())
 
-with codecs.open("subjects.json", encoding='utf-8') as subjects_file:
+with codecs.open("../../resources/json/subjects.json", encoding='utf-8') as subjects_file:
     #Сохранем пары преподаватель-ссылка в виде словаря Python
     subjects = json.loads(subjects_file.read())
+''' Читаем с .json список предметов и словарь преподователь-ссылка '''
+
+
+
+    
+''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
 #Возвращает текушию дату в нужном для сравнения формате
 def get_current_date():
@@ -65,8 +77,31 @@ def get_date_and_time(subj):
 def get_teacher_name(description):
     return description.split('\\')[0]
 
-#subprocess.call('cp ../../resources/json/subjects.json /', shell=True)
+''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
+
+#Список с описанием всех предметов
+list_of_subjects = []
+#Для каждого предмета создаем словарь
+for subject in schedule['VCALENDAR'][0]['VEVENT']:
+    dict_of_subject = {}
+    #Сохраняем название предмета
+    subj_name = subject['SUMMARY']
+    #Идем в функцию и забираем дату и время. 0 - дата, 1 - врямя для сравнения, 2 - время в виде строки
+    date_time = get_date_and_time(subject)
+    #Записываем все значения
+    dict_of_subject['name']     = subj_name
+    dict_of_subject['date']     = date_time[0]
+    dict_of_subject['time_int'] = date_time[1]
+    dict_of_subject['time']     = date_time[2]
+    dict_of_subject['url']      = url_of_subject(subj_name)
+    dict_of_subject['teacher']  = get_teacher_name(subject['DESCRIPTION'])
+    #Добавляем в список
+    list_of_subjects.append(dict_of_subject)
+
+
+
+''' ---------ОСНОВНЫЕ ФУНКЦИИ----------- '''
 #Возвращает словарь с описанием ближайшего занятия или None
 def help_get_url():
     
@@ -77,24 +112,55 @@ def help_get_url():
     date = get_current_date()
     time = get_current_time()
     
-    # Инфа об занятиях хранится в массиве shelude['VCALENDAR'][0]['VEVENT']
-    # В виде словаря, название предмета в ключе 'SUMMARY'
-    for subject in schedule['VCALENDAR'][0]['VEVENT']:
-        #Сохраняем название предмета
-        subj_name = subject['SUMMARY']
-        #Идем в функцию и забираем дату и время. 0 - дата, 1 - врямя для сравнения, 2 - время в виде строки
-        date_time = get_date_and_time(subject)
+    for subject in list_of_subjects:
         #Если дата текущая и время меньше, чем начало пары
-        if (date_time[0] == date and time < date_time[1]):
-            url = url_of_subject(subj_name)
-            date = date_time[0]
+        if (subject['date'] == date and time < subject['time_int']):
             classes_today = True
-            teacher_name = get_teacher_name(subject['DESCRIPTION'])
             break
     if classes_today:
-        return {'subject': subj_name, 'teacher': teacher_name, 'url': url, 'date': date, 'time': date_time[2]}
+        return {'subject': subject['name'], 'teacher': subject['teacher'], 'url': subject['url'],
+                'date': subject['date'], 'time': subject['time']}
     else:
         return None
 
+def help_today():
+    #Есть ли сегодня занятия, по умолчанию - нет
+    classes_today = False
 
+    #Берем текущую дату и время в необходимом для сравнения варианте
+    date = get_current_date()
 
+    result = ''
+    for subject in list_of_subjects:
+        #Если дата текущая и время меньше, чем начало пары
+        if (subject['date'] == date):
+            classes_today = True
+            result += subject['time'] + ' - ' + subject['name'] + '\n'
+        elif classes_today:
+            return result
+        else:
+            return 'There are no lessons today.'
+
+def help_tomorrow():
+    #Есть ли сегодня занятия, по умолчанию - нет
+    classes_tomorrow = False
+
+    #Берем текущую дату и время в необходимом для сравнения варианте
+    date = get_current_date()
+    date_arr = date.split('.')
+    today = int(date_arr[0])
+    today += 1
+    date = str(today) + '.' + date_arr[1] + '.' + date_arr[2]
+
+    result = ''
+    for subject in list_of_subjects:
+        #Если дата текущая и время меньше, чем начало пары
+        if (subject['date'] == date):
+            classes_today = True
+            result += subject['time'] + ' - ' + subject['name'] + '\n'
+        elif classes_today:
+            return result
+        else:
+            return 'There are no lessons today.'
+
+''' ---------ОСНОВНЫЕ ФУНКЦИИ----------- '''
