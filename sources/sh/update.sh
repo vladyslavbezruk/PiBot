@@ -15,3 +15,4 @@ wget --cipher 'DEFAULT:!DH' "$site$id2" -O "$name2"
 ical2json ./"$name1"
 ical2json ./"$name2"
 
+rm "$name1" "$name2"
