@@ -7,6 +7,8 @@ site="https://schedule.sumdu.edu.ua/index/ical?id_grp=" #site
 name1="schedule1.ics"
 name2="schedule2.ics"
 
+cd ../../resources/json/
+
 wget --cipher 'DEFAULT:!DH' "$site$id1" -O "$name1"
 wget --cipher 'DEFAULT:!DH' "$site$id2" -O "$name2"
 

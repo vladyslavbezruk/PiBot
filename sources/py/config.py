@@ -22,3 +22,8 @@ schedule1 = "../../resources/media/schedule1.jpg"
 schedule2json = "../../resources/json/schedule2.json"
 schedule1json = "../../resources/json/schedule1.json"
 
+subjects = "../../resources/json/subjects.json"
+
+cpjsons = "../sh/cpjsons.sh"
+rmjsons = "../sh/rmjsons.sh"
+

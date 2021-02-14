@@ -1,8 +1,16 @@
 #!/bin/bash
 
-chmod +x update.sh
-chmod +x createSource.sh
+chmod +x sources/sh/update.sh
+chmod +x sources/sh/createSource.sh
 
+cd sources/sh/
 ./update.sh
 
-python3 /sources/py/main.py
+cd ../../resources/json/
+cp *.json ../../sources/py/
+
+#cp resources/json/*.json sources/py/
+
+cd ../../sources/py/
+
+python3 main.py

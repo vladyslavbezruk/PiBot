@@ -10,15 +10,19 @@ teacher (имя преподователя), url, date, time для ближай
 
 import json    #Работаем с json
 
+from config import cpjsons, rmjsons
+
+import subprocess
+
 import codecs  #Читаем с учетом кодировки
 
 from datetime import datetime #Узнаем текущее время
- 
-with codecs.open('../../resources/json/schedule1.json', encoding='utf-8') as schedule_file:
+
+with codecs.open("schedule1.json", encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule = json.loads(schedule_file.read())
 
-with codecs.open('../../resources/json/subjects.json', encoding='utf-8') as subjects_file:
+with codecs.open("subjects.json", encoding='utf-8') as subjects_file:
     #Сохранем пары преподаватель-ссылка в виде словаря Python
     subjects = json.loads(subjects_file.read())
 
@@ -61,9 +65,11 @@ def get_date_and_time(subj):
 def get_teacher_name(description):
     return description.split('\\')[0]
 
+#subprocess.call('cp ../../resources/json/subjects.json /', shell=True)
+
 #Возвращает словарь с описанием ближайшего занятия или None
 def help_get_url():
-
+    
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -89,3 +95,6 @@ def help_get_url():
         return {'subject': subj_name, 'teacher': teacher_name, 'url': url, 'date': date, 'time': date_time[2]}
     else:
         return None
+
+
+

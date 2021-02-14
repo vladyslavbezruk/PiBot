@@ -8,7 +8,7 @@ import subprocess
 from main import bot, dp, client
 
 from aiogram.types import Message, User
-from config import admin_id, admin_id2, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json, sUpdate
+from config import admin_id, admin_id2, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json, sUpdate, cpjsons, rmjsons
 
 #from aiogram.methods import SendPhoto
 #from aiogram.api.methods import SendPhoto
@@ -158,7 +158,18 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-    await message.answer(text=help_get_url())
+    subprocess.call([f'./{cpjsons}']) 
+
+    result = help_get_url()
+
+    #subject, teacher, url, data, time
+
+    if result != None:
+        await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
+    else: 
+        await message.answer(text="There are no lessons today")
+  
+    subprocess.call([f'./{rmjsons}'])
 
 #@dp.message_handler(commands=['schedule21'])
 #async def echohelp(message: Message):
