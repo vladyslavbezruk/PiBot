@@ -171,9 +171,9 @@ def help_week():
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             if flag == False:
-                result += date + '\n'
+                result += '\n'+ date + '\n'
                 flag = True
-            result += '\t' + subject['time'] + ' - ' + subject['name'] + '\n'
+            result += subject['time'] + ' - ' + subject['name'] + '\n'
         else:
             flag = False
             
@@ -184,9 +184,9 @@ def help_week():
 
             if (subject['date'] == date):
                 if flag == False:
-                    result += date + '\n'
+                    result += date + '\n\n'
                     flag = True
-                result += '\t' + subject['time'] + ' - ' + subject['name'] + '\n'
+                result += subject['time'] + ' - ' + subject['name'] + '\n'
                 
     if result != '':
         return result
