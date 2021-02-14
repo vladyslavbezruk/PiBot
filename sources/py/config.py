@@ -1,9 +1,9 @@
 BOT_TOKEN = "1587405934:AAEAKvidxADTdlu_Pr0w8TQHpO-QV7T4uEM" 
 BOT_WOLF_TOKEN = "P8PX47-KP489EE3R6"
 
-sUpdate = "update.sh"
+sUpdate = "../sh/update.sh"
 
-admin_id = 671836800
+admin_id  = 671836800
 admin_id2 = 761202580
 
 highmath = "https://sumdu.webex.com/meet/y.kravchenko"
@@ -16,9 +16,9 @@ engl02 = "https://meet.google.com/yks-adbb-gbh?hs=224"
 engldate = "Feb 12"
 mathpract = "http://meet.google.com/skx-twxw-xsy"
 
-schedule2 = "schedule2.jpg"
-schedule1 = "schedule1.jpg"
+schedule2 = "../../resources/media/schedule2.jpg"
+schedule1 = "../../resources/media/schedule1.jpg"
 
-schedule2json = "schedule2.json"
-schedule1json = "schedule1.json"
+schedule2json = "../../resources/json/schedule2.json"
+schedule1json = "../../resources/json/schedule1.json"
 

@@ -5,4 +5,4 @@ chmod +x createSource.sh
 
 ./update.sh
 
-python3 main.py
+python3 /sources/py/main.py
