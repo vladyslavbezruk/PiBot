@@ -43,7 +43,7 @@ async def echohelp(message: Message):
 
     ur = message.from_user.username
  
-    await message.answer(text=f"/help1 - Вища мат. (лек.)\n/help2 - Вища мат. (практ.)\n/help3 - Дискр. мат. (all)\n/help4 - Акад. письмо (практ.)\n/help5 - Програм. (лек. + практ. /1)\n/help6 - Програм. (практ. /2)\n/help7 - Англ. (практ. /2, only for {engldate})\n/help8 - Англ. (практ. /1)\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2")
+    await message.answer(text=f"/help1 - Вища мат. (лек.)\n/help2 - Вища мат. (практ.)\n/help3 - Дискр. мат. (all)\n/help4 - Акад. письмо (практ.)\n/help5 - Програм. (лек. + практ. /1)\n/help6 - Програм. (практ. /2)\n/help7 - Англ. (практ. /2, only for {engldate})\n/help8 - Англ. (практ. /1)\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/now - пари зараз")
     
     await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
