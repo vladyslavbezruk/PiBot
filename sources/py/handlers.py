@@ -43,7 +43,7 @@ async def echohelp(message: Message):
 
     ur = message.from_user.username
  
-    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2")
+    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
     
     await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
