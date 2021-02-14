@@ -156,9 +156,9 @@ def help_tomorrow():
     for subject in list_of_subjects:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
-            classes_today = True
+            classes_tomorrow = True
             result += subject['time'] + ' - ' + subject['name'] + '\n'
-        elif classes_today:
+        elif classes_tomorrow:
             return result
         else:
             return 'There are no lessons today.'
