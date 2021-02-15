@@ -1,14 +1,20 @@
+'''
+Основной модуль для работы с ботом.
+Тут функции, которые осущетвляют ввод-вывод в Телеграм.
+Остальную логику разбивать по модулям.
+'''
 
 from random import randrange
 
-from schedule import help_get_url, help_today, help_tomorrow, help_week 
+from schedule import * 
 
 import subprocess
 
 from main import bot, dp, client
 
 from aiogram.types import Message, User
-from config import admin_id, admin_id2, highmath, discmath, academ, progr, progr02, engl01, engl02, engldate, mathpract, schedule2, schedule1, schedule2json, schedule1json, sUpdate, cpjsons, rmjsons
+
+from config import *
 
 #from aiogram.methods import SendPhoto
 #from aiogram.api.methods import SendPhoto
@@ -20,6 +26,7 @@ import wolframalpha
 
 from collections import Counter
 
+#Сообщение о включении бота
 async def send_to_admin(dp):
     await bot.send_message(chat_id=admin_id, text="Bot started") 
 
@@ -164,14 +171,17 @@ async def echohelp(message: Message):
 
     subprocess.call([f'./{rmjsons}'])
 
-#@dp.message_handler(commands=['schedule21'])
-#async def echohelp(message: Message):
-#    ur = message.from_user.username
-#    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule21.jpg', 'rb'))
-#    await bot.send_message(chat_id=admin_id, text=f"command = schedule21, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+'''
+@dp.message_handler(commands=['schedule21'])
+async def echohelp(message: Message):
+    ur = message.from_user.username
+    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule21.jpg', 'rb'))
+    await bot.send_message(chat_id=admin_id, text=f"command = schedule21, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
-#@dp.message_handler(commands=['schedule22'])
-#async def echohelp(message: Message):
-#    ur = message.from_user.username
-#    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule22.jpg', 'rb'))
-#    await bot.send_message(chat_id=admin_id, text=f"command = schedule22, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+@dp.message_handler(commands=['schedule22'])
+async def echohelp(message: Message):
+    ur = message.from_user.username
+    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule22.jpg', 'rb'))
+    await bot.send_message(chat_id=admin_id, text=f"command = schedule22, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+'''
+

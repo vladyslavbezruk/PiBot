@@ -11,7 +11,7 @@ with codecs.open("../../resources/json/schedule1.json", encoding='utf-8') as sch
 
 with codecs.open("../../resources/json/subjects.json", encoding='utf-8') as subjects_file:
     #Сохранем пары преподаватель-ссылка в виде словаря Python
-    subjects = json.loads(subjects_file.read())
+    all_subjects = json.loads(subjects_file.read())
 ''' Читаем с .json список предметов и словарь преподователь-ссылка '''
 
 
@@ -34,7 +34,7 @@ def get_current_time():
 
 #Принимает навзание предмета и возвращает ссылку на пару
 def url_of_subject(subj_name):
-    return subjects.get(subj_name)
+    return all_subjects.get(subj_name)
 
 #Возвращает дату и время переданного ей предмета
 def get_date_and_time(subj):

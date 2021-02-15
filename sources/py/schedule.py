@@ -102,3 +102,4 @@ def help_week():
         return result
     else:
         return 'There are no lessons.'
+
