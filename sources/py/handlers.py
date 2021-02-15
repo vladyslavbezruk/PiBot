@@ -128,48 +128,28 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-    subprocess.call([f'./{cpjsons}']) 
-
+   
     result = help_get_url()
-
-    #subject, teacher, url, data, time
-
+    
     if result != None:
         await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
     else: 
         await message.answer(text="There are no lessons today")
-  
-    subprocess.call([f'./{rmjsons}'])
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):
-    subprocess.call([f'./{cpjsons}'])
-
     result = help_today()
-
     await message.answer(text=result)
-
-    subprocess.call([f'./{rmjsons}'])
 
 @dp.message_handler(commands=['tomorrow'])
 async def echohelp(message: Message):
-    subprocess.call([f'./{cpjsons}'])
-
     result = help_tomorrow()
-
     await message.answer(text=result)
-
-    subprocess.call([f'./{rmjsons}'])
 
 @dp.message_handler(commands=['week'])
 async def echohelp(message: Message):
-    subprocess.call([f'./{cpjsons}'])
-
     result = help_week()
-
     await message.answer(text=result)
-
-    subprocess.call([f'./{rmjsons}'])
 
 '''
 @dp.message_handler(commands=['schedule21'])
