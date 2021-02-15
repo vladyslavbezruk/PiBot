@@ -55,7 +55,7 @@ def help_today():
         elif classes_today:
             return result
         else:
-            return 'There are no lessons today.'
+            return 'There are no lessons today'
 
 def help_tomorrow():
     #Есть ли сегодня занятия, по умолчанию - нет
@@ -74,17 +74,18 @@ def help_tomorrow():
     if result != '':
         return result
     else:
-        return 'There are no lessons tomorrow.'
+        return 'There are no lessons tomorrow'
 
 def help_week():
     date = list_of_subjects[0]['date']
     flag = False
-    result = ''
+    result = 'Розклад:\n'
+    
     for subject in list_of_subjects:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             if flag == False:
-                result += '\n'+ date + '\n'
+                result += '\n' + date + ':\n'
                 flag = True
             result += subject['time'] + ' - ' + subject['name'] + '\n'
         else:
@@ -94,12 +95,12 @@ def help_week():
 
             if (subject['date'] == date):
                 if flag == False:
-                    result += date + '\n\n'
+                    result += '\n' + date + ':\n'
                     flag = True
                 result += subject['time'] + ' - ' + subject['name'] + '\n'
                 
     if result != '':
         return result
     else:
-        return 'There are no lessons.'
+        return 'There are no lessons'
 

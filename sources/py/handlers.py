@@ -6,6 +6,10 @@
 
 from random import randrange
 
+import sys
+
+import datetime
+
 from schedule import * 
 
 import subprocess
@@ -15,10 +19,6 @@ from main import bot, dp, client
 from aiogram.types import Message, User
 
 from config import *
-
-#from aiogram.methods import SendPhoto
-#from aiogram.api.methods import SendPhoto
-#from aiogram.api.methods.send_photo import SendPhoto
 
 import time
 
@@ -47,7 +47,6 @@ async def echo(message: Message):
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
-
     ur = message.from_user.username
  
     await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week - розклад на тиждень\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
@@ -69,14 +68,12 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
     ur = message.from_user.username
-    if message.text == "/calc the biggest penis in the universe":
-        await bot.send_message(chat_id=message.chat.id, text="Sorry, but the number does not fit in int, but his name is Vladislav Bezruk")
-    else:
-        query = message.text.replace("/calc ", "")
-        res = client.query(query)
-        output = next(res.results).text
-        await message.answer(text=output)
-        await bot.send_message(chat_id=admin_id, text=f"command = calc, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    
+    query = message.text.replace("/calc ", "")
+    res = client.query(query)
+    output = next(res.results).text
+    await message.answer(text=output)
+    await bot.send_message(chat_id=admin_id, text=f"command = calc, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
 @dp.message_handler(commands=['getjson'])
 async def echohelp(message: Message):
@@ -111,16 +108,27 @@ async def echohelp(message: Message):
     else:
         await message.answer(text="Sorry, you're not the admin")
 
+def compare(a, b, size):
+    for i in range(size):
+        if a[i] != b[i]:
+            return False
+
+    return True
+
 @dp.message_handler(commands=['shutdown'])
 async def echohelp(message: Message):
-    if message.from_user.id == admin_id:
-        await message.answer(text="Goodbye ...")
-        subprocess.call(['reboot'])
-    elif message.from_user.id == admin_id2:
-        await message.answer(text="Goodbye ...")
-        subprocess.call(['reboot'])
-    else:
-        await message.answer(text="Sorry, you're not the admin")
+
+    time = datetime.now()
+
+    if compare(str(time), str(message.date), 18):
+        if message.from_user.id == admin_id:
+            await message.answer(text="Goodbye ...")
+            subprocess.call(['reboot'])
+        elif message.from_user.id == admin_id2:
+            await message.answer(text="Goodbye ...")
+            subprocess.call(['reboot'])
+        else:
+            await message.answer(text="Sorry, you're not the admin")
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
@@ -128,7 +136,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-   
     result = help_get_url()
     
     if result != None:
@@ -150,18 +157,3 @@ async def echohelp(message: Message):
 async def echohelp(message: Message):
     result = help_week()
     await message.answer(text=result)
-
-'''
-@dp.message_handler(commands=['schedule21'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule21.jpg', 'rb'))
-    await bot.send_message(chat_id=admin_id, text=f"command = schedule21, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-
-@dp.message_handler(commands=['schedule22'])
-async def echohelp(message: Message):
-    ur = message.from_user.username
-    await bot.send_photo(chat_id=message.chat.id, photo=open('schedule22.jpg', 'rb'))
-    await bot.send_message(chat_id=admin_id, text=f"command = schedule22, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-'''
-
