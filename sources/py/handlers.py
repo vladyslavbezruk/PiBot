@@ -35,6 +35,7 @@ async def mDebug(message: Message):
 
 @dp.message_handler(commands=['start'])
 async def echo(message: Message):
+    '''
     num = randrange(6) + 1
 
     if f"__{message.from_user.username}__" != "__None__":
@@ -44,7 +45,8 @@ async def echo(message: Message):
     await message.answer(text=text)
     randnum = f"Your random [1-6] number is {num}"
     await message.answer(text=randnum)
-    
+    '''
+    await message.answer(text=f"Hello, {message.from_user.first_name}.\nSend me [/help] to find out all the commands")
     await mDebug(message)
    #await bot.send_message(chat_id=admin_id, text=f"command = start, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
