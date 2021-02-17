@@ -20,8 +20,6 @@ with codecs.open("../../resources/json/subjects.json", encoding='utf-8') as subj
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
-json_func.sorting()
-   
 with codecs.open("schedule1.json", encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule = json.loads(schedule_file.read())

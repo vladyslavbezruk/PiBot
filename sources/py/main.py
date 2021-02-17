@@ -2,8 +2,12 @@ import asyncio
 
 import wolframalpha
 
+import json_func
+
 from aiogram import Bot, Dispatcher, executor
 from config import BOT_TOKEN, BOT_WOLF_TOKEN
+
+json_func.sorting()
 
 client = wolframalpha.Client(BOT_WOLF_TOKEN)
 loop = asyncio.get_event_loop()
