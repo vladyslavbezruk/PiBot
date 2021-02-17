@@ -80,9 +80,9 @@ def help_week():
     date = list_of_subjects[0]['date']
     flag = False
     result = 'Розклад:\n'
-    
+
+
     for subject in list_of_subjects:
-        #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             if flag == False:
                 result += '\n' + date + ':\n'
@@ -91,7 +91,7 @@ def help_week():
         else:
             flag = False
             
-            date = date_tomorrow(date)
+            date = subject['date']
 
             if (subject['date'] == date):
                 if flag == False:
