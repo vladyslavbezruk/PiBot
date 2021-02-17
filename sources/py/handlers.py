@@ -28,52 +28,55 @@ from collections import Counter
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
-    await bot.send_message(chat_id=admin_id, text="Bot started") 
+    await bot.send_message(chat_id=admin_id, text="Bot started!") 
+
+async def mDebug(message: Message):
+    await bot.send_message(chat_id=admin_id, text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
 
 @dp.message_handler(commands=['start'])
 async def echo(message: Message):
     num = randrange(6) + 1
-    ur = message.from_user.username
 
-    if f"__{ur}__" != "__None__":
-        text = f"@{ur} Hello, {message.from_user.first_name}. Your message - {message.text} (test bot by @vladislavbezruk & @Hokage_Naruto_2020)"
+    if f"__{message.from_user.username}__" != "__None__":
+        text = f"@{message.from_user.username} Hello, {message.from_user.first_name}. Your message - {message.text} (test bot by @vladislavbezruk & @Hokage_Naruto_2020)"
     else:
         text = f"Hello, {message.from_user.first_name}. Your message - {message.text} (test bot by @vladislavbezruk & @Hokage_Naruto_2020)"
     await message.answer(text=text)
     randnum = f"Your random [1-6] number is {num}"
     await message.answer(text=randnum)
     
-    await bot.send_message(chat_id=admin_id, text=f"command = start, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    await mDebug(message)
+   #await bot.send_message(chat_id=admin_id, text=f"command = start, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
-    ur = message.from_user.username
  
     await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week - розклад на тиждень\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
     
-    await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    #await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    await mDebug(message)
 
 @dp.message_handler(commands=['schedule1'])
 async def echohelp(message: Message):
-    ur = message.from_user.username
     await bot.send_photo(chat_id=message.chat.id, photo=open(schedule1, 'rb'))
-    await bot.send_message(chat_id=admin_id, text=f"command = schedule1, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    #await bot.send_message(chat_id=admin_id, text=f"command = schedule1, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    await mDebug(message)
 
 @dp.message_handler(commands=['schedule2'])
 async def echohelp(message: Message):
-    ur = message.from_user.username
     await bot.send_photo(chat_id=message.chat.id, photo=open(schedule2, 'rb'))
-    await bot.send_message(chat_id=admin_id, text=f"command = schedule2, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+   #await bot.send_message(chat_id=admin_id, text=f"command = schedule2, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    await mDebug(message)
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
-    ur = message.from_user.username
     
     query = message.text.replace("/calc ", "")
     res = client.query(query)
     output = next(res.results).text
     await message.answer(text=output)
-    await bot.send_message(chat_id=admin_id, text=f"command = calc, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    #await bot.send_message(chat_id=admin_id, text=f"command = calc, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
+    await mDebug(message)
 
 @dp.message_handler(commands=['getjson'])
 async def echohelp(message: Message):
@@ -85,6 +88,7 @@ async def echohelp(message: Message):
         await bot.send_document(chat_id=message.chat.id, document=open(schedule2json, 'rb'))
     else:
         await message.answer(text="Sorry, you're not the admin")
+    await mDebug(message)
 
 @dp.message_handler(commands=['update'])
 async def echohelp(message: Message):
@@ -96,6 +100,7 @@ async def echohelp(message: Message):
         await message.answer(text="Schedules updated")
     else:
         await message.answer(text="Sorry, you're not the admin")
+    await mDebug(message)
 
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):
@@ -107,6 +112,7 @@ async def echohelp(message: Message):
         await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
     else:
         await message.answer(text="Sorry, you're not the admin")
+    await mDebug(message)
 
 def compare(a, b, size):
     for i in range(size):
@@ -129,10 +135,12 @@ async def echohelp(message: Message):
             subprocess.call(['reboot'])
         else:
             await message.answer(text="Sorry, you're not the admin")
+    await mDebug(message)
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
+    await mDebug(message)
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
@@ -142,18 +150,22 @@ async def echohelp(message: Message):
         await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
     else: 
         await message.answer(text="There are no lessons today")
+    await mDebug(message)
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):
     result = help_today()
     await message.answer(text=result)
+    await mDebug(message)
 
 @dp.message_handler(commands=['tomorrow'])
 async def echohelp(message: Message):
     result = help_tomorrow()
     await message.answer(text=result)
+    await mDebug(message)
 
 @dp.message_handler(commands=['week'])
 async def echohelp(message: Message):
     result = help_week()
     await message.answer(text=result)
+    await mDebug(message)
