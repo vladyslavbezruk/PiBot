@@ -1,3 +1,5 @@
+import json_func
+
 import json    #Работаем с json
 
 import codecs  #Читаем с учетом кодировки
@@ -5,6 +7,7 @@ import codecs  #Читаем с учетом кодировки
 from datetime import datetime #Узнаем текущее время
 
 ''' Читаем с .json список предметов и словарь преподователь-ссылка '''
+'''
 with codecs.open("../../resources/json/schedule1.json", encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule = json.loads(schedule_file.read())
@@ -12,13 +15,21 @@ with codecs.open("../../resources/json/schedule1.json", encoding='utf-8') as sch
 with codecs.open("../../resources/json/subjects.json", encoding='utf-8') as subjects_file:
     #Сохранем пары преподаватель-ссылка в виде словаря Python
     all_subjects = json.loads(subjects_file.read())
+'''
 ''' Читаем с .json список предметов и словарь преподователь-ссылка '''
 
-
-
-    
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
+json_func.sorting()
+   
+with codecs.open("schedule1.json", encoding='utf-8') as schedule_file:
+    #Сохраняем расписание в виде словаря Python
+    schedule = json.loads(schedule_file.read())
+
+with codecs.open("subjects.json", encoding='utf-8') as subjects_file:
+    #Сохранем пары преподаватель-ссылка в виде словаря Python
+    all_subjects = json.loads(subjects_file.read())
+    
 #Возвращает текушию дату в нужном для сравнения формате
 def get_current_date():
     date = str(datetime.now().date()).split('-')
@@ -59,7 +70,6 @@ def get_teacher_name(description):
     return description.split('\\')[0]
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
-
 
 #Список с описанием всех предметов
 list_of_subjects = []
