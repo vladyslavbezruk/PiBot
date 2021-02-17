@@ -7,7 +7,8 @@ import json_func
 from aiogram import Bot, Dispatcher, executor
 from config import BOT_TOKEN, BOT_WOLF_TOKEN
 
-json_func.sorting()
+json_func.sorting(1)
+json_func.sorting(2)
 
 client = wolframalpha.Client(BOT_WOLF_TOKEN)
 loop = asyncio.get_event_loop()

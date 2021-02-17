@@ -21,14 +21,14 @@ def get_date_and_time(subj):
             break
     return (date, time_int, time)
 
-def load():
-    with codecs.open("schedule1.json", encoding='utf-8') as schedule_file:
+def load(id):
+    with codecs.open(f"schedule{id}.json", encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python
         schedule = json.loads(schedule_file.read())
     return schedule
     
-def save(schedule):
-    with codecs.open("schedule1.json", "w", encoding='utf-8') as schedule_wfile:
+def save(schedule, id):
+    with codecs.open(f"schedule{id}.json", "w", encoding='utf-8') as schedule_wfile:
         json.dump(schedule, schedule_wfile)
 
 def countin(schedule):
@@ -80,10 +80,9 @@ def timesort(schedule):
     
     return schedule
 
-
     #//for subject in schedule['VCALENDAR'][0]['VEVENT']:
     #    time = subject['
     
-def sorting():
-    save(timesort(load()))
+def sorting(id):
+    save(timesort(load(id)), id)
     
