@@ -144,7 +144,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-    result = help_get_url()
+    result = help_get_url(message.text.replace("/now ", ""))
     
     if result != None:
         await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
@@ -154,18 +154,18 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):
-    result = help_today()
+    result = help_today(message.text.replace("/today ", ""))
     await message.answer(text=result)
     await mDebug(message)
 
 @dp.message_handler(commands=['tomorrow'])
 async def echohelp(message: Message):
-    result = help_tomorrow()
+    result = help_tomorrow(message.text.replace("/tomorrow ", ""))
     await message.answer(text=result)
     await mDebug(message)
 
 @dp.message_handler(commands=['week'])
 async def echohelp(message: Message):
-    result = help_week()
+    result = help_week(message.text.replace("/week ", ""))
     await message.answer(text=result)
     await mDebug(message)

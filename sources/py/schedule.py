@@ -18,9 +18,15 @@ help_week()
 
 from schedule_func import *
 
+schedule = {}
+all_subjects = {}
+dict_of_subject = {}
+list_of_subjects = []
+
 #Возвращает словарь с описанием ближайшего занятия или None
-def help_get_url():
-    
+def help_get_url(id):
+    loadall(id)
+
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -39,7 +45,9 @@ def help_get_url():
     else:
         return None
 
-def help_today():
+def help_today(id):
+    loadall(id)
+
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -57,7 +65,9 @@ def help_today():
         else:
             return 'There are no lessons today'
 
-def help_tomorrow():
+def help_tomorrow(id):
+    loadall(id)
+
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_tomorrow = False
 
@@ -76,11 +86,12 @@ def help_tomorrow():
     else:
         return 'There are no lessons tomorrow'
 
-def help_week():
+def help_week(id):
+    loadall(id)
+
     date = list_of_subjects[0]['date']
     flag = False
     result = 'Розклад:\n'
-
 
     for subject in list_of_subjects:
         if (subject['date'] == date):
@@ -104,3 +115,12 @@ def help_week():
     else:
         return 'There are no lessons'
 
+def loadall(id):
+    global list_of_subjects, dict_of_subject, schedule, all_subjects
+
+    schedule = loadschedule(id)
+    all_subjects = loadsubjects()
+    list_of_subjects = getlistsubjects(schedule, all_subjects)
+    dict_of_subject = getdictsubject(schedule, all_subjects)
+
+    loadallfunc(id)
