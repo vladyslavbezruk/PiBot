@@ -53,7 +53,7 @@ async def echo(message: Message):
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
  
-    await message.answer(text=f"/now - посилання на наступну пару\n/today - пари сьогодні\n/tomorrow - пари завтра\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week - розклад на тиждень\n/calc - wolframalpha(Приклад: /calc x^2 = 4)")
+    await message.answer(text=f"/now [group] - посилання на наступну пару(Приклад: /now 1)\n/today [group] - пари сьогодні(Приклад: /today 1)\n/tomorrow [group] - пари завтра(Приклад: /tomorrow 1)\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week [group] - розклад на тиждень(Приклад: /week 1)\n/calc [question] - wolframalpha(Приклад: /calc x^2 = 4)")
     
     #await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
     await mDebug(message)
