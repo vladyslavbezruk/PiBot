@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd ../../
-zip -r PiBot * 
+rm PiBot.zip 

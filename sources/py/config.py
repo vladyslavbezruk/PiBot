@@ -18,3 +18,6 @@ schedule1json = "../../resources/json/schedule1.json"
 
 subjects = "../../resources/json/subjects.json"
 
+createSource = "../sh/createSource.sh"
+
+removeSource = "../sh/removeSource.sh"

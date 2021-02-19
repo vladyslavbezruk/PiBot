@@ -106,12 +106,10 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):
-    if message.from_user.id == admin_id:
-        subprocess.call(['./createSource.sh'])
-        await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
-    elif message.from_user.id == admin_id2:
-        subprocess.call(['./createSource.sh'])
-        await bot.send_document(chat_id=message.chat.id, document=open('PiBot.zip', 'rb'))
+    if message.from_user.id == admin_id or message.from_user.id == admin_id2:
+        subprocess.call([f'./{createSource}'])
+        await bot.send_document(chat_id=message.chat.id, document=open('../../PiBot.zip', 'rb'))
+        subprocess.call([f'./{removeSource}'])
     else:
         await message.answer(text="Sorry, you're not the admin")
     await mDebug(message)
