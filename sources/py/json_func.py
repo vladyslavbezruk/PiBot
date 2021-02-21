@@ -2,6 +2,8 @@ import json    #Работаем с json
 
 import codecs  #Читаем с учетом кодировки
 
+from config import *
+
 from datetime import datetime #Узнаем текущее время
 
 def get_date_and_time(subj):
@@ -22,13 +24,13 @@ def get_date_and_time(subj):
     return (date, time_int, time)
 
 def load(id):
-    with codecs.open(f"schedule{id}.json", encoding='utf-8') as schedule_file:
+    with codecs.open(f"{scheduleFilePath}{id}.json", encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python
         schedule = json.loads(schedule_file.read())
     return schedule
     
 def save(schedule, id):
-    with codecs.open(f"schedule{id}.json", "w", encoding='utf-8') as schedule_wfile:
+    with codecs.open(f"{scheduleFilePath}{id}.json", "w", encoding='utf-8') as schedule_wfile:
         json.dump(schedule, schedule_wfile)
 
 def countin(schedule):

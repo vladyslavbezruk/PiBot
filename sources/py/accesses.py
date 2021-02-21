@@ -4,22 +4,22 @@ import codecs  #Читаем с учетом кодировки
 
 import os
 
-accessesFile = 'accesses.json'
-
-defAccessesFile = 'defAccesses.json'
+accessesFilePath = os.path.join("..", "..", "resources", "json", "accesses.json")
+defAccessesFilePath = os.path.join("..", "..", "resources", "json", "defAccesses.json")
 
 accesses = {}
 defAccesses = {}
 
-def loadDef(defAccessesFile):
+def loadDef(defAccessesFilePath):
     global defAccesses
-    with codecs.open("defAccesses.json", encoding='utf-8') as defAccesses_file:
+
+    with codecs.open(defAccessesFilePath, encoding='utf-8') as defAccesses_file:
         defAccesses = json.loads(defAccesses_file.read())
 
-def load(accessesFile):
+def load(accessesFilePath):
     global accesses
 
-    with codecs.open("accesses.json", encoding='utf-8') as accesses_file:
+    with codecs.open(accessesFilePath, encoding='utf-8') as accesses_file:
         accesses = json.loads(accesses_file.read())
 
 def create():
@@ -27,8 +27,8 @@ def create():
 
     accesses = defAccesses
    
-def save(accessesFile):
-    with codecs.open("accesses.json", "w", encoding='utf-8') as accesses_file:
+def save(accessesFilePath):
+    with codecs.open(accessesFilePath, "w", encoding='utf-8') as accesses_file:
         json.dump(accesses, accesses_file)
 
 def check(access):
@@ -68,5 +68,5 @@ print(checkCommand('admin', '/update'))
 
 #save(accessesFile)
 
-loadDef(defAccessesFile)
+loadDef(defAccessesFilePath)
 create()

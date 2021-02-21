@@ -16,3 +16,5 @@ ical2json ./"$name1"
 ical2json ./"$name2"
 
 rm "$name1" "$name2"
+
+cd ../../sources/sh/

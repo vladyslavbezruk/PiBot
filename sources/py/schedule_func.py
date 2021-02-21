@@ -6,6 +6,8 @@ import codecs  #Читаем с учетом кодировки
 
 from datetime import datetime #Узнаем текущее время
 
+from config import *
+
 ''' Читаем с .json список предметов и словарь преподователь-ссылка '''
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
@@ -16,14 +18,14 @@ dict_of_subject = {}
 list_of_subjects = []
 
 def loadschedule(id): 
-    with codecs.open(f"schedule{id}.json", encoding='utf-8') as schedule_file:
+    with codecs.open(f"{scheduleFilePath}{id}.json", encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python
         schedule = json.loads(schedule_file.read())
 
     return schedule
 
 def loadsubjects():
-    with codecs.open("subjects.json", encoding='utf-8') as subjects_file:
+    with codecs.open(subjectsFilePath, encoding='utf-8') as subjects_file:
         #Сохранем пары преподаватель-ссылка в виде словаря Python
         all_subjects = json.loads(subjects_file.read())
     return all_subjects

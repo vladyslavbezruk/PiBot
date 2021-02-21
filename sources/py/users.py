@@ -6,14 +6,14 @@ import os
 
 import accesses
 
-usersFile = 'users.json'
+usersFilePath = os.path.join("..", "..", "resources", "json", "users.json")
 
 users = {}
 
-def load(usersFile):
+def load(usersFilePath):
     global users
 
-    with codecs.open("users.json", encoding='utf-8') as users_file:
+    with codecs.open(usersFilePath, encoding='utf-8') as users_file:
         users = json.loads(users_file.read())
 
 def create():
@@ -28,8 +28,8 @@ def create():
     #userspath = os.path.join("..", "..", "resources", "json", usersFile)
     #userspath = os.path.join(usersFile)
    
-def save(usersFile):
-    with codecs.open("users.json", "w", encoding='utf-8') as users_file:
+def save(usersFilePath):
+    with codecs.open(usersFilePath, "w", encoding='utf-8') as users_file:
         json.dump(users, users_file)
         
 def checkUser(access, t_id):
@@ -49,4 +49,5 @@ def addUser(access, t_id, group):
 
 create()
 addUser('admin', 123, 'IN-01')
-save(usersFile)
+save(usersFilePath)
+accesses.save(accesses.accessesFilePath)
