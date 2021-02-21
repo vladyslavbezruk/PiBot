@@ -116,7 +116,6 @@ def help_week(id):
         return 'There are no lessons'
 
 def loadall(id):
-    global list_of_subjects, dict_of_subject, schedule, all_subjects
 
     schedule = loadschedule(id)
     all_subjects = loadsubjects()

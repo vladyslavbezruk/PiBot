@@ -12,11 +12,6 @@ from config import *
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
-schedule = {}
-all_subjects = {}
-dict_of_subject = {}
-list_of_subjects = []
-
 def loadschedule(id): 
     with codecs.open(f"{scheduleFilePath}{id}.json", encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python
@@ -77,8 +72,6 @@ def get_date_and_time(subj):
 #Возвращает имя преподователя для строки DESCRIPTION
 def get_teacher_name(description):
     return description.split('\\')[0]
-
-''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
 def getlistsubjects(schedule, all_subjects):
     #Список с описанием всех предметов
@@ -159,3 +152,5 @@ def date_tomorrow(date):
     today += 1
     date = str(today) + '.' + date_arr[1] + '.' + date_arr[2]
     return date
+
+''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
