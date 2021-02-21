@@ -68,5 +68,5 @@ print(checkCommand('admin', '/update'))
 
 #save(accessesFile)
 
-loadDef(defAccessesFilePath)
-create()
+load(accessesFilePath)
+

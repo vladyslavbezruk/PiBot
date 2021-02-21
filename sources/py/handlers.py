@@ -53,21 +53,14 @@ async def echo(message: Message):
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
  
-    await message.answer(text=f"/now [group] - посилання на наступну пару(Приклад: /now 1)\n/today [group] - пари сьогодні(Приклад: /today 1)\n/tomorrow [group] - пари завтра(Приклад: /tomorrow 1)\n/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n/week [group] - розклад на тиждень(Приклад: /week 1)\n/calc [question] - wolframalpha(Приклад: /calc x^2 = 4)")
+    await message.answer(text=f"/now [group] - посилання на наступну пару(Приклад: /now 1)\n" +
+        "/today [group] - пари сьогодні(Приклад: /today 1)\n" +
+        "/tomorrow [group] - пари завтра(Приклад: /tomorrow 1)\n" +
+        "/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n" +
+        "/week [group] - розклад на тиждень(Приклад: /week 1)\n"
+        "/calc [question] - wolframalpha(Приклад: /calc x^2 = 4)")
     
     #await bot.send_message(chat_id=admin_id, text=f"command = help, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-    await mDebug(message)
-
-@dp.message_handler(commands=['schedule1'])
-async def echohelp(message: Message):
-    await bot.send_photo(chat_id=message.chat.id, photo=open(schedule1, 'rb'))
-    #await bot.send_message(chat_id=admin_id, text=f"command = schedule1, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
-    await mDebug(message)
-
-@dp.message_handler(commands=['schedule2'])
-async def echohelp(message: Message):
-    await bot.send_photo(chat_id=message.chat.id, photo=open(schedule2, 'rb'))
-   #await bot.send_message(chat_id=admin_id, text=f"command = schedule2, username = {ur}, name = {message.from_user.first_name}, date = {str(message.date)}")
     await mDebug(message)
 
 @dp.message_handler(commands=['calc'])

@@ -47,7 +47,38 @@ def addUser(access, t_id, group):
     user['group'] = group
     users[access].append(user)
 
-create()
-addUser('admin', 123, 'IN-01')
-save(usersFilePath)
-accesses.save(accesses.accessesFilePath)
+def searchUser(access, t_id):
+    i = 0
+    for user in users['access']:
+        if user['id'] == t_id:
+            return i 
+    i = i + 1
+
+def checkUser(t_id):
+    access = getAccess(t_id)
+    
+    if access == None:
+        return False
+    else:
+        return True
+    
+def set(access, t_id, setting, value):
+    if checkUser(access, t_id):
+        users['access'][searchUser(access, t_id)][setting] = value
+
+def getAccess(t_id):
+    for access in users.keys():
+        for user in users[access]:
+            if user['id'] == t_id:
+                return access
+    return None
+    
+def checkCommand(t_id, command):
+    return accesses.checkCommand(getAccess(t_id), command)
+                
+load(usersFilePath)
+
+#create()
+#addUser('admin', 123, 'IN-01')
+#save(usersFilePath)
+#accesses.save(accesses.accessesFilePath)
