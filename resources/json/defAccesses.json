@@ -1,0 +1,4 @@
+{
+	"admin": ["/update", "/getJson"],
+	"user": ["/help", "/start"]
+}
