@@ -1,1 +1,1 @@
-{"admin": ["/update", "/getJson"], "user": ["/help", "/start"]}
+{"admin": ["/update", "/getjson", "/update", "/getSource", "/shutdown", "/getid", "/help", "/start", "/calc", "/now", "/today", "/tomorrow", "/week"], "user": ["/help", "/start", "/calc", "/now", "/today", "/tomorrow", "/week"]}

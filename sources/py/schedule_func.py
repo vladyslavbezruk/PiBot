@@ -12,8 +12,13 @@ from config import *
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
+schedule = {}
+all_subjects = {}
+dict_of_subject = {}
+list_of_subjects = []
+
 def loadschedule(id): 
-    with codecs.open(f"{scheduleFilePath}{id}.json", encoding='utf-8') as schedule_file:
+    with codecs.open(scheduleFilePath[str(id)], encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python
         schedule = json.loads(schedule_file.read())
 

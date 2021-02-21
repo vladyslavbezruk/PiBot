@@ -29,10 +29,10 @@ import wolframalpha
 
 from collections import Counter
 
-def registerMessage(message: Message):
+async def registerMessage(message: Message):
     await message.answer(text=f"{message.from_user.first_name}, you are a new user, write the command /start")
 
-def noAccessMessage(message: Message):
+async def noAccessMessage(message: Message):
     await message.answer(text=f"{message.from_user.first_name}, you do not have access to this command")
 
 #Сообщение о включении бота
@@ -57,11 +57,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/help') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
  
     await message.answer(text=f"/now [group] - посилання на наступну пару(Приклад: /now 1)\n" +
@@ -77,11 +77,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/calc') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
   
     query = message.text.replace("/calc ", "")
@@ -95,11 +95,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/getjson') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
 
     await bot.send_document(chat_id=message.chat.id, document=open(schedule1json, 'rb'))
@@ -111,11 +111,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/update') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
    
     subprocess.call([f'./{sUpdate}'])
@@ -127,11 +127,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/getSource') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
 
     subprocess.call([f'./{createSource}'])
@@ -152,32 +152,33 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/shutdown') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
 
     if compare(str(time), str(message.date), 18):
         await message.answer(text="Goodbye ...")
-        
+ 
         accesses.save(accesses.accessesFilePath)
-        save(usersFilePath)
-        
-        subprocess.call(['reboot'])
-       
+        users.save(users.usersFilePath)
+
+        sys.exit(0)
+        return
+
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
 
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/getid') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
         
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
@@ -188,11 +189,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/now') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
         
     result = help_get_url(message.text.replace("/now ", ""))
@@ -208,11 +209,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/today') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
         
     result = help_today(message.text.replace("/today ", ""))
@@ -224,11 +225,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/tomorrow') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
         
     result = help_tomorrow(message.text.replace("/tomorrow ", ""))
@@ -240,11 +241,11 @@ async def echohelp(message: Message):
     await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
-        registerMessage(message)
+        await registerMessage(message)
         return 0
         
     if users.checkCommand(message.from_user.id, '/week') == False:
-        noAccessMessage(message)
+        await noAccessMessage(message)
         return 0
 
     result = help_week(message.text.replace("/week ", ""))

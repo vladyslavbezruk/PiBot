@@ -24,5 +24,8 @@ createSource = "../sh/createSource.sh"
 
 removeSource = "../sh/removeSource.sh"
 
-scheduleFilePath = os.path.join("..", "..", "resources", "json", "schedule")
+scheduleFilePath = {}
+scheduleFilePath['1'] = os.path.join("..", "..", "resources", "json", "schedule1.json")
+scheduleFilePath['2'] = os.path.join("..", "..", "resources", "json", "schedule2.json")
+
 subjectsFilePath = os.path.join("..", "..", "resources", "json", "subjects.json")

@@ -9,23 +9,6 @@
       "VERSION": "2.0",
       "VEVENT": [
         {
-          "UID": "222022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210108T183721Z",
-          "DTSTART;TZID=Europe/Kiev": "20210222T100500",
-          "DTEND;TZID=Europe/Kiev": "20210222T112500",
-          "SUMMARY": "Дискретна математика (лекція)",
-          "LOCATION": "",
-          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
-          "CLASS": "PUBLIC",
-          "VALARM": [
-            {
-              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 22.02.2021 ? 10:05",
-              "TRIGGER": "-PT30M",
-              "ACTION": "DISPLAY"
-            }
-          ]
-        },
-        {
           "UID": "322022021@schedule.sumdu.edu.ua",
           "DTSTAMP": "20210108T181546Z",
           "DTSTART;TZID=Europe/Kiev": "20210222T114000",
@@ -43,17 +26,17 @@
           ]
         },
         {
-          "UID": "523022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210120T091030Z",
-          "DTSTART;TZID=Europe/Kiev": "20210223T153500",
-          "DTEND;TZID=Europe/Kiev": "20210223T165500",
-          "SUMMARY": "Вища математика (практичне заняття)",
-          "LOCATION": "Ц-224",
-          "DESCRIPTION": "ІН-01/1\\nдля гр. ВМ-3  ( онлайн)\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "UID": "222022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T183721Z",
+          "DTSTART;TZID=Europe/Kiev": "20210222T100500",
+          "DTEND;TZID=Europe/Kiev": "20210222T112500",
+          "SUMMARY": "Дискретна математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
           "CLASS": "PUBLIC",
           "VALARM": [
             {
-              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 23.02.2021 ? 15:35 ? Ц-224",
+              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 22.02.2021 ? 10:05",
               "TRIGGER": "-PT30M",
               "ACTION": "DISPLAY"
             }
@@ -94,6 +77,23 @@
           ]
         },
         {
+          "UID": "523022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210120T091030Z",
+          "DTSTART;TZID=Europe/Kiev": "20210223T153500",
+          "DTEND;TZID=Europe/Kiev": "20210223T165500",
+          "SUMMARY": "Вища математика (практичне заняття)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "ІН-01/1\\nдля гр. ВМ-3  ( онлайн)\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 23.02.2021 ? 15:35 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
           "UID": "223022021@schedule.sumdu.edu.ua",
           "DTSTAMP": "20210120T091010Z",
           "DTSTART;TZID=Europe/Kiev": "20210223T100500",
@@ -105,40 +105,6 @@
           "VALARM": [
             {
               "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 23.02.2021 ? 10:05 ? Ц-224",
-              "TRIGGER": "-PT30M",
-              "ACTION": "DISPLAY"
-            }
-          ]
-        },
-        {
-          "UID": "324022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210108T184243Z",
-          "DTSTART;TZID=Europe/Kiev": "20210224T114000",
-          "DTEND;TZID=Europe/Kiev": "20210224T130000",
-          "SUMMARY": "Дискретна математика (лекція)",
-          "LOCATION": "",
-          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
-          "CLASS": "PUBLIC",
-          "VALARM": [
-            {
-              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 24.02.2021 ? 11:40",
-              "TRIGGER": "-PT30M",
-              "ACTION": "DISPLAY"
-            }
-          ]
-        },
-        {
-          "UID": "124022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210108T183737Z",
-          "DTSTART;TZID=Europe/Kiev": "20210224T083000",
-          "DTEND;TZID=Europe/Kiev": "20210224T095000",
-          "SUMMARY": "Вища математика (лекція)",
-          "LOCATION": "",
-          "DESCRIPTION": "Кравченко Юлія Анатоліївна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
-          "CLASS": "PUBLIC",
-          "VALARM": [
-            {
-              "DESCRIPTION": "Вища математика (лекція) ?????????? 24.02.2021 ? 08:30",
               "TRIGGER": "-PT30M",
               "ACTION": "DISPLAY"
             }
@@ -162,17 +128,34 @@
           ]
         },
         {
-          "UID": "225022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210120T132728Z",
-          "DTSTART;TZID=Europe/Kiev": "20210225T100500",
-          "DTEND;TZID=Europe/Kiev": "20210225T112500",
-          "SUMMARY": "онлайн (кураторська година)",
-          "LOCATION": "Ц-224",
-          "DESCRIPTION": "Шутилєва Ольга Вікторівна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "UID": "124022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T183737Z",
+          "DTSTART;TZID=Europe/Kiev": "20210224T083000",
+          "DTEND;TZID=Europe/Kiev": "20210224T095000",
+          "SUMMARY": "Вища математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Кравченко Юлія Анатоліївна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
           "CLASS": "PUBLIC",
           "VALARM": [
             {
-              "DESCRIPTION": "онлайн (кураторська година) ?????????? 25.02.2021 ? 10:05 ? Ц-224",
+              "DESCRIPTION": "Вища математика (лекція) ?????????? 24.02.2021 ? 08:30",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "324022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T184243Z",
+          "DTSTART;TZID=Europe/Kiev": "20210224T114000",
+          "DTEND;TZID=Europe/Kiev": "20210224T130000",
+          "SUMMARY": "Дискретна математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 24.02.2021 ? 11:40",
               "TRIGGER": "-PT30M",
               "ACTION": "DISPLAY"
             }
@@ -196,6 +179,23 @@
           ]
         },
         {
+          "UID": "225022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210120T132728Z",
+          "DTSTART;TZID=Europe/Kiev": "20210225T100500",
+          "DTEND;TZID=Europe/Kiev": "20210225T112500",
+          "SUMMARY": "онлайн (кураторська година)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "Шутилєва Ольга Вікторівна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "онлайн (кураторська година) ?????????? 25.02.2021 ? 10:05 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
           "UID": "426022021@schedule.sumdu.edu.ua",
           "DTSTAMP": "20210129T111908Z",
           "DTSTART;TZID=Europe/Kiev": "20210226T140000",
@@ -207,6 +207,23 @@
           "VALARM": [
             {
               "DESCRIPTION": "Дискретна математика (лабораторне заняття) ?????????? 26.02.2021 ? 14:00 ? Н-211",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "326022021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210129T112113Z",
+          "DTSTART;TZID=Europe/Kiev": "20210226T114000",
+          "DTEND;TZID=Europe/Kiev": "20210226T130000",
+          "SUMMARY": "Програмування (лабораторне заняття)",
+          "LOCATION": "Н-223",
+          "DESCRIPTION": "Авраменко Віктор Васильович\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Програмування (лабораторне заняття) ?????????? 26.02.2021 ? 11:40 ? Н-223",
               "TRIGGER": "-PT30M",
               "ACTION": "DISPLAY"
             }
@@ -230,17 +247,34 @@
           ]
         },
         {
-          "UID": "326022021@schedule.sumdu.edu.ua",
-          "DTSTAMP": "20210129T112113Z",
-          "DTSTART;TZID=Europe/Kiev": "20210226T114000",
-          "DTEND;TZID=Europe/Kiev": "20210226T130000",
-          "SUMMARY": "Програмування (лабораторне заняття)",
-          "LOCATION": "Н-223",
+          "UID": "201032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T183721Z",
+          "DTSTART;TZID=Europe/Kiev": "20210301T100500",
+          "DTEND;TZID=Europe/Kiev": "20210301T112500",
+          "SUMMARY": "Дискретна математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 01.03.2021 ? 10:05",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "301032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T181546Z",
+          "DTSTART;TZID=Europe/Kiev": "20210301T114000",
+          "DTEND;TZID=Europe/Kiev": "20210301T130000",
+          "SUMMARY": "Програмування (лекція)",
+          "LOCATION": "",
           "DESCRIPTION": "Авраменко Віктор Васильович\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
           "CLASS": "PUBLIC",
           "VALARM": [
             {
-              "DESCRIPTION": "Програмування (лабораторне заняття) ?????????? 26.02.2021 ? 11:40 ? Н-223",
+              "DESCRIPTION": "Програмування (лекція) ?????????? 01.03.2021 ? 11:40",
               "TRIGGER": "-PT30M",
               "ACTION": "DISPLAY"
             }
