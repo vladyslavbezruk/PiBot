@@ -24,9 +24,6 @@ def create():
     
     users['admin'] = []
     users['user'] = []
-     
-    #userspath = os.path.join("..", "..", "resources", "json", usersFile)
-    #userspath = os.path.join(usersFile)
    
 def save(usersFilePath):
     with codecs.open(usersFilePath, "w", encoding='utf-8') as users_file:
@@ -77,8 +74,3 @@ def checkCommand(t_id, command):
     return accesses.checkCommand(getAccess(t_id), command)
                 
 load(usersFilePath)
-
-#create()
-#addUser('admin', 123, 'IN-01')
-#save(usersFilePath)
-#accesses.save(accesses.accessesFilePath)
