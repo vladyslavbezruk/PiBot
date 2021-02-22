@@ -167,6 +167,42 @@ async def echohelp(message: Message):
 
         sys.exit(0)
         return
+        
+@dp.message_handler(commands=['save'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+    
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+        
+    if users.checkCommand(message.from_user.id, '/save') == False:
+        await noAccessMessage(message)
+        return 0
+
+    accesses.save(accesses.accessesFilePath)
+    users.save(users.usersFilePath)
+    
+    await message.answer(text="All saved!")
+
+@dp.message_handler(commands=['setgroup'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+    
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+        
+    if users.checkCommand(message.from_user.id, '/setgroup') == False:
+        await noAccessMessage(message)
+        return 0
+        
+    group = message.text.replace("/setgroup ", "")
+    users.set(users.getAccess(t_id), t_id, 'group', str(group))
+
+    await message.answer(text=f"Now your group - {group}")
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
