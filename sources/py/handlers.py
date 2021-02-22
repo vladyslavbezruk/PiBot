@@ -35,6 +35,9 @@ async def registerMessage(message: Message):
 async def noAccessMessage(message: Message):
     await message.answer(text=f"{message.from_user.first_name}, you do not have access to this command")
 
+async def invalidGroupMessage(message: Message):
+    await message.answer(text=f"{message.from_user.first_name}, pls write the command /setgroup (your group)")
+
 #Сообщение о включении бота
 async def send_to_admin(dp):
     await bot.send_message(chat_id=admin_id, text="Bot started!") 
@@ -64,11 +67,12 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
  
-    await message.answer(text=f"/now [group] - посилання на наступну пару(Приклад: /now 1)\n" +
-        "/today [group] - пари сьогодні(Приклад: /today 1)\n" +
-        "/tomorrow [group] - пари завтра(Приклад: /tomorrow 1)\n" +
+    await message.answer(text=f"/now - посилання на наступну пару(Приклад: /now 1)\n" +
+        "/today - пари сьогодні(Приклад: /today 1)\n" +
+        "/tomorrow - пари завтра(Приклад: /tomorrow 1)\n" +
         "/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n" +
-        "/week [group] - розклад на тиждень(Приклад: /week 1)\n"
+        "/week - розклад на тиждень(Приклад: /week 1)\n" +
+        "/setgroup [group] - встановити групу(Приклад: /setgroup 1)\n" +
         "/calc [question] - wolframalpha(Приклад: /calc x^2 = 4)")
 
 @dp.message_handler(commands=['calc'])
@@ -200,7 +204,7 @@ async def echohelp(message: Message):
         return 0
         
     group = message.text.replace("/setgroup ", "")
-    users.set(users.getAccess(t_id), t_id, 'group', str(group))
+    users.set(users.getAccess(message.from_user.id), message.from_user.id, 'group', str(group))
 
     await message.answer(text=f"Now your group - {group}")
 
@@ -231,8 +235,14 @@ async def echohelp(message: Message):
     if users.checkCommand(message.from_user.id, '/now') == False:
         await noAccessMessage(message)
         return 0
-        
-    result = help_get_url(message.text.replace("/now ", ""))
+    
+    group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
+
+    if group == 'None':
+        await invalidGroupMessage(message)
+        return 0
+
+    result = help_get_url(str(group))
     
     if result != None:
         await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
@@ -251,8 +261,14 @@ async def echohelp(message: Message):
     if users.checkCommand(message.from_user.id, '/today') == False:
         await noAccessMessage(message)
         return 0
-        
-    result = help_today(message.text.replace("/today ", ""))
+    
+    group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
+
+    if group == 'None':
+        await invalidGroupMessage(message)
+        return 0
+
+    result = help_today(str(group))
     await message.answer(text=result)
 
 @dp.message_handler(commands=['tomorrow'])
@@ -267,8 +283,14 @@ async def echohelp(message: Message):
     if users.checkCommand(message.from_user.id, '/tomorrow') == False:
         await noAccessMessage(message)
         return 0
-        
-    result = help_tomorrow(message.text.replace("/tomorrow ", ""))
+    
+    group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
+
+    if group == 'None':
+        await invalidGroupMessage(message)
+        return 0
+
+    result = help_tomorrow(str(group))
     await message.answer(text=result)
 
 @dp.message_handler(commands=['week'])
@@ -284,5 +306,11 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    result = help_week(message.text.replace("/week ", ""))
+    group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
+
+    if group == 'None':
+        await invalidGroupMessage(message)
+        return 0
+
+    result = help_week(str(group))
     await message.answer(text=result)

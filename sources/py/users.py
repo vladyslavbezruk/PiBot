@@ -46,7 +46,7 @@ def addUser(access, t_id, group):
 
 def searchUser(access, t_id):
     i = 0
-    for user in users['access']:
+    for user in users[access]:
         if user['id'] == t_id:
             return i 
     i = i + 1
@@ -60,8 +60,12 @@ def checkUser(t_id):
         return True
     
 def set(access, t_id, setting, value):
-    if checkUser(access, t_id):
-        users['access'][searchUser(access, t_id)][setting] = value
+    if checkUser(t_id):
+        users[access][searchUser(access, t_id)][setting] = value
+
+def get(access, t_id, setting):
+    if checkUser(t_id):
+        return users[access][searchUser(access, t_id)][setting]
 
 def getAccess(t_id):
     for access in users.keys():
