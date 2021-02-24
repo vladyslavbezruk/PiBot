@@ -42,6 +42,7 @@ async def invalidGroupMessage(message: Message):
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
+    loadall(1)
     await bot.send_message(chat_id=admin_id, text="Bot started!")
 
 async def mDebug(message: Message):
@@ -178,7 +179,57 @@ async def echohelp(message: Message):
 
         sys.exit(0)
         return
-        
+
+@dp.message_handler(commands=['getAccess'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/getAccess') == False:
+        await noAccessMessage(message)
+        return 0
+
+    access = users.getAccess(message.from_user.id)
+    await message.answer(text=f"Your access level - {access}")
+
+@dp.message_handler(commands=['getCommands'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/getCommands') == False:
+        await noAccessMessage(message)
+        return 0
+
+    commands = accesses.getCommands(users.getAccess(message.from_user.id))
+
+    await message.answer(text=commands)
+
+@dp.message_handler(commands=['getCommandsAccess'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/getCommandsAccess') == False:
+        await noAccessMessage(message)
+        return 0
+
+    commands = accesses.getCommands(message.text.replace("/getCommandsAccess ", ""))
+
+    await message.answer(text=commands)
+
 @dp.message_handler(commands=['save'])
 async def echohelp(message: Message):
 
@@ -281,6 +332,28 @@ async def echohelp(message: Message):
         return 0
 
     result = help_today(str(group))
+    await message.answer(text=result)
+
+@dp.message_handler(commands=['date'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/date') == False:
+        await noAccessMessage(message)
+        return 0
+
+    group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
+
+    if group == 'None':
+        await invalidGroupMessage(message)
+        return 0
+
+    result = help_date(str(group), message.text.replace("/date ", ""))
     await message.answer(text=result)
 
 @dp.message_handler(commands=['tomorrow'])

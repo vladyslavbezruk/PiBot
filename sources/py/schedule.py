@@ -115,6 +115,22 @@ def help_week(id):
     else:
         return 'There are no lessons'
 
+def help_date(id, date):
+    loadall(id)
+    flag = False
+
+    result = f'Розклад на {date}:\n'
+
+    for subject in list_of_subjects:
+        if (subject['date'] == date):
+            flag = True
+            result += subject['time'] + ' - ' + subject['name'] + '\n'
+
+    if flag == True:
+        return result
+    else:
+        return date + ' немає занять'
+
 def loadall(id):
     global list_of_subjects, dict_of_subject, schedule, all_subjects
 

@@ -49,6 +49,19 @@ def remove(access, command):
     else:
         return False
 
+def getCommands(access):
+
+    if check(access):
+        result = f'In access level {access} available commands:'
+
+        for command in accesses[access]:
+            result += f'\n\t{command}'
+
+    else:
+        result = f'There is no {access} level of access\n'
+
+    return result
+
 def checkCommand(access, command):
     if check(access) and accesses[access].count(command) > 0:
         return True
