@@ -27,6 +27,8 @@ import time
 
 import wolframalpha
 
+import json_func
+
 from collections import Counter
 
 async def registerMessage(message: Message):
@@ -40,7 +42,7 @@ async def invalidGroupMessage(message: Message):
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
-    await bot.send_message(chat_id=admin_id, text="Bot started!") 
+    await bot.send_message(chat_id=admin_id, text="Bot started!")
 
 async def mDebug(message: Message):
     await bot.send_message(chat_id=admin_id, text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
@@ -91,6 +93,7 @@ async def echohelp(message: Message):
     query = message.text.replace("/calc ", "")
     res = client.query(query)
     output = next(res.results).text
+
     await message.answer(text=output)
 
 @dp.message_handler(commands=['getjson'])
@@ -123,6 +126,10 @@ async def echohelp(message: Message):
         return 0
    
     subprocess.call([f'./{sUpdate}'])
+
+    json_func.sorting(1)
+    json_func.sorting(2)
+
     await message.answer(text="Schedules updated")
    
 @dp.message_handler(commands=['getSource'])
@@ -204,6 +211,11 @@ async def echohelp(message: Message):
         return 0
         
     group = message.text.replace("/setgroup ", "")
+
+    if (group != '1' and group != '2'):
+        await message.answer(text=f"{message.from_user.first_name}, group must be 1 or 2")
+        return 0
+
     users.set(users.getAccess(message.from_user.id), message.from_user.id, 'group', str(group))
 
     await message.answer(text=f"Now your group - {group}")
