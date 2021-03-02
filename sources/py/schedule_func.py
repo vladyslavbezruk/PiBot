@@ -151,11 +151,47 @@ for subject in schedule['VCALENDAR'][0]['VEVENT']:
 '''
 #Возвращает следующий день. (надо сделать проверку на 30 день)
 #
+
+def getLength(num):
+    length = 1
+    num = int(num)
+
+    while num >= 10:
+        length = length + 1
+        num = num / 10
+
+    return length
+
+def getStrFormat(format, num):
+
+    length = getLength(int(num))
+    bkp = str(int(num))
+    cNum = ''
+
+    if length < format:
+        for i in range(format - length):
+            cNum += '0'
+
+    cNum += bkp
+
+    return cNum
+
+def createDate(format, date):
+
+    cDate = getStrFormat(format, date[0])
+
+    flag = 0
+
+    for num in date:
+        if flag == 1:
+            cDate += '.' + getStrFormat(format, num)
+        flag = 1
+
+    return cDate
+
 def date_tomorrow(date):
     date_arr = date.split('.')
-    today = int(date_arr[0])
-    today += 1
-    date = str(today) + '.' + date_arr[1] + '.' + date_arr[2]
-    return date
+    date_arr[0] = str(int(date_arr[0]) + 1)
+    return createDate(2, date_arr)
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
