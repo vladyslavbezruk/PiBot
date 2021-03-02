@@ -6,11 +6,15 @@ import json_func
 
 import users
 
+import groups 
+
 from aiogram import Bot, Dispatcher, executor
-from config import BOT_TOKEN, BOT_WOLF_TOKEN
+from config import *
 
 json_func.sorting(1)
 json_func.sorting(2)
+
+groups.updatingGroupsList(usersFilePath, groupsFilePath)
 
 client = wolframalpha.Client(BOT_WOLF_TOKEN)
 loop = asyncio.get_event_loop()

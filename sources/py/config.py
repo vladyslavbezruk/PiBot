@@ -28,4 +28,8 @@ scheduleFilePath = {}
 scheduleFilePath['1'] = os.path.join("..", "..", "resources", "json", "schedule1.json")
 scheduleFilePath['2'] = os.path.join("..", "..", "resources", "json", "schedule2.json")
 
+usersFilePath = os.path.join("..", "..", "resources", "json", "users.json")
+
+groupsFilePath = os.path.join("..", "..", "resources", "json", "groups.json")
+
 subjectsFilePath = os.path.join("..", "..", "resources", "json", "subjects.json")
