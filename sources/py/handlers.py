@@ -307,10 +307,7 @@ async def echohelp(message: Message):
 
     result = help_get_url(str(group))
     
-    if result != None:
-        await message.answer(text=f"{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}")
-    else: 
-        await message.answer(text="There are no lessons today")
+    await message.answer(result)
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):

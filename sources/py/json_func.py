@@ -4,25 +4,6 @@ import codecs  #Читаем с учетом кодировки
 
 from config import *
 
-from datetime import datetime #Узнаем текущее время
-
-def get_date_and_time(subj):
-
-    description = subj['VALARM'][0]['DESCRIPTION'].split()
-    #первое появление числа - дата, потом - время
-    flag = False
-
-    for element in description:
-        if element[0].isdigit() and flag == False:
-            date = element
-            flag = True
-        elif element[0].isdigit() and flag:
-            time = element
-            time_int = element.split(':')
-            time_int = int(time_int[0])*60 + int(time_int[1])
-            break
-    return (date, time_int, time)
-
 def load(id):
     with codecs.open(scheduleFilePath[str(id)], encoding='utf-8') as schedule_file:
         #Сохраняем расписание в виде словаря Python

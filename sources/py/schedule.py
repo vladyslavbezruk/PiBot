@@ -18,14 +18,9 @@ help_week()
 
 from schedule_func import *
 
-schedule = {}
-all_subjects = {}
-dict_of_subject = {}
-list_of_subjects = []
-
 #Возвращает словарь с описанием ближайшего занятия или None
 def help_get_url(id):
-    loadall(id)
+    schedule = get_subj_list(id)
 
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
@@ -34,20 +29,19 @@ def help_get_url(id):
     date = get_current_date()
     time = get_current_time()
     
-    for subject in list_of_subjects:
+    for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date and time < subject['time_int']):
             classes_today = True
             break
     if classes_today:
-        return {'subject': subject['name'], 'teacher': subject['teacher'], 'url': subject['url'],
-                'date': subject['date'], 'time': subject['time']}
+        return f'{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}'
     else:
-        return None
+        return 'There are no lessons today'
 
 def help_today(id):
-    loadall(id)
-
+    schedule = get_subj_list(id)
+    
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -66,7 +60,7 @@ def help_today(id):
             return 'There are no lessons today'
 
 def help_tomorrow(id):
-    loadall(id)
+    schedule = get_subj_list(id)
 
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_tomorrow = False
@@ -87,7 +81,7 @@ def help_tomorrow(id):
         return 'There are no lessons tomorrow'
 
 def help_week(id):
-    loadall(id)
+    schedule = get_subj_list(id)
 
     date = list_of_subjects[0]['date']
     flag = False
@@ -116,7 +110,8 @@ def help_week(id):
         return 'There are no lessons'
 
 def help_date(id, date):
-    loadall(id)
+    schedule = get_subj_list(id)
+    
     flag = False
 
     result = f'Розклад на {date}:\n'
@@ -130,13 +125,3 @@ def help_date(id, date):
         return result
     else:
         return date + ' немає занять'
-
-def loadall(id):
-    global list_of_subjects, dict_of_subject, schedule, all_subjects
-
-    schedule = loadschedule(id)
-    all_subjects = loadsubjects()
-    list_of_subjects = getlistsubjects(schedule, all_subjects)
-    dict_of_subject = getdictsubject(schedule, all_subjects)
-
-    loadallfunc(id)
