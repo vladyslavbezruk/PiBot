@@ -1,4 +1,4 @@
-'''
+ '''
 Основной модуль для работы с ботом.
 Тут функции, которые осущетвляют ввод-вывод в Телеграм.
 Остальную логику разбивать по модулям.
@@ -127,9 +127,6 @@ async def echohelp(message: Message):
         return 0
    
     subprocess.call([f'./{sUpdate}'])
-
-    json_func.sorting(1)
-    json_func.sorting(2)
 
     await message.answer(text="Schedules updated")
    

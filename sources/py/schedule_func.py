@@ -11,12 +11,11 @@ schedule_1   = {}
 schedule_2   = {}
 all_subjects = {}
 
-#with codecs.open(scheduleFilePath[str(id)], encoding='utf-8') as schedule_file:
-with codecs.open('schedule_1.json', encoding='utf-8') as schedule_file:
+with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule_1 = json.loads(schedule_file.read())
     
-with codecs.open('schedule_2.json', encoding='utf-8') as schedule_file:
+with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule_1 = json.loads(schedule_file.read())
 
