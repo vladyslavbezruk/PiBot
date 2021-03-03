@@ -67,6 +67,14 @@ def set_schedule(id):
     else:
         return schedule_2
         
+def sort_list(list):
+    for i in range(0, len(list) - 1):
+        for j in range(i + 1, len(list)):
+            if list[i]['date'] == list[j]['date'] and list[i]['time_int'] < list[j]['time_int']:
+                tmp = list[i]
+                list[i] = list[j]
+                list[j] = tmp
+        
 def get_subj_list(id):
     #Список с описанием всех предметов
     list_of_subjects = []
@@ -86,6 +94,9 @@ def get_subj_list(id):
         dict_of_subject['teacher']  = subject['NAME_FIO']
         #Добавляем в список
         list_of_subjects.append(dict_of_subject)
-        
+
+    sort_list(list_of_subjects)
+
     return list_of_subjects
+
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- ''' 

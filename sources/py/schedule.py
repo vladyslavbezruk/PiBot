@@ -124,4 +124,4 @@ def help_date(id, date):
     if flag == True:
         return result
     else:
-        return date + ' немає занять'
+        return date + ' немає занять' 
