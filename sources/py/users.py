@@ -6,7 +6,7 @@ import os
 
 import accesses
 
-usersFilePath = os.path.join("..", "..", "resources", "json", "users.json")
+from config import *
 
 users = {}
 
@@ -15,6 +15,8 @@ def load(usersFilePath):
 
     with codecs.open(usersFilePath, encoding='utf-8') as users_file:
         users = json.loads(users_file.read())
+        
+    return users
 
 def create():
 
