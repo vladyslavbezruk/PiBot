@@ -35,7 +35,7 @@ def help_get_url(id):
             classes_today = True
             break
     if classes_today:
-        return f'{result['subject']}\n{result['date']}\n{result['teacher']}\n{result['time']}\n{result['url']}'
+        return f"{subject['subject']}\n{subject['date']}\n{subject['teacher']}\n{subject['time']}\n{subject['url']}"
     else:
         return 'There are no lessons today'
 
