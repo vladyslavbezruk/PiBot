@@ -11,15 +11,17 @@ schedule_2   = {}
 all_subjects = {}
 
 def load():
-    global schedule_1, schedule_2, all_subjects
+    global schedule_1
+    global schedule_2 
+    global all_subjects
 
-    with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule_file:
+    with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule1_file:
         #Сохраняем расписание в виде словаря Python
-        schedule_1 = json.loads(schedule_file.read())
+        schedule_1 = json.loads(schedule1_file.read())
 
-    with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule_file:
+    with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule2_file:
         #Сохраняем расписание в виде словаря Python
-        schedule_2 = json.loads(schedule_file.read())
+        schedule_2 = json.loads(schedule2_file.read())
 
     with codecs.open(config.subjectsFilePath, encoding='utf-8') as subjects_file:
         #Сохранем пары преподаватель-ссылка в виде словаря Python
@@ -114,11 +116,11 @@ def get_int_time(time):
 
 
 def set_schedule(id):
-    if id == 1:
+    if id == '1':
         return schedule_1
     else:
         return schedule_2
-        
+
 def sort_list(list):
     for i in range(0, len(list) - 1):
         for j in range(i + 1, len(list)):
@@ -126,7 +128,7 @@ def sort_list(list):
                 tmp = list[i]
                 list[i] = list[j]
                 list[j] = tmp
-        
+
 def get_subj_list(id):
     #Список с описанием всех предметов
     list_of_subjects = []
@@ -138,11 +140,13 @@ def get_subj_list(id):
         time = subject['TIME_PAIR']
         #Записываем все значения
         dict_of_subject = {}
-        dict_of_subject['name']     = subject['ABBR_DISC']
+        dict_of_subject['date']     = subject['DATE_REG']
+
         if subject['ABBR_DISC'] == '':
-            dict_of_subject['date'] = subject['NAME_STUD']
+            dict_of_subject['name'] = subject['NAME_STUD']
         else:
-            dict_of_subject['date'] = subject['ABBR_DISC']
+            dict_of_subject['name'] = subject['ABBR_DISC']
+
         dict_of_subject['time']     = time
         dict_of_subject['time_int'] = get_int_time(time)
         #dict_of_subject['url']      = url_of_subject(name)
