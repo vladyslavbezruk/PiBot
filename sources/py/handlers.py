@@ -1,4 +1,4 @@
- '''
+'''
 Основной модуль для работы с ботом.
 Тут функции, которые осущетвляют ввод-вывод в Телеграм.
 Остальную логику разбивать по модулям.
@@ -27,7 +27,7 @@ import time
 
 import wolframalpha
 
-import json_func
+#import json_func
 
 from collections import Counter
 
@@ -42,7 +42,7 @@ async def invalidGroupMessage(message: Message):
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
-    loadall(1)
+    #loadall(1)
     await bot.send_message(chat_id=admin_id, text="Bot started!")
 
 async def mDebug(message: Message):

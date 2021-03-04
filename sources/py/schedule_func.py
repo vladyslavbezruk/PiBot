@@ -40,6 +40,8 @@ def get_current_date():
     date = str(datetime.now().date()).split('-')
     date.reverse()
     date =  str(date[0]) + '.' + str(date[1]) + '.' + str(date[2])
+    print(date)
+
     return date
 
 #Возвращает текущие время в нужном для сравнения формате

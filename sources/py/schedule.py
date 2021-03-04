@@ -49,15 +49,17 @@ def help_today(id):
     date = get_current_date()
 
     result = ''
-    for subject in list_of_subjects:
+    for subject in schedule:
+        print(subject['date'])
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_today = True
             result += subject['time'] + ' - ' + subject['name'] + '\n'
-        elif classes_today:
-            return result
-        else:
-            return 'There are no lessons today'
+
+    if classes_today == True:
+        return result
+    else:
+        return 'There are no lessons today'
 
 def help_tomorrow(id):
     schedule = get_subj_list(id)
@@ -70,7 +72,7 @@ def help_tomorrow(id):
     date = date_tomorrow(date)
 
     result = ''
-    for subject in list_of_subjects:
+    for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_tomorrow = True
@@ -87,7 +89,7 @@ def help_week(id):
     flag = False
     result = 'Розклад:\n'
 
-    for subject in list_of_subjects:
+    for subject in schedule:
         if (subject['date'] == date):
             if flag == False:
                 result += '\n' + date + ':\n'
@@ -116,7 +118,7 @@ def help_date(id, date):
 
     result = f'Розклад на {date}:\n'
 
-    for subject in list_of_subjects:
+    for subject in schedule:
         if (subject['date'] == date):
             flag = True
             result += subject['time'] + ' - ' + subject['name'] + '\n'

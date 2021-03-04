@@ -1,1 +1,292 @@
-{"VCALENDAR": [{"X-WR-CALNAME": "??????? ?????? ?????", "X-WR-TIMEZONE": "Europe/Kiev", "X-PUBLISHED-TTL": "PT12H", "METHOD": "PUBLISH", "PRODID": "-//John Papaioannou/NONSGML Bennu 0.1//EN", "VERSION": "2.0", "VEVENT": [{"UID": "202032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104734Z", "DTSTART;TZID=Europe/Kiev": "20210302T100500", "DTEND;TZID=Europe/Kiev": "20210302T112500", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0416\u0438\u043b\u0435\u043d\u043a\u043e \u0422\u0435\u0442\u044f\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n( \u0434\u043b\u044f \u0433\u0440. \u0412\u041c-1 )\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 02.03.2021 ? 10:05 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "302032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104734Z", "DTSTART;TZID=Europe/Kiev": "20210302T114000", "DTEND;TZID=Europe/Kiev": "20210302T130000", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0416\u0438\u043b\u0435\u043d\u043a\u043e \u0422\u0435\u0442\u044f\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n( \u0434\u043b\u044f \u0433\u0440. \u0412\u041c-1 )\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 02.03.2021 ? 11:40 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "402032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T105853Z", "DTSTART;TZID=Europe/Kiev": "20210302T140000", "DTEND;TZID=Europe/Kiev": "20210302T152000", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0406\u041d-01/1\\n\u0434\u043b\u044f \u0433\u0440. \u0412\u041c-3\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 02.03.2021 ? 14:00 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "502032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T105853Z", "DTSTART;TZID=Europe/Kiev": "20210302T153500", "DTEND;TZID=Europe/Kiev": "20210302T165500", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0406\u041d-01/1\\n\u0434\u043b\u044f \u0433\u0440. \u0412\u041c-3\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 02.03.2021 ? 15:35 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "103032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210108T183737Z", "DTSTART;TZID=Europe/Kiev": "20210303T083000", "DTEND;TZID=Europe/Kiev": "20210303T095000", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0435\u043a\u0446\u0456\u044f)", "LOCATION": "", "DESCRIPTION": "\u041a\u0440\u0430\u0432\u0447\u0435\u043d\u043a\u043e \u042e\u043b\u0456\u044f \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\u043e\u043d\u043b\u0430\u0439\u043d\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0435\u043a\u0446\u0456\u044f) ?????????? 03.03.2021 ? 08:30", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "203032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210108T183752Z", "DTSTART;TZID=Europe/Kiev": "20210303T100500", "DTEND;TZID=Europe/Kiev": "20210303T112500", "SUMMARY": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0443\u0432\u0430\u043d\u043d\u044f (\u043b\u0435\u043a\u0446\u0456\u044f)", "LOCATION": "", "DESCRIPTION": "\u0410\u0432\u0440\u0430\u043c\u0435\u043d\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440 \u0412\u0430\u0441\u0438\u043b\u044c\u043e\u0432\u0438\u0447\\n\u0406\u041d-01/1\\n\u043e\u043d\u043b\u0430\u0439\u043d\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0443\u0432\u0430\u043d\u043d\u044f (\u043b\u0435\u043a\u0446\u0456\u044f) ?????????? 03.03.2021 ? 10:05", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "104032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104755Z", "DTSTART;TZID=Europe/Kiev": "20210304T083000", "DTEND;TZID=Europe/Kiev": "20210304T095000", "SUMMARY": "\u0406\u043d\u0442\u0435\u0433\u0440\u043e\u0432\u0430\u043d\u0438\u0439 \u043a\u0443\u0440\u0441 \"\u041e\u0441\u043d\u043e\u0432\u0438 \u0430\u043a\u0430\u0434 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0413-200", "DESCRIPTION": "\u041a\u0440\u0430\u043c\u0430\u0440\u0435\u043d\u043a\u043e \u041e\u043b\u044c\u0433\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0406\u043d\u0442\u0435\u0433\u0440\u043e\u0432\u0430\u043d\u0438\u0439 \u043a\u0443\u0440\u0441 \"\u041e\u0441\u043d\u043e\u0432\u0438 \u0430\u043a\u0430\u0434 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 04.03.2021 ? 08:30 ? \u0413-200", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "105032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104809Z", "DTSTART;TZID=Europe/Kiev": "20210305T083000", "DTEND;TZID=Europe/Kiev": "20210305T095000", "SUMMARY": "\u0406\u043d\u043e\u0437\u0435\u043c\u043d\u0430 \u043c\u043e\u0432\u0430 (\u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0456\u0439\u043d\u0430 \u0440\u043e\u0431\u043e\u0442\u0430 \u0437\u0430 \u0440\u043e\u0437\u043a\u043b\u0430\u0434\u043e\u043c)", "LOCATION": "\u0413-1214", "DESCRIPTION": "\u041f\u043b\u043e\u0445\u0443\u0442\u0430 \u0422\u0435\u0442\u044f\u043d\u0430 \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0406\u043d\u043e\u0437\u0435\u043c\u043d\u0430 \u043c\u043e\u0432\u0430 (\u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0456\u0439\u043d\u0430 \u0440\u043e\u0431\u043e\u0442\u0430 \u0437\u0430 \u0440\u043e\u0437\u043a\u043b\u0430\u0434\u043e\u043c) ?????????? 05.03.2021 ? 08:30 ? \u0413-1214", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "205032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104819Z", "DTSTART;TZID=Europe/Kiev": "20210305T100500", "DTEND;TZID=Europe/Kiev": "20210305T112500", "SUMMARY": "\u0406\u043d\u043e\u0437\u0435\u043c\u043d\u0430 \u043c\u043e\u0432\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0413-1208", "DESCRIPTION": "\u041f\u043b\u043e\u0445\u0443\u0442\u0430 \u0422\u0435\u0442\u044f\u043d\u0430 \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0406\u043d\u043e\u0437\u0435\u043c\u043d\u0430 \u043c\u043e\u0432\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 05.03.2021 ? 10:05 ? \u0413-1208", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "305032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104829Z", "DTSTART;TZID=Europe/Kiev": "20210305T114000", "DTEND;TZID=Europe/Kiev": "20210305T130000", "SUMMARY": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0443\u0432\u0430\u043d\u043d\u044f (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u041d-223", "DESCRIPTION": "\u0410\u0432\u0440\u0430\u043c\u0435\u043d\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440 \u0412\u0430\u0441\u0438\u043b\u044c\u043e\u0432\u0438\u0447\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0443\u0432\u0430\u043d\u043d\u044f (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 05.03.2021 ? 11:40 ? \u041d-223", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "405032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104844Z", "DTSTART;TZID=Europe/Kiev": "20210305T140000", "DTEND;TZID=Europe/Kiev": "20210305T152000", "SUMMARY": "\u0414\u0438\u0441\u043a\u0440\u0435\u0442\u043d\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u041d-211", "DESCRIPTION": "\u041c\u0430\u0441\u043b\u043e\u0432\u0430 \u0417\u043e\u044f \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0414\u0438\u0441\u043a\u0440\u0435\u0442\u043d\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 05.03.2021 ? 14:00 ? \u041d-211", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "505032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104851Z", "DTSTART;TZID=Europe/Kiev": "20210305T153500", "DTEND;TZID=Europe/Kiev": "20210305T165500", "SUMMARY": "\u0414\u0438\u0441\u043a\u0440\u0435\u0442\u043d\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u041d-211", "DESCRIPTION": "\u041c\u0430\u0441\u043b\u043e\u0432\u0430 \u0417\u043e\u044f \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0414\u0438\u0441\u043a\u0440\u0435\u0442\u043d\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 05.03.2021 ? 15:35 ? \u041d-211", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "209032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104734Z", "DTSTART;TZID=Europe/Kiev": "20210309T100500", "DTEND;TZID=Europe/Kiev": "20210309T112500", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0416\u0438\u043b\u0435\u043d\u043a\u043e \u0422\u0435\u0442\u044f\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n( \u0434\u043b\u044f \u0433\u0440. \u0412\u041c-1 )\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 09.03.2021 ? 10:05 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "309032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T104734Z", "DTSTART;TZID=Europe/Kiev": "20210309T114000", "DTEND;TZID=Europe/Kiev": "20210309T130000", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0416\u0438\u043b\u0435\u043d\u043a\u043e \u0422\u0435\u0442\u044f\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430\\n\u0406\u041d-01/1\\n( \u0434\u043b\u044f \u0433\u0440. \u0412\u041c-1 )\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 09.03.2021 ? 11:40 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "409032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T105853Z", "DTSTART;TZID=Europe/Kiev": "20210309T140000", "DTEND;TZID=Europe/Kiev": "20210309T152000", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0406\u041d-01/1\\n\u0434\u043b\u044f \u0433\u0440. \u0412\u041c-3\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 09.03.2021 ? 14:00 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}, {"UID": "509032021@schedule.sumdu.edu.ua", "DTSTAMP": "20210223T105853Z", "DTSTART;TZID=Europe/Kiev": "20210309T153500", "DTEND;TZID=Europe/Kiev": "20210309T165500", "SUMMARY": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f)", "LOCATION": "\u0426-224", "DESCRIPTION": "\u0406\u041d-01/1\\n\u0434\u043b\u044f \u0433\u0440. \u0412\u041c-3\\n\\nhttps://schedule.sumdu.edu.ua/", "CLASS": "PUBLIC", "VALARM": [{"DESCRIPTION": "\u0412\u0438\u0449\u0430 \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0435 \u0437\u0430\u043d\u044f\u0442\u0442\u044f) ?????????? 09.03.2021 ? 15:35 ? \u0426-224", "TRIGGER": "-PT30M", "ACTION": "DISPLAY"}]}], "VTIMEZONE": [{"TZID": "Europe/Kiev", "STANDARD": [{"TZNAME": "EET", "TZOFFSETTO": "+0200", "TZOFFSETFROM": "+0300", "DTSTART": "19701025T040000", "RRULE": "FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU"}], "DAYLIGHT": [{"TZNAME": "EEST", "TZOFFSETTO": "+0300", "TZOFFSETFROM": "+0200", "DTSTART": "19700329T030000", "RRULE": "FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU"}]}]}]}
+{
+  "VCALENDAR": [
+    {
+      "X-WR-CALNAME": "??????? ?????? ?????",
+      "X-WR-TIMEZONE": "Europe/Kiev",
+      "X-PUBLISHED-TTL": "PT12H",
+      "METHOD": "PUBLISH",
+      "PRODID": "-//John Papaioannou/NONSGML Bennu 0.1//EN",
+      "VERSION": "2.0",
+      "VEVENT": [
+        {
+          "UID": "104032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104755Z",
+          "DTSTART;TZID=Europe/Kiev": "20210304T083000",
+          "DTEND;TZID=Europe/Kiev": "20210304T095000",
+          "SUMMARY": "Інтегрований курс \"Основи акад (практичне заняття)",
+          "LOCATION": "Г-200",
+          "DESCRIPTION": "Крамаренко Ольга Анатоліївна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Інтегрований курс \"Основи акад (практичне заняття) ?????????? 04.03.2021 ? 08:30 ? Г-200",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "505032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104851Z",
+          "DTSTART;TZID=Europe/Kiev": "20210305T153500",
+          "DTEND;TZID=Europe/Kiev": "20210305T165500",
+          "SUMMARY": "Дискретна математика (лабораторне заняття)",
+          "LOCATION": "Н-211",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Дискретна математика (лабораторне заняття) ?????????? 05.03.2021 ? 15:35 ? Н-211",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "405032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104844Z",
+          "DTSTART;TZID=Europe/Kiev": "20210305T140000",
+          "DTEND;TZID=Europe/Kiev": "20210305T152000",
+          "SUMMARY": "Дискретна математика (лабораторне заняття)",
+          "LOCATION": "Н-211",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Дискретна математика (лабораторне заняття) ?????????? 05.03.2021 ? 14:00 ? Н-211",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "305032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104829Z",
+          "DTSTART;TZID=Europe/Kiev": "20210305T114000",
+          "DTEND;TZID=Europe/Kiev": "20210305T130000",
+          "SUMMARY": "Програмування (лабораторне заняття)",
+          "LOCATION": "Н-223",
+          "DESCRIPTION": "Авраменко Віктор Васильович\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Програмування (лабораторне заняття) ?????????? 05.03.2021 ? 11:40 ? Н-223",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "105032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104809Z",
+          "DTSTART;TZID=Europe/Kiev": "20210305T083000",
+          "DTEND;TZID=Europe/Kiev": "20210305T095000",
+          "SUMMARY": "Іноземна мова (консультаційна робота за розкладом)",
+          "LOCATION": "Г-1214",
+          "DESCRIPTION": "Плохута Тетяна Миколаївна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Іноземна мова (консультаційна робота за розкладом) ?????????? 05.03.2021 ? 08:30 ? Г-1214",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "205032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104819Z",
+          "DTSTART;TZID=Europe/Kiev": "20210305T100500",
+          "DTEND;TZID=Europe/Kiev": "20210305T112500",
+          "SUMMARY": "Іноземна мова (практичне заняття)",
+          "LOCATION": "Г-1208",
+          "DESCRIPTION": "Плохута Тетяна Миколаївна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Іноземна мова (практичне заняття) ?????????? 05.03.2021 ? 10:05 ? Г-1208",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "409032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T105853Z",
+          "DTSTART;TZID=Europe/Kiev": "20210309T140000",
+          "DTEND;TZID=Europe/Kiev": "20210309T152000",
+          "SUMMARY": "Вища математика (практичне заняття)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "ІН-01/1\\nдля гр. ВМ-3\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 09.03.2021 ? 14:00 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "509032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T105853Z",
+          "DTSTART;TZID=Europe/Kiev": "20210309T153500",
+          "DTEND;TZID=Europe/Kiev": "20210309T165500",
+          "SUMMARY": "Вища математика (практичне заняття)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "ІН-01/1\\nдля гр. ВМ-3\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 09.03.2021 ? 15:35 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "309032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104734Z",
+          "DTSTART;TZID=Europe/Kiev": "20210309T114000",
+          "DTEND;TZID=Europe/Kiev": "20210309T130000",
+          "SUMMARY": "Вища математика (практичне заняття)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "Жиленко Тетяна Іванівна\\nІН-01/1\\n( для гр. ВМ-1 )\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 09.03.2021 ? 11:40 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "209032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104734Z",
+          "DTSTART;TZID=Europe/Kiev": "20210309T100500",
+          "DTEND;TZID=Europe/Kiev": "20210309T112500",
+          "SUMMARY": "Вища математика (практичне заняття)",
+          "LOCATION": "Ц-224",
+          "DESCRIPTION": "Жиленко Тетяна Іванівна\\nІН-01/1\\n( для гр. ВМ-1 )\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (практичне заняття) ?????????? 09.03.2021 ? 10:05 ? Ц-224",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "310032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T184243Z",
+          "DTSTART;TZID=Europe/Kiev": "20210310T114000",
+          "DTEND;TZID=Europe/Kiev": "20210310T130000",
+          "SUMMARY": "Дискретна математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Маслова Зоя Іванівна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Дискретна математика (лекція) ?????????? 10.03.2021 ? 11:40",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "210032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T183752Z",
+          "DTSTART;TZID=Europe/Kiev": "20210310T100500",
+          "DTEND;TZID=Europe/Kiev": "20210310T112500",
+          "SUMMARY": "Програмування (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Авраменко Віктор Васильович\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Програмування (лекція) ?????????? 10.03.2021 ? 10:05",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "110032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210108T183737Z",
+          "DTSTART;TZID=Europe/Kiev": "20210310T083000",
+          "DTEND;TZID=Europe/Kiev": "20210310T095000",
+          "SUMMARY": "Вища математика (лекція)",
+          "LOCATION": "",
+          "DESCRIPTION": "Кравченко Юлія Анатоліївна\\nІН-01/1\\nонлайн\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Вища математика (лекція) ?????????? 10.03.2021 ? 08:30",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "211032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104802Z",
+          "DTSTART;TZID=Europe/Kiev": "20210311T100500",
+          "DTEND;TZID=Europe/Kiev": "20210311T112500",
+          "SUMMARY": "кураторська година",
+          "LOCATION": "Ц-321",
+          "DESCRIPTION": "Шутилєва Ольга Вікторівна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "кураторська година ?????????? 11.03.2021 ? 10:05 ? Ц-321",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        },
+        {
+          "UID": "111032021@schedule.sumdu.edu.ua",
+          "DTSTAMP": "20210223T104755Z",
+          "DTSTART;TZID=Europe/Kiev": "20210311T083000",
+          "DTEND;TZID=Europe/Kiev": "20210311T095000",
+          "SUMMARY": "Інтегрований курс \"Основи акад (практичне заняття)",
+          "LOCATION": "Г-200",
+          "DESCRIPTION": "Крамаренко Ольга Анатоліївна\\nІН-01/1\\n\\nhttps://schedule.sumdu.edu.ua/",
+          "CLASS": "PUBLIC",
+          "VALARM": [
+            {
+              "DESCRIPTION": "Інтегрований курс \"Основи акад (практичне заняття) ?????????? 11.03.2021 ? 08:30 ? Г-200",
+              "TRIGGER": "-PT30M",
+              "ACTION": "DISPLAY"
+            }
+          ]
+        }
+      ],
+      "VTIMEZONE": [
+        {
+          "TZID": "Europe/Kiev",
+          "STANDARD": [
+            {
+              "TZNAME": "EET",
+              "TZOFFSETTO": "+0200",
+              "TZOFFSETFROM": "+0300",
+              "DTSTART": "19701025T040000",
+              "RRULE": "FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU"
+            }
+          ],
+          "DAYLIGHT": [
+            {
+              "TZNAME": "EEST",
+              "TZOFFSETTO": "+0300",
+              "TZOFFSETFROM": "+0200",
+              "DTSTART": "19700329T030000",
+              "RRULE": "FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
