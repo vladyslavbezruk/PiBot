@@ -11,6 +11,10 @@ import users
 from aiogram import Bot, Dispatcher, executor
 from config import *
 
+import schedule_func
+
+schedule_func.load()
+
 #json_func.sorting(1)
 #json_func.sorting(2)
 

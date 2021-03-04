@@ -42,6 +42,8 @@ def help_get_url(id):
 def help_today(id):
     schedule = get_subj_list(id)
     
+    print(schedule)
+
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -54,7 +56,7 @@ def help_today(id):
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_today = True
-            result += subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
 
     if classes_today == True:
         return result
@@ -76,7 +78,7 @@ def help_tomorrow(id):
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_tomorrow = True
-            result += subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
     if result != '':
         return result
     else:
@@ -85,7 +87,7 @@ def help_tomorrow(id):
 def help_week(id):
     schedule = get_subj_list(id)
 
-    date = list_of_subjects[0]['date']
+    date = schedule[0]['date']
     flag = False
     result = 'Розклад:\n'
 
@@ -94,7 +96,7 @@ def help_week(id):
             if flag == False:
                 result += '\n' + date + ':\n'
                 flag = True
-            result += subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' +  subject['time'] + ' - ' + subject['name'] + '\n'
         else:
             flag = False
             
@@ -104,7 +106,7 @@ def help_week(id):
                 if flag == False:
                     result += '\n' + date + ':\n'
                     flag = True
-                result += subject['time'] + ' - ' + subject['name'] + '\n'
+                result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
                 
     if result != '':
         return result
@@ -121,7 +123,7 @@ def help_date(id, date):
     for subject in schedule:
         if (subject['date'] == date):
             flag = True
-            result += subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
 
     if flag == True:
         return result

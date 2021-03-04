@@ -6,34 +6,85 @@ from datetime import datetime #Узнаем текущее время
 
 import config
 
-
 schedule_1   = {}
 schedule_2   = {}
 all_subjects = {}
 
+def load():
+    global schedule_1, schedule_2, all_subjects
+
+    with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule_file:
+        #Сохраняем расписание в виде словаря Python
+        schedule_1 = json.loads(schedule_file.read())
+
+    with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule_file:
+        #Сохраняем расписание в виде словаря Python
+        schedule_2 = json.loads(schedule_file.read())
+
+    with codecs.open(config.subjectsFilePath, encoding='utf-8') as subjects_file:
+        #Сохранем пары преподаватель-ссылка в виде словаря Python
+        all_subjects = json.loads(subjects_file.read())
+
+'''
 with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
     schedule_1 = json.loads(schedule_file.read())
     
 with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule_file:
     #Сохраняем расписание в виде словаря Python
-    schedule_1 = json.loads(schedule_file.read())
+    schedule_2 = json.loads(schedule_file.read())
 
 with codecs.open(config.subjectsFilePath, encoding='utf-8') as subjects_file:
     #Сохранем пары преподаватель-ссылка в виде словаря Python
     all_subjects = json.loads(subjects_file.read())
-    
+'''
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
 #Возвращает следующий день. (надо сделать проверку на 30 день)
 #Баг с числом
+
+def getLength(num):
+    length = 1
+    num = int(num)
+
+    while num >= 10:
+        length = length + 1
+        num = num / 10
+
+    return length
+
+def getStrFormat(format, num):
+
+    length = getLength(int(num))
+    bkp = str(int(num))
+    cNum = ''
+
+    if length < format:
+        for i in range(format - length):
+            cNum += '0'
+
+    cNum += bkp
+
+    return cNum
+
+def createDate(format, date):
+
+    cDate = getStrFormat(format, date[0])
+
+    flag = 0
+
+    for num in date:
+        if flag == 1:
+            cDate += '.' + getStrFormat(format, num)
+        flag = 1
+
+    return cDate
+
 def date_tomorrow(date):
     date_arr = date.split('.')
-    today = int(date_arr[0])
-    today += 1
-    date = str(today) + '.' + date_arr[1] + '.' + date_arr[2]
-    return date
+    date_arr[0] = str(int(date_arr[0]) + 1)
+    return createDate(2, date_arr)
 
 #Возвращает текушию дату в нужном для сравнения формате
 def get_current_date():
@@ -88,10 +139,14 @@ def get_subj_list(id):
         #Записываем все значения
         dict_of_subject = {}
         dict_of_subject['name']     = subject['ABBR_DISC']
-        dict_of_subject['date']     = subject['DATE_REG']
+        if subject['ABBR_DISC'] == '':
+            dict_of_subject['date'] = subject['NAME_STUD']
+        else:
+            dict_of_subject['date'] = subject['ABBR_DISC']
         dict_of_subject['time']     = time
         dict_of_subject['time_int'] = get_int_time(time)
-        dict_of_subject['url']      = url_of_subject(name)
+        #dict_of_subject['url']      = url_of_subject(name)
+        print(name)
         dict_of_subject['teacher']  = subject['NAME_FIO']
         #Добавляем в список
         list_of_subjects.append(dict_of_subject)
