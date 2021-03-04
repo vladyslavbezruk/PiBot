@@ -146,6 +146,8 @@ def get_subj_list(id):
             dict_of_subject['name'] = subject['NAME_STUD']
         else:
             dict_of_subject['name'] = subject['ABBR_DISC']
+        
+        dict_of_subject['name'] += ' ' + subject['REASON'] + ' ' + subject['NAME_AUD']
 
         dict_of_subject['time']     = time
         dict_of_subject['time_int'] = get_int_time(time)

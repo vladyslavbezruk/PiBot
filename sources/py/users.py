@@ -50,8 +50,8 @@ def searchUser(access, t_id):
     i = 0
     for user in users[access]:
         if user['id'] == t_id:
-            return i 
-    i = i + 1
+            return i
+        i = i + 1
 
 def checkUser(t_id):
     access = getAccess(t_id)
