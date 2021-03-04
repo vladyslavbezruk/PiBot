@@ -70,13 +70,15 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
  
-    await message.answer(text=f"/now - посилання на наступну пару(Приклад: /now 1)\n" +
-        "/today - пари сьогодні(Приклад: /today 1)\n" +
-        "/tomorrow - пари завтра(Приклад: /tomorrow 1)\n" +
-        "/schedule1 - розклад ІН-01/1\n/schedule2 - розклад ІН-01/2\n" +
-        "/week - розклад на тиждень(Приклад: /week 1)\n" +
-        "/setgroup [group] - встановити групу(Приклад: /setgroup 1)\n" +
-        "/calc [question] - wolframalpha(Приклад: /calc x^2 = 4)")
+    await message.answer(text=f"/now - посилання на наступну пару\n" +
+        "/today - пари сьогодні\n" +
+        "/tomorrow - пари завтра\n" +
+        "/date - розклад по даті (Приклад: /date 08.03.2021)\n" +
+        "/week - розклад на тиждень\n" +
+        "/setgroup [group] - встановити групу (Приклад: /setgroup 1)\n" +
+        " • /setgroup 1 - для групи ІН-01/1\n" +
+        " • /setgroup 2 - для групи ІН-01/2\n" +
+        "/calc [question] - wolframalpha (Приклад: /calc x^2 = 4)")
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
@@ -266,7 +268,7 @@ async def echohelp(message: Message):
 
     users.set(users.getAccess(message.from_user.id), message.from_user.id, 'group', str(group))
 
-    await message.answer(text=f"Now your group - {group}")
+    await message.answer(text=f"Now your group - IN-01/{group}")
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):

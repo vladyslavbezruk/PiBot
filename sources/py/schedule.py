@@ -35,9 +35,9 @@ def help_get_url(id):
             classes_today = True
             break
     if classes_today:
-        return f"{subject['subject']}\n{subject['date']}\n{subject['teacher']}\n{subject['time']}\n{subject['url']}"
+        return f"For group ІН-01/{id}\n{subject['subject']}\n{subject['date']}\n{subject['teacher']}\n{subject['time']}\n{subject['url']}"
     else:
-        return 'There are no lessons today'
+        return f'There are no lessons today for group ІН-01/{id}'
 
 def help_today(id):
     schedule = get_subj_list(id)
@@ -50,9 +50,8 @@ def help_today(id):
     #Берем текущую дату и время в необходимом для сравнения варианте
     date = get_current_date()
 
-    result = ''
+    result = f'For group ІН-01/{id}\n'
     for subject in schedule:
-        print(subject['date'])
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_today = True
@@ -61,7 +60,7 @@ def help_today(id):
     if classes_today == True:
         return result
     else:
-        return 'There are no lessons today'
+        return f'There are no lessons today for group ІН-01/{id}'
 
 def help_tomorrow(id):
     schedule = get_subj_list(id)
@@ -73,7 +72,7 @@ def help_tomorrow(id):
     date = get_current_date()
     date = date_tomorrow(date)
 
-    result = ''
+    result = f'For group ІН-01/{id}\n'
     for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
@@ -82,14 +81,14 @@ def help_tomorrow(id):
     if result != '':
         return result
     else:
-        return 'There are no lessons tomorrow'
+        return f'There are no lessons today for group ІН-01/{id}'
 
 def help_week(id):
     schedule = get_subj_list(id)
 
     date = schedule[0]['date']
     flag = False
-    result = 'Розклад:\n'
+    result = f'Розклад для групи ІН-01/{id}:\n'
 
     for subject in schedule:
         if (subject['date'] == date):
@@ -111,14 +110,14 @@ def help_week(id):
     if result != '':
         return result
     else:
-        return 'There are no lessons'
+        return f'There are no lessons for group ІН-01/{id}'
 
 def help_date(id, date):
     schedule = get_subj_list(id)
     
     flag = False
 
-    result = f'Розклад на {date}:\n'
+    result = f'Розклад для групи ІН-01/{id} на {date}:\n'
 
     for subject in schedule:
         if (subject['date'] == date):
@@ -128,4 +127,4 @@ def help_date(id, date):
     if flag == True:
         return result
     else:
-        return date + ' немає занять' 
+        return date + f' немає занять для групи ІН-01/{id}'

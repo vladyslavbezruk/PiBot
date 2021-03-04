@@ -145,14 +145,14 @@ def get_subj_list(id):
         if subject['ABBR_DISC'] == '':
             dict_of_subject['name'] = subject['NAME_STUD']
         else:
-            dict_of_subject['name'] = subject['ABBR_DISC']
+            dict_of_subject['name'] = subject['ABBR_DISC'] + ' (' + subject['NAME_STUD'] + ')'
         
         dict_of_subject['name'] += ' ' + subject['REASON'] + ' ' + subject['NAME_AUD']
 
         dict_of_subject['time']     = time
         dict_of_subject['time_int'] = get_int_time(time)
         #dict_of_subject['url']      = url_of_subject(name)
-        print(name)
+
         dict_of_subject['teacher']  = subject['NAME_FIO']
         #Добавляем в список
         list_of_subjects.append(dict_of_subject)
