@@ -78,10 +78,10 @@ def help_tomorrow(id):
         if (subject['date'] == date):
             classes_tomorrow = True
             result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
-    if result != '':
+    if result != f'For group ІН-01/{id}\n':
         return result
     else:
-        return f'There are no lessons today for group ІН-01/{id}'
+        return f'There are no lessons tomorrow for group ІН-01/{id}'
 
 def help_week(id):
     schedule = get_subj_list(id)
@@ -107,7 +107,7 @@ def help_week(id):
                     flag = True
                 result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
                 
-    if result != '':
+    if result != f'Розклад для групи ІН-01/{id}:\n':
         return result
     else:
         return f'There are no lessons for group ІН-01/{id}'
