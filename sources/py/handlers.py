@@ -112,8 +112,8 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    await bot.send_document(chat_id=message.chat.id, document=open(schedule1json, 'rb'))
-    await bot.send_document(chat_id=message.chat.id, document=open(schedule2json, 'rb'))
+    for schedule in scheduleFilePath:
+        await bot.send_document(chat_id=message.chat.id, document=open(scheduleFilePath[schedule], 'rb'))
 
 @dp.message_handler(commands=['update'])
 async def echohelp(message: Message):
