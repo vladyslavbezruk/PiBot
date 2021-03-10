@@ -31,19 +31,17 @@ def help_get_url(id):
     
     for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
-        if (subject['date'] == date and time < subject['time_int']):
+        if subject['date'] == date and time < get_int_time(subject['time_end']):
             classes_today = True
             break
     if classes_today:
-        return f"For group ІН-01/{id}\n{subject['subject']}\n{subject['date']}\n{subject['teacher']}\n{subject['time']}\n{subject['url']}"
+        return f"For group ІН-01/{id}\n{subject['name']}\n{subject['date']}\n{subject['teacher']}\n{subject['time_begin']}-{subject['time_end']}\n{subject['url']}"
     else:
         return f'There are no lessons today for group ІН-01/{id}'
 
 def help_today(id):
     schedule = get_subj_list(id)
     
-    print(schedule)
-
     #Есть ли сегодня занятия, по умолчанию - нет
     classes_today = False
 
@@ -55,7 +53,7 @@ def help_today(id):
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_today = True
-            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
 
     if classes_today == True:
         return result
@@ -77,7 +75,7 @@ def help_tomorrow(id):
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_tomorrow = True
-            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
     if result != f'For group ІН-01/{id}\n':
         return result
     else:
@@ -95,7 +93,7 @@ def help_week(id):
             if flag == False:
                 result += '\n' + date + ':\n'
                 flag = True
-            result += ' • ' +  subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
         else:
             flag = False
             
@@ -105,7 +103,7 @@ def help_week(id):
                 if flag == False:
                     result += '\n' + date + ':\n'
                     flag = True
-                result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
+                result += ' • ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
                 
     if result != f'Розклад для групи ІН-01/{id}:\n':
         return result
@@ -122,7 +120,7 @@ def help_date(id, date):
     for subject in schedule:
         if (subject['date'] == date):
             flag = True
-            result += ' • ' + subject['time'] + ' - ' + subject['name'] + '\n'
+            result += ' • ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
 
     if flag == True:
         return result

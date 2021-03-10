@@ -93,7 +93,6 @@ def get_current_date():
     date = str(datetime.now().date()).split('-')
     date.reverse()
     date =  str(date[0]) + '.' + str(date[1]) + '.' + str(date[2])
-    print(date)
 
     return date
 
@@ -104,16 +103,14 @@ def get_current_time():
     return time
 
 #Принимает навзание предмета и возвращает ссылку на пару
-def url_of_subject(name):
-    return all_subjects[name]
+def url_of_subject(id, name):
+    return all_subjects[id][name]
 
 #Возвращает дату и время переданного ей предмета
 def get_int_time(time):
-    time = time[5:]
     time_int = time.split(':')
     time_int = int(time_int[0])*60 + int(time_int[1])
     return time_int
-
 
 def set_schedule(id):
     if id == '1':
@@ -124,7 +121,7 @@ def set_schedule(id):
 def sort_list(list):
     for i in range(0, len(list) - 1):
         for j in range(i + 1, len(list)):
-            if list[i]['date'] == list[j]['date'] and list[i]['time_int'] < list[j]['time_int']:
+            if list[i]['date'] == list[j]['date'] and get_int_time(list[i]['time_begin']) > get_int_time(list[j]['time_begin']):
                 tmp = list[i]
                 list[i] = list[j]
                 list[j] = tmp
@@ -146,14 +143,19 @@ def get_subj_list(id):
             dict_of_subject['name'] = subject['NAME_STUD']
         else:
             dict_of_subject['name'] = subject['ABBR_DISC'] + ' (' + subject['NAME_STUD'] + ')'
-        
+
         dict_of_subject['name'] += ' ' + subject['REASON'] + ' ' + subject['NAME_AUD']
 
-        dict_of_subject['time']     = time
-        dict_of_subject['time_int'] = get_int_time(time)
-        #dict_of_subject['url']      = url_of_subject(name)
+        #dict_of_subject['time']     = time
+        #dict_of_subject['time_int'] = get_int_time(time)
+
+        dict_of_subject['time_begin'] = time[0:5]
+        dict_of_subject['time_end']   = time[6:]
+
+        dict_of_subject['url']      = url_of_subject(id, name)
 
         dict_of_subject['teacher']  = subject['NAME_FIO']
+
         #Добавляем в список
         list_of_subjects.append(dict_of_subject)
 

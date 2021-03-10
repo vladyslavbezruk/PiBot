@@ -15,6 +15,8 @@ import datetime
 
 from schedule import * 
 
+import schedule_func
+
 import subprocess
 
 from main import bot, dp, client
@@ -129,6 +131,8 @@ async def echohelp(message: Message):
         return 0
    
     subprocess.call([f'./{sUpdate}'])
+
+    schedule_func.load()
 
     await message.answer(text="Schedules updated")
    
