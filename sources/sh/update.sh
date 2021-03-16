@@ -12,9 +12,4 @@ cd ../../resources/json/
 wget --cipher 'DEFAULT:!DH' "$site$id1" -O "$name1"
 wget --cipher 'DEFAULT:!DH' "$site$id2" -O "$name2"
 
-#ical2json ./"$name1"
-#ical2json ./"$name2"
-
-#rm "$name1" "$name2"
-
 cd ../../sources/sh/

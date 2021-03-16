@@ -104,7 +104,10 @@ def get_current_time():
 
 #Принимает навзание предмета и возвращает ссылку на пару
 def url_of_subject(id, name):
-    return all_subjects[id][name]
+    if all_subjects[id].get(name) != None:
+        return all_subjects[id][name]
+    else:
+        return 'No link'
 
 #Возвращает дату и время переданного ей предмета
 def get_int_time(time):

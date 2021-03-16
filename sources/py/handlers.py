@@ -55,7 +55,7 @@ async def echo(message: Message):
 
     if users.checkUser(message.from_user.id) == False:
         users.addUser('user', message.from_user.id, 'None')
-    
+
     await message.answer(text=f"Hello, {message.from_user.first_name}.\nSend me [/help] to find out all the commands")
     await mDebug(message)
 
