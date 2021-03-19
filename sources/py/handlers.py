@@ -34,13 +34,13 @@ import wolframalpha
 from collections import Counter
 
 async def registerMessage(message: Message):
-    await message.answer(text=f"{message.from_user.first_name}, you are a new user, write the command /start")
+    await message.answer(text=f"🆕{message.from_user.first_name}, Ви новий користувач, ✍️ напишіть команду /start")
 
 async def noAccessMessage(message: Message):
-    await message.answer(text=f"{message.from_user.first_name}, you do not have access to this command")
+    await message.answer(text=f"⛔️{message.from_user.first_name}, Ви не маєте доступу до цієї команди")
 
 async def invalidGroupMessage(message: Message):
-    await message.answer(text=f"{message.from_user.first_name}, pls write the command /setgroup (your group)")
+    await message.answer(text=f"⁉️{message.from_user.first_name}, у Вас не встановлена група, ✍️ напишіть команду /setgroup (ваша група)")
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
@@ -56,7 +56,7 @@ async def echo(message: Message):
     if users.checkUser(message.from_user.id) == False:
         users.addUser('user', message.from_user.id, 'None')
 
-    await message.answer(text=f"Hello, {message.from_user.first_name}.\nSend me [/help] to find out all the commands")
+    await message.answer(text=f"👋Hello, {message.from_user.first_name}.\n✍️Send me [/help] to find out all the commands")
     await mDebug(message)
 
 @dp.message_handler(commands=['help'])
@@ -72,15 +72,16 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
  
-    await message.answer(text=f"/now - посилання на наступну пару\n" +
-        "/today - пари сьогодні\n" +
-        "/tomorrow - пари завтра\n" +
-        "/date - розклад по даті (Приклад: /date 08.03.2021)\n" +
-        "/week - розклад на тиждень\n" +
-        "/setgroup [group] - встановити групу (Приклад: /setgroup 1)\n" +
-        " • /setgroup 1 - для групи ІН-01/1\n" +
-        " • /setgroup 2 - для групи ІН-01/2\n" +
-        "/calc [question] - wolframalpha (Приклад: /calc x^2 = 4)")
+    await message.answer(text=f"📜Перелік найважливіших команд:\n" +
+        "✳️/now - посилання на наступну пару\n" +
+        "✳️/today - пари сьогодні\n" +
+        "✳️/tomorrow - пари завтра\n" +
+        "✳️/date - розклад по даті (Приклад: /date 08.03.2021)\n" +
+        "✳️/week - розклад на тиждень\n" +
+        "✳️/setgroup [group] - встановити групу (Приклад: /setgroup 1)\n" +
+        " ✅ /setgroup 1 - для групи ІН-01/1\n" +
+        " ✅ /setgroup 2 - для групи ІН-01/2\n" +
+        "✳️/calc [question] - wolframalpha (Приклад: /calc x^2 = 4)")
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
@@ -267,12 +268,12 @@ async def echohelp(message: Message):
     group = message.text.replace("/setgroup ", "")
 
     if (group != '1' and group != '2'):
-        await message.answer(text=f"{message.from_user.first_name}, group must be 1 or 2")
+        await message.answer(text=f"⁉️{message.from_user.first_name}, номер групи має бути 1 або 2")
         return 0
 
     users.set(users.getAccess(message.from_user.id), message.from_user.id, 'group', str(group))
 
-    await message.answer(text=f"Now your group - IN-01/{group}")
+    await message.answer(text=f"‼️Зараз Ваша група - ІН-01/{group}")
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
