@@ -37,7 +37,7 @@ def help_get_url(id):
     if classes_today:
         return f"🔜Найближче заняття для групи ІН-01/{id}\n📢{subject['name']}\n🗓{subject['date']}\n👤{subject['teacher']}\n🕐{subject['time_begin']}-{subject['time_end']}\n⏩{subject['url']}"
     else:
-        return f'⛔Сьогодні немає занять для групи ІН-01/{id}'
+        return f'⛔Сьогодні вже немає наступних занять для групи ІН-01/{id}'
 
 def help_today(id):
     schedule = get_subj_list(id)
