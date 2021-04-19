@@ -21,7 +21,7 @@ import subprocess
 
 from main import bot, dp, client
 
-from aiogram.types import Message, User
+from aiogram.types import Message, User, ContentType
 
 from config import *
 
@@ -292,6 +292,48 @@ async def echohelp(message: Message):
         
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
     
+@dp.message_handler(commands=['addGroup'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/addGroup') == False:
+        await noAccessMessage(message)
+        return 0
+
+    group = message.text.replace("/addGroup ", "")
+
+    if chats.checkGroup(message.chat.id, group) == False:
+        chats.addGroup(message.chat.id, group)
+        await message.answer(text=f"Група {group} додана для автоматичного сповіщення в цьому чаті")
+    else:
+        await message.answer(text=f"Група {group} вже була додана для автоматичного сповіщення в цьому чаті")
+
+@dp.message_handler(commands=['removeGroup'])
+async def echohelp(message: Message):
+
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/removeGroup') == False:
+        await noAccessMessage(message)
+        return 0
+
+    group = message.text.replace("/removeGroup ", "")
+
+    if chats.checkGroup(message.chat.id, group) == True:
+        chats.removeGroup(message.chat.id, group)
+        await message.answer(text=f"Група {group} видалена для автоматичного сповіщення в цьому чаті")
+    else:
+        await message.answer(text=f"Група {group} вже була видалена для автоматичного сповіщення в цьому чаті")
+
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
 

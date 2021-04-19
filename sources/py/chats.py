@@ -24,7 +24,9 @@ def create(id):
     chat[id] = []
 
 def addChat(chat_id):
-    chats.append(create(id))
+    #chats.append(create(id))
+
+    chats[chat_id] = []
 
     save(chatsFilePath)
 
@@ -71,7 +73,7 @@ def removeGroup(chat_id, group):
         addChat(chat_id)
 
     if checkGroup(chat_id, group) == True:
-        chats.remove(group)
+        chats[chat_id].remove(group)
 
     save(chatsFilePath)
 
