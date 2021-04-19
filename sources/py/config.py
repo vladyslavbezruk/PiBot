@@ -27,3 +27,5 @@ usersFilePath = os.path.join("..", "..", "resources", "json", "users.json")
 groupsFilePath = os.path.join("..", "..", "resources", "json", "groups.json")
 
 subjectsFilePath = os.path.join("..", "..", "resources", "json", "subjects.json")
+
+chatsFilePath = os.path.join("..", "..", "resources", "json", "chats.json")

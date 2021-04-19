@@ -29,6 +29,8 @@ import time
 
 import wolframalpha
 
+import chats
+
 #import json_func
 
 from collections import Counter
@@ -400,3 +402,8 @@ async def echohelp(message: Message):
 
     result = help_week(str(group))
     await message.answer(text=result)
+
+@dp.message_handler(content_types = ContentType.TEXT)
+async def echoMessage(message: Message):
+    if chats.checkChat(message.chat.id) == False:
+        chats.addChat(message.chat.id)
