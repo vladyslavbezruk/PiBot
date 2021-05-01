@@ -9,6 +9,8 @@ from random import randrange
 import users
 import accesses
 
+import keyboard
+
 import sys
 
 import notifications
@@ -23,7 +25,7 @@ import subprocess
 
 from main import bot, dp, client
 
-from aiogram.types import Message, User, ContentType
+from aiogram.types import *
 
 from config import *
 
@@ -48,7 +50,6 @@ async def invalidGroupMessage(message: Message):
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
-    #loadall(1)
     await bot.send_message(chat_id=admin_id, text="Bot started!")
 
 async def mDebug(message: Message):
@@ -56,6 +57,7 @@ async def mDebug(message: Message):
 
 @dp.message_handler(commands=['start'])
 async def echo(message: Message):
+    await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)
 
     if users.checkUser(message.from_user.id) == False:
         users.addUser('user', message.from_user.id, 'None')
@@ -451,3 +453,5 @@ async def echohelp(message: Message):
 async def echoMessage(message: Message):
     if chats.checkChat(message.chat.id) == False:
         chats.addChat(message.chat.id)
+
+        await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup = keyboard.keyboard)
