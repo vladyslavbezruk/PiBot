@@ -4,6 +4,8 @@ import codecs  #Читаем с учетом кодировки
 
 from config import *
 
+import logs
+
 chats = {}
 
 def load(chatsFilePath):
@@ -25,6 +27,8 @@ def create(id):
 
 def addChat(chat_id):
     #chats.append(create(id))
+
+    logs.writeLog(f'Aded new chat with id {chat_id}')
 
     chats[chat_id] = []
 

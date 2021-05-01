@@ -35,6 +35,8 @@ import wolframalpha
 
 import chats
 
+import logs
+
 #import json_func
 
 from collections import Counter
@@ -50,9 +52,15 @@ async def invalidGroupMessage(message: Message):
 
 #Сообщение о включении бота
 async def send_to_admin(dp):
+    logs.writeLog('Bot started')
+
     await bot.send_message(chat_id=admin_id, text="Bot started!")
 
 async def mDebug(message: Message):
+    log_text = f"message = {message.text} username = @{message.from_user.username} name = {message.from_user.first_name} chat_id = {message.chat.id} user_id = {message.from_user.id}"
+
+    logs.writeLog(log_text)
+
     await bot.send_message(chat_id=admin_id, text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
 
 @dp.message_handler(commands=['start'])
@@ -63,12 +71,9 @@ async def echo(message: Message):
         users.addUser('user', message.from_user.id, 'None')
 
     await message.answer(text=f"👋Hello, {message.from_user.first_name}.\n✍️Send me [/help] to find out all the commands")
-    await mDebug(message)
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -92,8 +97,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
     
-    await mDebug(message)
-    
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -110,8 +113,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getjson'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -122,12 +123,12 @@ async def echohelp(message: Message):
         return 0
 
     for schedule in scheduleFilePath:
+        logs.writeLog('Sended jsons')
+
         await bot.send_document(chat_id=message.chat.id, document=open(scheduleFilePath[schedule], 'rb'))
 
 @dp.message_handler(commands=['update'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -139,14 +140,14 @@ async def echohelp(message: Message):
    
     subprocess.call([f'./{sUpdate}'])
 
+    logs.writeLog('Schedules updated')
+
     schedule_func.load()
 
     await message.answer(text="Schedules updated")
    
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -155,6 +156,8 @@ async def echohelp(message: Message):
     if users.checkCommand(message.from_user.id, '/getSource') == False:
         await noAccessMessage(message)
         return 0
+
+    logs.writeLog('Sended source')
 
     subprocess.call([f'./{createSource}'])
     await bot.send_document(chat_id=message.chat.id, document=open('../../PiBot.zip', 'rb'))
@@ -171,7 +174,6 @@ def compare(a, b, size):
 async def echohelp(message: Message):
 
     time = datetime.now()
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -187,13 +189,13 @@ async def echohelp(message: Message):
         accesses.save(accesses.accessesFilePath)
         users.save(users.usersFilePath)
 
+        logs.writeLog('Shutdown ...')
+
         sys.exit(0)
         return
 
 @dp.message_handler(commands=['getAccess'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -208,8 +210,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getCommands'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -226,8 +226,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['getCommandsAccess'])
 async def echohelp(message: Message):
 
-    await mDebug(message)
-
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -242,8 +240,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['save'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -253,6 +249,8 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
+    logs.writeLog('Saving data ...')
+
     accesses.save(accesses.accessesFilePath)
     users.save(users.usersFilePath)
     
@@ -260,8 +258,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['setgroup'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -283,8 +279,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -298,8 +292,6 @@ async def echohelp(message: Message):
     
 @dp.message_handler(commands=['addGroup'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -320,8 +312,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['removeGroup'])
 async def echohelp(message: Message):
 
-    await mDebug(message)
-
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -340,8 +330,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -363,8 +351,6 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):
-
-    await mDebug(message)
     
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -386,8 +372,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['date'])
 async def echohelp(message: Message):
 
-    await mDebug(message)
-
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -408,8 +392,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['tomorrow'])
 async def echohelp(message: Message):
 
-    await mDebug(message)
-    
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -430,8 +412,6 @@ async def echohelp(message: Message):
 @dp.message_handler(commands=['week'])
 async def echohelp(message: Message):
 
-    await mDebug(message)
-    
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -451,6 +431,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(content_types = ContentType.TEXT)
 async def echoMessage(message: Message):
+    await mDebug(message)
+
     if chats.checkChat(message.chat.id) == False:
         chats.addChat(message.chat.id)
 

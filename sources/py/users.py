@@ -2,6 +2,8 @@ import json    #Работаем с json
 
 import codecs  #Читаем с учетом кодировки
 
+import logs
+
 import os
 
 import accesses
@@ -45,6 +47,8 @@ def addUser(access, t_id, group):
     user['id'] = t_id
     user['group'] = group
     users[access].append(user)
+
+    logs.writeLog(f'Aded new user with id {t_id}')
 
 def searchUser(access, t_id):
     i = 0
