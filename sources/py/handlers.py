@@ -11,6 +11,8 @@ import accesses
 
 import sys
 
+import notifications
+
 import datetime
 
 from schedule import * 
