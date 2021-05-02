@@ -65,6 +65,8 @@ async def mDebug(message: Message):
 
 @dp.message_handler(commands=['start'])
 async def echo(message: Message):
+    await mDebug(message)
+
     await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)
 
     if users.checkUser(message.from_user.id) == False:
@@ -74,7 +76,8 @@ async def echo(message: Message):
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -96,7 +99,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -113,7 +117,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getjson'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -129,7 +134,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['update'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -148,7 +154,8 @@ async def echohelp(message: Message):
    
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -172,6 +179,7 @@ def compare(a, b, size):
 
 @dp.message_handler(commands=['shutdown'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     time = datetime.now()
     
@@ -196,6 +204,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getAccess'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -210,6 +219,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getCommands'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -225,6 +235,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getCommandsAccess'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -240,7 +251,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['save'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -258,7 +270,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['setgroup'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -279,7 +292,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -292,6 +306,7 @@ async def echohelp(message: Message):
     
 @dp.message_handler(commands=['addGroup'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -311,6 +326,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['removeGroup'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -330,7 +346,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['now'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -351,7 +368,8 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['today'])
 async def echohelp(message: Message):
-    
+    await mDebug(message)
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
@@ -371,6 +389,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['date'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -391,6 +410,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['tomorrow'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
@@ -411,6 +431,7 @@ async def echohelp(message: Message):
 
 @dp.message_handler(commands=['week'])
 async def echohelp(message: Message):
+    await mDebug(message)
 
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
