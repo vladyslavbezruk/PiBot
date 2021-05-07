@@ -36,7 +36,7 @@ def addChat(chat_id):
 
 def checkChat(chat_id):
     for key in chats.keys():
-        if chat_id == key:
+        if str(chat_id) == str(key):
             return True
     return False
 
