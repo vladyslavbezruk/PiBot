@@ -115,7 +115,7 @@ def help_date(id, date):
     
     flag = False
 
-    result = f'⏱РРозклад на {date} для групи ІН-01/{id}\n'
+    result = f'⏱Розклад на {date} для групи ІН-01/{id}\n'
 
     for subject in schedule:
         if (subject['date'] == date):
