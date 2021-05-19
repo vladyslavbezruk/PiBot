@@ -10,6 +10,8 @@ import json_func
 
 import files
 
+from time import sleep
+
 groups = files.loadFile(groupsFilePath)
 
 def getUrl(code):
@@ -30,13 +32,21 @@ def getSchedule(code):
 
     filename = 'schedule-' + code + '.json'
 
-    path = schedulesFilePath.join(filename)
+    path = schedulesFilePath
+
+    path += '/' + filename
+
+    #print(path)
 
     files.saveFile(schedule, path)
 
+''' download all
 for group in groups.keys():
     code = groups[group]
 
+    #sleep(0.1)
+
     getSchedule(code)
 
-
+print("Done!")
+'''

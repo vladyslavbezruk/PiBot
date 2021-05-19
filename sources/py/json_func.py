@@ -1,10 +1,19 @@
 import json
 
-import requests
-
 import asyncio
 
 import codecs
+
+import requests
+import urllib3
+
+requests.packages.urllib3.disable_warnings()
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+try:
+    requests.packages.urllib3.contrib.pyopenssl.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+except AttributeError:
+    # no pyopenssl support used / needed / available
+    pass
 
 def loadJson(path):
     with codecs.open(path, encoding = 'utf-8') as file:
@@ -17,6 +26,8 @@ def saveJson(data, path):
         json.dump(data, file)
 
 def downloadJson(url):
-    data = requests.get(url)
+    #data = requests.get(url)
+
+    data = requests.get(url, verify=False)
 
     return data.json()
