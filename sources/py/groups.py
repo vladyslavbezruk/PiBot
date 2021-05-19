@@ -2,32 +2,41 @@ import json    #Работаем с json
 
 import codecs  #Читаем с учетом кодировки
 
+from tree import *
+
 from config import *
 
-from users import load
+import json_func
 
-from datetime import datetime #Узнаем текущее время
+import files
 
-def loadGroups(groupsFilePath):
-    with codecs.open(groupsFilePath, encoding='utf-8') as groups_file:
-        groups = json.loads(groups_file.read())
-        
-    return groups
+groups = files.loadFile(groupsFilePath)
 
-def saveGroups(groupsFilePath, groups):
-    with codecs.open(groupsFilePat, "w", encoding='utf-8') as groups_file:
-        json.dump(groups, groups_file)
-        
-def updateGroupsList(usersFilePath, groups):
-    
-    users = load(usersFilePath):
-    
-    for access in users:
-        for user in access:
-            if groups.count(user['group']) == 0
-                groups.append(user['group'])
-                
-    return groups
-    
-def updatingGroupsList(usersFilePath, groupsFilePath):
-    saveGroups(groupsFilePath, updateGroupsList(usersFilePath, loadGroups(groupsFilePath)))
+def getUrl(code):
+    return site + code
+
+def getCode(name):
+    for group in groups.keys():
+        if group.lower() == name.lower():
+            return groups[group]
+    return -1
+
+def getSchedule(code):
+    print(code)
+
+    url = getUrl(code)
+
+    schedule = json_func.downloadJson(url)
+
+    filename = 'schedule-' + code + '.json'
+
+    path = schedulesFilePath.join(filename)
+
+    files.saveFile(schedule, path)
+
+for group in groups.keys():
+    code = groups[group]
+
+    getSchedule(code)
+
+
