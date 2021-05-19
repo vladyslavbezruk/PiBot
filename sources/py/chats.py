@@ -4,6 +4,8 @@ import codecs  #Читаем с учетом кодировки
 
 from config import *
 
+from tree import *
+
 import logs
 
 chats = {}

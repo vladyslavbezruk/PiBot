@@ -10,6 +10,8 @@ import accesses
 
 from config import *
 
+from tree import *
+
 users = {}
 
 def load(usersFilePath):

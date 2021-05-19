@@ -4,7 +4,7 @@ import codecs  #Читаем с учетом кодировки
 
 from datetime import datetime #Узнаем текущее время
 
-import config
+from tree import *
 
 schedule_1   = {}
 schedule_2   = {}
@@ -15,15 +15,15 @@ def load():
     global schedule_2 
     global all_subjects
 
-    with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule1_file:
+    with codecs.open(scheduleFilePath['1'], encoding='utf-8') as schedule1_file:
         #Сохраняем расписание в виде словаря Python
         schedule_1 = json.loads(schedule1_file.read())
 
-    with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule2_file:
+    with codecs.open(scheduleFilePath['2'], encoding='utf-8') as schedule2_file:
         #Сохраняем расписание в виде словаря Python
         schedule_2 = json.loads(schedule2_file.read())
 
-    with codecs.open(config.subjectsFilePath, encoding='utf-8') as subjects_file:
+    with codecs.open(subjectsFilePath, encoding='utf-8') as subjects_file:
         #Сохранем пары преподаватель-ссылка в виде словаря Python
         all_subjects = json.loads(subjects_file.read())
 

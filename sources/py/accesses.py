@@ -2,12 +2,11 @@ import json    #Работаем с json
 
 import codecs  #Читаем с учетом кодировки
 
+from tree import *
+
 import os
 
-accessesFilePath = os.path.join("..", "..", "resources", "json", "accesses.json")
-defAccessesFilePath = os.path.join("..", "..", "resources", "json", "defAccesses.json")
-
-accesses = {}
+accesses    = {}
 defAccesses = {}
 
 def loadDef(defAccessesFilePath):
