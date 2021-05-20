@@ -92,6 +92,7 @@ async def echohelp(message: Message):
         return 0
 
     await message.answer(text=f"📜Перелік найважливіших команд:\n" +
+        "📨/send [текст] - відправити анонімне повідомлення (порада, повідомлення про помилку, тощо)\n" +
         "✳️/now - посилання на наступну пару\n" +
         "✳️/today - пари сьогодні\n" +
         "✳️/tomorrow - пари завтра\n" +
@@ -481,7 +482,9 @@ async def echohelp(message: Message):
 
     messages.push(message)
 
-    text = f"⁉Message:\nusername = @{message.from_user.username} name = {message.from_user.first_name} chat_id = {message.chat.id} user_id = {message.from_user.id}\nMessage: {message.text}"
+    text_message = message.text.replace("/send ", "")
+
+    text = f"⁉Message:\nusername = @{message.from_user.username} name = {message.from_user.first_name} chat_id = {message.chat.id} user_id = {message.from_user.id}\nMessage: {text_message}"
     await bot.send_message(chat_id=admin_id, text=text)
 
     await message.answer(text='Анонімне повідомлення відправлено!')
