@@ -1,11 +1,9 @@
 #!/bin/bash
 
-chmod +x sources/sh/update.sh
 chmod +x sources/sh/createSource.sh
 
-cd sources/sh/
-./update.sh
+chmod +x sources/sh/removeSource.sh
 
-cd ../py/
+cd sources/py/
 
 python3 main.py

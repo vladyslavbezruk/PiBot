@@ -151,8 +151,6 @@ async def echohelp(message: Message):
 
     result = groups.update()
 
-    subprocess.call([f'./{sUpdate}'])
-
     logs.writeLog(result)
 
     schedule_func.load()

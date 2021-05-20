@@ -15,6 +15,10 @@ from config import *
 
 import schedule_func
 
+import groups
+
+groups.update()
+
 schedule_func.load()
 
 #json_func.sorting(1)
@@ -28,6 +32,7 @@ bot = Bot(BOT_TOKEN, parse_mode="HTML")
 dp = Dispatcher(bot, loop=loop)
 
 if __name__ == "__main__":
+    print('Bot started!')
     from handlers import dp, send_to_admin
     executor.start_polling(dp, on_startup=send_to_admin)
 

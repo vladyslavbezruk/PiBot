@@ -31,7 +31,7 @@ def getName(code):
             return group
 
 def getSchedule(code):
-    print(code)
+#    print(code)
 
     url = getUrl(code)
 

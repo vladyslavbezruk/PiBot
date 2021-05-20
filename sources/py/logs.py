@@ -12,6 +12,10 @@ from aiogram.types import *
 
 from config import *
 
+import groups
+
+from tree import *
+
 def writeLog(text):
     filename = 'log-' + str(datetime.now().date()) + '.log'
     time = str(datetime.now().time())
@@ -22,6 +26,10 @@ def writeLog(text):
         with codecs.open(logsFilePath, encoding='utf-8') as logs_file:
             logs = json.loads(logs_file.read())
     else:
+        groups.update()
+
+        subprocess.call([f'./{gitPush}'])
+
         logs = {}
 
     logs[time] = text
