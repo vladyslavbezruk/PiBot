@@ -75,7 +75,7 @@ async def echo(message: Message):
     if users.checkUser(message.from_user.id) == False:
         users.addUser('user', message.from_user.id, 'None')
 
-    await message.answer(text=f"👋Hello, {message.from_user.first_name}.\n✍️Send me [/help] to find out all the commands")
+    await message.answer(text=f"👋Привіт, {message.from_user.first_name}.\n✍️Відправ мені [/help] для того, щоб отримати список команд")
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
@@ -95,9 +95,8 @@ async def echohelp(message: Message):
         "✳️/tomorrow - пари завтра\n" +
         "✳️/date - розклад по даті (Приклад: /date 08.03.2021)\n" +
         "✳️/week - розклад на тиждень\n" +
-        "✳️/setgroup [group] - встановити групу (Приклад: /setgroup 1)\n" +
-        " ✅ /setgroup 1 - для групи ІН-01/1\n" +
-        " ✅ /setgroup 2 - для групи ІН-01/2\n" +
+        "✳️/setgroup [group] - встановити групу (Приклад: /setgroup ІН-01/2 або /setgroup ІТ-01/1)\n" +
+        "  Важливо⁉️ Вводити назву групи у форматі ІН-01/2 і тільки укр. мовою\n" +
         "✳️/calc [question] - wolframalpha (Приклад: /calc x^2 = 4)")
 
 @dp.message_handler(commands=['calc'])
