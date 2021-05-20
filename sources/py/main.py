@@ -19,10 +19,6 @@ import groups
 
 from tree import *
 
-import logs
-
-logs.gitPush()
-
 groups.update()
 
 schedule_func.load()
