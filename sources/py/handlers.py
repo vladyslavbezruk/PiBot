@@ -37,6 +37,8 @@ import chats
 
 import logs
 
+import groups
+
 #import json_func
 
 from collections import Counter
@@ -144,14 +146,16 @@ async def echohelp(message: Message):
     if users.checkCommand(message.from_user.id, '/update') == False:
         await noAccessMessage(message)
         return 0
-   
+
+    result = groups.update()
+
     subprocess.call([f'./{sUpdate}'])
 
-    logs.writeLog('Schedules updated')
+    logs.writeLog(result)
 
     schedule_func.load()
 
-    await message.answer(text="Schedules updated")
+    await message.answer(text=result)
    
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):

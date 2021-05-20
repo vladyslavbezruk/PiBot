@@ -4,6 +4,8 @@ import codecs  #Читаем с учетом кодировки
 
 from tree import *
 
+import os
+
 from config import *
 
 import json_func
@@ -39,6 +41,29 @@ def getSchedule(code):
     #print(path)
 
     files.saveFile(schedule, path)
+
+    return schedule
+
+def update():
+    flag = 0
+    result = 'Оновлено розклад для: '
+
+    for group in groups.keys():
+        code = groups[group]
+        filename = 'schedule-' + code + '.json'
+        path = schedulesFilePath + '/' + filename
+
+        if os.path.exists(path) == True:
+            flag = 1
+            getSchedule(code)
+
+            result += '{group} '
+            print(f'Updated {code}')
+    if flag:
+        return result
+    else:
+        return 'Не було оновлено розклад'
+
 
 ''' download all
 for group in groups.keys():
