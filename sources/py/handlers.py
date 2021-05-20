@@ -39,6 +39,8 @@ import logs
 
 import groups
 
+import messages
+
 #import json_func
 
 from collections import Counter
@@ -463,6 +465,26 @@ async def echohelp(message: Message):
 
     result = help_week(str(group))
     await message.answer(text=result)
+
+
+@dp.message_handler(commands=['send'])
+async def echohelp(message: Message):
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/send') == False:
+        await noAccessMessage(message)
+        return 0
+
+    messages.push(message)
+
+    text = f"⁉Message:\nusername = @{message.from_user.username} name = {message.from_user.first_name} chat_id = {message.chat.id} user_id = {message.from_user.id}\nMessage: {message.text}"
+    await bot.send_message(chat_id=admin_id, text=text)
+
+    await message.answer(text='Анонімне повідомлення відправлено!')
 
 @dp.message_handler(content_types = ContentType.TEXT)
 async def echoMessage(message: Message):
