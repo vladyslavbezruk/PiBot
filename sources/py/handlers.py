@@ -84,11 +84,11 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/help') == False:
         await noAccessMessage(message)
         return 0
- 
+
     await message.answer(text=f"📜Перелік найважливіших команд:\n" +
         "✳️/now - посилання на наступну пару\n" +
         "✳️/today - пари сьогодні\n" +
@@ -367,6 +367,8 @@ async def echohelp(message: Message):
         await invalidGroupMessage(message)
         return 0
 
+    group = groups.getCode(str(group))
+
     result = help_get_url(str(group))
     
     await message.answer(result)
@@ -389,6 +391,8 @@ async def echohelp(message: Message):
         await invalidGroupMessage(message)
         return 0
 
+    group = groups.getCode(str(group))
+
     result = help_today(str(group))
     await message.answer(text=result)
 
@@ -409,6 +413,8 @@ async def echohelp(message: Message):
     if group == 'None':
         await invalidGroupMessage(message)
         return 0
+
+    group = groups.getCode(str(group))
 
     result = help_date(str(group), message.text.replace("/date ", ""))
     await message.answer(text=result)
@@ -431,6 +437,8 @@ async def echohelp(message: Message):
         await invalidGroupMessage(message)
         return 0
 
+    group = groups.getCode(str(group))
+
     result = help_tomorrow(str(group))
     await message.answer(text=result)
 
@@ -451,6 +459,8 @@ async def echohelp(message: Message):
     if group == 'None':
         await invalidGroupMessage(message)
         return 0
+
+    group = groups.getCode(str(group))
 
     result = help_week(str(group))
     await message.answer(text=result)

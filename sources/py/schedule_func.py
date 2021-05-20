@@ -34,6 +34,7 @@ def load():
     '''
 
     global schedules
+    global all_subjects
 
     schedules = {}
 
@@ -129,6 +130,12 @@ def get_current_time():
 
 #Принимает навзание предмета и возвращает ссылку на пару
 def url_of_subject(id, name):
+
+#    print(id)
+#    print(all_subjects)
+
+    if id not in all_subjects.keys():
+        return 'No link'
     if all_subjects[id].get(name) != None:
         return all_subjects[id][name]
     else:
