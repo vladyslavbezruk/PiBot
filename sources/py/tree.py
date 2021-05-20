@@ -9,8 +9,6 @@ createSource = "../sh/createSource.sh"
 
 removeSource = "../sh/removeSource.sh"
 
-gitPush = "../sh/git-push.sh"
-
 schedulesFilePath = os.path.join("..", "..", "resources", "json", "schedules")
 
 scheduleFilePath = {}

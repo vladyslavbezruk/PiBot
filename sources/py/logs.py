@@ -16,6 +16,9 @@ import groups
 
 from tree import *
 
+def gitPush():
+    os.system("./../../git-push.sh")
+
 def writeLog(text):
     filename = 'log-' + str(datetime.now().date()) + '.log'
     time = str(datetime.now().time())
@@ -27,8 +30,7 @@ def writeLog(text):
             logs = json.loads(logs_file.read())
     else:
         groups.update()
-
-        subprocess.call([f'./{gitPush}'])
+        gitPush()
 
         logs = {}
 

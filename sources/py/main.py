@@ -19,9 +19,9 @@ import groups
 
 from tree import *
 
-import subprocess
+import logs
 
-subprocess.call([f'./{gitPush}'])
+logs.gitPush()
 
 groups.update()
 
