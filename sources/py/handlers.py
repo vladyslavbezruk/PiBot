@@ -287,13 +287,13 @@ async def echohelp(message: Message):
         
     group = message.text.replace("/setgroup ", "")
 
-    if (group != '1' and group != '2'):
-        await message.answer(text=f"⁉️{message.from_user.first_name}, номер групи має бути 1 або 2")
+    if (group not in groups.groups.keys()):
+        await message.answer(text=f"⁉️{message.from_user.first_name}, немає такої групи")
         return 0
 
     users.set(users.getAccess(message.from_user.id), message.from_user.id, 'group', str(group))
 
-    await message.answer(text=f"‼️Зараз Ваша група - ІН-01/{group}")
+    await message.answer(text=f"‼️Зараз Ваша група - {group}")
 
 @dp.message_handler(commands=['getid'])
 async def echohelp(message: Message):

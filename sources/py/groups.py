@@ -57,15 +57,14 @@ def update():
             flag = 1
             getSchedule(code)
 
-            result += '{group} '
+            result += f'{group} '
             print(f'Updated {code}')
     if flag:
         return result
     else:
         return 'Не було оновлено розклад'
 
-
-''' download all
+'''
 for group in groups.keys():
     code = groups[group]
 
