@@ -18,8 +18,12 @@ help_week()
 
 from schedule_func import *
 
+import groups
+
 #Возвращает словарь с описанием ближайшего занятия или None
 def help_get_url(id):
+    name = groups.getName(id)
+
     schedule = get_subj_list(id)
 
     #Есть ли сегодня занятия, по умолчанию - нет
@@ -35,11 +39,13 @@ def help_get_url(id):
             classes_today = True
             break
     if classes_today:
-        return f"🔜Найближче заняття для групи ІН-01/{id}\n📢{subject['name']}\n🗓{subject['date']}\n👤{subject['teacher']}\n🕐{subject['time_begin']}-{subject['time_end']}\n⏩{subject['url']}"
+        return f"🔜Найближче заняття для групи {name}\n📢{subject['name']}\n🗓{subject['date']}\n👤{subject['teacher']}\n🕐{subject['time_begin']}-{subject['time_end']}\n⏩{subject['url']}"
     else:
-        return f'⛔Сьогодні вже немає наступних занять для групи ІН-01/{id}'
+        return f'⛔Сьогодні вже немає наступних занять для групи {name}'
 
 def help_today(id):
+    name = groups.getName(id)
+
     schedule = get_subj_list(id)
     
     #Есть ли сегодня занятия, по умолчанию - нет
@@ -48,7 +54,7 @@ def help_today(id):
     #Берем текущую дату и время в необходимом для сравнения варианте
     date = get_current_date()
 
-    result = f'⏱Розклад на сьогодні для групи ІН-01/{id}\n' 
+    result = f'⏱Розклад на сьогодні для групи {name}\n'
     for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
@@ -58,9 +64,11 @@ def help_today(id):
     if classes_today == True:
         return result
     else:
-        return f'⛔️Сьогодні немає занять для групи ІН-01/{id}'
+        return f'⛔️Сьогодні немає занять для групи {name}'
 
 def help_tomorrow(id):
+    name = groups.getName(id)
+
     schedule = get_subj_list(id)
 
     #Есть ли сегодня занятия, по умолчанию - нет
@@ -70,23 +78,25 @@ def help_tomorrow(id):
     date = get_current_date()
     date = date_tomorrow(date)
 
-    result = f'⏱Розклад на завтра для групи ІН-01/{id}\n'
+    result = f'⏱Розклад на завтра для групи {name}\n'
     for subject in schedule:
         #Если дата текущая и время меньше, чем начало пары
         if (subject['date'] == date):
             classes_tomorrow = True
             result += ' ✅ ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
-    if result != f'⏱Розклад на завтра для групи ІН-01/{id}\n':
+    if result != f'⏱Розклад на завтра для групи {name}\n':
         return result
     else:
-        return f'⛔Завтра немає занять для групи ІН-01/{id}'
+        return f'⛔Завтра немає занять для групи {name}'
 
 def help_week(id):
+    name = groups.getName(id)
+
     schedule = get_subj_list(id)
 
     date = schedule[0]['date']
     flag = False
-    result = f'⏱Розклад на тиждень для групи ІН-01/{id}\n'
+    result = f'⏱Розклад на тиждень для групи {name}\n'
 
     for subject in schedule:
         if (subject['date'] == date):
@@ -105,17 +115,19 @@ def help_week(id):
                     flag = True
                 result += ' ✅ ' + subject['time_begin'] + '-' + subject['time_end'] + ' - ' + subject['name'] + '\n'
                 
-    if result != f'⏱Розклад на тиждень для групи ІН-01/{id}\n':
+    if result != f'⏱Розклад на тиждень для групи {name}\n':
         return result
     else:
-        return f'⛔На цей тиджень немає занять для групи ІН-01/{id}'
+        return f'⛔На цей тиджень немає занять для групи {name}'
 
 def help_date(id, date):
+    name = groups.getName(id)
+
     schedule = get_subj_list(id)
     
     flag = False
 
-    result = f'⏱Розклад на {date} для групи ІН-01/{id}\n'
+    result = f'⏱Розклад на {date} для групи {name}\n'
 
     for subject in schedule:
         if (subject['date'] == date):
@@ -125,4 +137,4 @@ def help_date(id, date):
     if flag == True:
         return result
     else:
-        return f'⛔На {date} немає занять для групи ІН-01/{id}'
+        return f'⛔На {date} немає занять для групи {name}'

@@ -25,6 +25,11 @@ def getCode(name):
             return groups[group]
     return -1
 
+def getName(code):
+    for group in groups.keys():
+        if groups[group].lower() == code.lower():
+            return group
+
 def getSchedule(code):
     print(code)
 

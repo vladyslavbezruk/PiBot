@@ -6,11 +6,20 @@ from datetime import datetime #Узнаем текущее время
 
 from tree import *
 
+from config import *
+
+import groups
+
+schedules = {}
+
+'''
 schedule_1   = {}
 schedule_2   = {}
+'''
 all_subjects = {}
 
 def load():
+    '''
     global schedule_1
     global schedule_2 
     global all_subjects
@@ -22,6 +31,22 @@ def load():
     with codecs.open(scheduleFilePath['2'], encoding='utf-8') as schedule2_file:
         #Сохраняем расписание в виде словаря Python
         schedule_2 = json.loads(schedule2_file.read())
+    '''
+
+    global schedules
+
+    schedules = {}
+
+    for group in groups.groups.keys():
+        code = groups.groups[group]
+        filename = 'schedule-' + code + '.json'
+        path = schedulesFilePath + '/' + filename
+
+        if os.path.exists(path) == True:
+            with codecs.open(path, encoding='utf-8') as schedule_file:
+                schedule = json.loads(schedule_file.read())
+
+            schedules[code] = schedule
 
     with codecs.open(subjectsFilePath, encoding='utf-8') as subjects_file:
         #Сохранем пары преподаватель-ссылка в виде словаря Python
@@ -116,10 +141,15 @@ def get_int_time(time):
     return time_int
 
 def set_schedule(id):
-    if id == '1':
-        return schedule_1
-    else:
-        return schedule_2
+    code = id
+    filename = 'schedule-' + code + '.json'
+    path = schedulesFilePath + '/' + filename
+
+    if os.path.exists(path) == False:
+        groups.getSchedule(code)
+        load()
+
+    return schedules[code]
 
 def sort_list(list):
     for i in range(0, len(list) - 1):
