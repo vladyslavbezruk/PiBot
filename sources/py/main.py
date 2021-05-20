@@ -17,6 +17,12 @@ import schedule_func
 
 import groups
 
+from tree import *
+
+import subprocess
+
+subprocess.call([f'./{gitPush}'])
+
 groups.update()
 
 schedule_func.load()
@@ -35,5 +41,3 @@ if __name__ == "__main__":
     print('Bot started!')
     from handlers import dp, send_to_admin
     executor.start_polling(dp, on_startup=send_to_admin)
-
-
