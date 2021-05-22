@@ -10,8 +10,8 @@
 		"Іноземна мова (практичне заняття)": "https://us02web.zoom.us/j/83167426855?pwd=UlRmeGZ6TjNaR0dnZGZ2cGZWYnJDUT09",
 		"Іноземна мова (консультаційна робота за розкладом)": "https://us02web.zoom.us/j/83167426855?pwd=UlRmeGZ6TjNaR0dnZGZ2cGZWYnJDUT09",
 		" (кураторська година)": "https://meet.google.com/ryk-rsxx-crr",
-                "Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
-                "Обслуговування комп'ютерної те (лабораторне заняття)": "https://meet.google.com/tez-gvqx-ovx"
+		"Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
+		"Обслуговування комп'ютерної те (лабораторне заняття)": "https://meet.google.com/tez-gvqx-ovx"
 	},
 	"1002728": {
 		"Дискретна математика (лекція)": "https://sumdu.webex.com/meet/z.maslova",
@@ -24,8 +24,34 @@
 		"Іноземна мова (практичне заняття)": "https://meet.google.com/rrt-sryh-cky?hs=224",
 		"Іноземна мова (консультаційна робота за розкладом)": "https://meet.google.com/rrt-sryh-cky?hs=224",
 		" (кураторська година)": "https://meet.google.com/ryk-rsxx-crr",
-                "Іноземна мова (атестація)": "https://meet.google.com/bdd-durd-hnj?hs=224",
-	        "Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
-                "Обслуговування комп'ютерної те (лабораторне заняття)": "https://meet.google.com/tez-gvqx-ovx"
+		"Іноземна мова (атестація)": "https://meet.google.com/bdd-durd-hnj?hs=224",
+		"Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
+		"Обслуговування комп'ютерної те (лабораторне заняття)": "https://meet.google.com/tez-gvqx-ovx"
+	},
+	"1002729": {
+		"Дискретна математика (лекція)": "http://sumdu.webex.com/meet/z.maslova",
+		"Дискретна математика (лабораторне заняття)": "http://sumdu.webex.com/meet/z.maslova",
+		"Програмування (лекція)": "https://meet.google.com/pxg-quuk-kgk",
+		"Програмування (лабораторне заняття)": "https://meet.google.com/mvp-kgny-yny",
+		"Вища математика (практичне заняття)": "ВМ-1 - https://meet.google.com/dhh-fqti-vtv?hs=122&authuser=2\nВМ-3 - https://meet.google.com/skx-twxw-xsy",
+		"Вища математика (лекція)": "https://teams.microsoft.com/l/meetup-join/19%3Ameeting_OTFlNjRhMDMtNDIxNy00NGRmLTg3NTEtNjNlOWRhNjM5MzRl%40thread.v2/0?context=%7B%22Tid%22%3A%2263d48d45-7904-4c36-b163-ed14a30122b8%22%2C%22Oid%22%3A%22b8931f6e-9e13-4160-8a63-92a32fbaefc6%22%7D",
+		"Інтегрований курс \"Основи акад (практичне заняття)": "http://meet.google.com/hxa-aaje-hia",
+		"Іноземна мова (практичне заняття)": "https://meet.google.com/vwr-zxqp-qqm",
+		"Іноземна мова (консультаційна робота за розкладом)": "https://meet.google.com/vwr-zxqp-qqm",
+		"Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
+		"Обслуговування комп'ютерної те (лабораторне заняття)": "https://us02web.zoom.us/j/85086317031?pwd=Qm96R2h4ZUhoTi9ENWlPclZ6V0Mwdz09"
+	},
+	"1002730": {
+		"Дискретна математика (лекція)": "http://sumdu.webex.com/meet/z.maslova",
+		"Дискретна математика (лабораторне заняття)": "http://sumdu.webex.com/meet/z.maslova",
+		"Програмування (лекція)": "https://meet.google.com/pxg-quuk-kgk",
+		"Програмування (лабораторне заняття)": "https://meet.google.com/twv-ardp-tyq",
+		"Вища математика (практичне заняття)": "ВМ-1 - https://meet.google.com/dhh-fqti-vtv?hs=122&authuser=2\nВМ-3 - https://meet.google.com/skx-twxw-xsy",
+		"Вища математика (лекція)": "https://teams.microsoft.com/l/meetup-join/19%3Ameeting_OTFlNjRhMDMtNDIxNy00NGRmLTg3NTEtNjNlOWRhNjM5MzRl%40thread.v2/0?context=%7B%22Tid%22%3A%2263d48d45-7904-4c36-b163-ed14a30122b8%22%2C%22Oid%22%3A%22b8931f6e-9e13-4160-8a63-92a32fbaefc6%22%7D",
+		"Інтегрований курс \"Основи акад (практичне заняття)": "http://meet.google.com/hxa-aaje-hia",
+		"Іноземна мова (практичне заняття)": "https://meet.google.com/odb-xuwf-ffa",
+		"Іноземна мова (консультаційна робота за розкладом)": "https://meet.google.com/odb-xuwf-ffa",
+		"Обслуговування комп'ютерної те (лекція)": "http://meet.google.com/jfg-dtta-miq",
+		"Обслуговування комп'ютерної те (лабораторне заняття)": "https://us02web.zoom.us/j/84606774643?pwd=ME4vWXVjdVFMcXdJcWdJMHl4OFB6UT09"
 	}
 }
