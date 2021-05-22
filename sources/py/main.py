@@ -4,11 +4,7 @@ import chats
 
 import wolframalpha
 
-#import json_func
-
 import users
-
-#import groups 
 
 from aiogram import Bot, Dispatcher, executor, types
 from config import *
@@ -22,11 +18,6 @@ from tree import *
 groups.update()
 
 schedule_func.load()
-
-#json_func.sorting(1)
-#json_func.sorting(2)
-
-#groups.updatingGroupsList(usersFilePath, groupsFilePath)
 
 client = wolframalpha.Client(BOT_WOLF_TOKEN)
 loop = asyncio.get_event_loop()

@@ -65,7 +65,6 @@ async def mDebug(message: Message):
 
     logs.writeLog(log_text)
 
-#    await bot.forward_message(admin_id, message.from_user.id, message.message_id) 
     await bot.send_message(chat_id=admin_id, text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
 
 @dp.message_handler(commands=['start'])

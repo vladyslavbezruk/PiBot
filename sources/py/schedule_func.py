@@ -12,27 +12,9 @@ import groups
 
 schedules = {}
 
-'''
-schedule_1   = {}
-schedule_2   = {}
-'''
 all_subjects = {}
 
 def load():
-    '''
-    global schedule_1
-    global schedule_2 
-    global all_subjects
-
-    with codecs.open(scheduleFilePath['1'], encoding='utf-8') as schedule1_file:
-        #Сохраняем расписание в виде словаря Python
-        schedule_1 = json.loads(schedule1_file.read())
-
-    with codecs.open(scheduleFilePath['2'], encoding='utf-8') as schedule2_file:
-        #Сохраняем расписание в виде словаря Python
-        schedule_2 = json.loads(schedule2_file.read())
-    '''
-
     global schedules
     global all_subjects
 
@@ -52,20 +34,6 @@ def load():
     with codecs.open(subjectsFilePath, encoding='utf-8') as subjects_file:
         #Сохранем пары преподаватель-ссылка в виде словаря Python
         all_subjects = json.loads(subjects_file.read())
-
-'''
-with codecs.open(config.scheduleFilePath['1'], encoding='utf-8') as schedule_file:
-    #Сохраняем расписание в виде словаря Python
-    schedule_1 = json.loads(schedule_file.read())
-    
-with codecs.open(config.scheduleFilePath['2'], encoding='utf-8') as schedule_file:
-    #Сохраняем расписание в виде словаря Python
-    schedule_2 = json.loads(schedule_file.read())
-
-with codecs.open(config.subjectsFilePath, encoding='utf-8') as subjects_file:
-    #Сохранем пары преподаватель-ссылка в виде словаря Python
-    all_subjects = json.loads(subjects_file.read())
-'''
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 
@@ -130,10 +98,6 @@ def get_current_time():
 
 #Принимает навзание предмета и возвращает ссылку на пару
 def url_of_subject(id, name):
-
-#    print(id)
-#    print(all_subjects)
-
     if id not in all_subjects.keys():
         return 'No link'
     if all_subjects[id].get(name) != None:
@@ -186,9 +150,6 @@ def get_subj_list(id):
 
         dict_of_subject['name'] += ' ' + subject['REASON'] + ' ' + subject['NAME_AUD']
 
-        #dict_of_subject['time']     = time
-        #dict_of_subject['time_int'] = get_int_time(time)
-
         dict_of_subject['time_begin'] = time[0:5]
         dict_of_subject['time_end']   = time[6:]
 
@@ -203,4 +164,4 @@ def get_subj_list(id):
 
     return list_of_subjects
 
-''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- ''' 
+''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''

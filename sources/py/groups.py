@@ -31,8 +31,6 @@ def getName(code):
             return group
 
 def getSchedule(code):
-#    print(code)
-
     url = getUrl(code)
 
     schedule = json_func.downloadJson(url)
@@ -42,8 +40,6 @@ def getSchedule(code):
     path = schedulesFilePath
 
     path += '/' + filename
-
-    #print(path)
 
     files.saveFile(schedule, path)
 
@@ -68,14 +64,3 @@ def update():
         return result
     else:
         return 'Не було оновлено розклад'
-
-'''
-for group in groups.keys():
-    code = groups[group]
-
-    #sleep(0.1)
-
-    getSchedule(code)
-
-print("Done!")
-'''

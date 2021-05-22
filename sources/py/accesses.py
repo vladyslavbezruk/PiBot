@@ -67,18 +67,4 @@ def checkCommand(access, command):
     else:
         return False
 
-'''
-print(add('admin1', '/set'))
-print(add('admin', '/set1'))
-print(add('admin', '/set2'))
-print(remove('admin', '/update'))
-print(remove('admin', '/update'))
-
-print(checkCommand('admin', '/getJson'))
-print(checkCommand('admin', '/update'))
-'''
-
-#save(accessesFile)
-
 load(accessesFilePath)
-

@@ -12,7 +12,6 @@ requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
 try:
     requests.packages.urllib3.contrib.pyopenssl.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
 except AttributeError:
-    # no pyopenssl support used / needed / available
     pass
 
 def loadJson(path):
@@ -26,8 +25,6 @@ def saveJson(data, path):
         json.dump(data, file)
 
 def downloadJson(url):
-    #data = requests.get(url)
-
     data = requests.get(url, verify=False)
 
     return data.json()

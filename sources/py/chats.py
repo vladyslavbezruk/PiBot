@@ -28,8 +28,6 @@ def create(id):
     chat[id] = []
 
 def addChat(chat_id):
-    #chats.append(create(id))
-
     logs.writeLog(f'Aded new chat with id {chat_id}')
 
     chats[chat_id] = []
