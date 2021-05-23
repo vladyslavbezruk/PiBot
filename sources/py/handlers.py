@@ -41,7 +41,7 @@ import groups
 
 import messages
 
-#import json_func
+import threading
 
 from collections import Counter
 
@@ -320,10 +320,14 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    group = message.text.replace("/addGroup ", "")
+    group = str(message.text.replace("/addGroup ", ""))
+    chat_id = str(message.chat.id)
 
-    if chats.checkGroup(message.chat.id, group) == False:
-        chats.addGroup(message.chat.id, group)
+    if group not in groups.groups.keys():
+        await message.answer(text=f"Немає такої групи як {group}")
+        return
+    if chats.checkGroup(chat_id, group) == False:
+        chats.addGroup(chat_id, group)
         await message.answer(text=f"Група {group} додана для автоматичного сповіщення в цьому чаті")
     else:
         await message.answer(text=f"Група {group} вже була додана для автоматичного сповіщення в цьому чаті")
@@ -340,10 +344,11 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    group = message.text.replace("/removeGroup ", "")
+    group = str(message.text.replace("/removeGroup ", ""))
+    chat_id = str(message.chat.id)
 
-    if chats.checkGroup(message.chat.id, group) == True:
-        chats.removeGroup(message.chat.id, group)
+    if chats.checkGroup(chat_id, group) == True:
+        chats.removeGroup(chat_id, group)
         await message.answer(text=f"Група {group} видалена для автоматичного сповіщення в цьому чаті")
     else:
         await message.answer(text=f"Група {group} вже була видалена для автоматичного сповіщення в цьому чаті")

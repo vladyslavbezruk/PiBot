@@ -8,6 +8,8 @@ from tree import *
 
 import logs
 
+import groups
+
 chats = {}
 
 def load(chatsFilePath):
@@ -44,7 +46,7 @@ def findChat(chat_id):
     i = 0
 
     for key in chats.keys():
-        if chat_id == key:
+        if str(chat_id) == str(key):
             return i
         i = i + 1
     return -1
