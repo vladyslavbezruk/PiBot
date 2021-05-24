@@ -16,7 +16,7 @@ async def check(sleep):
     while True:
         await asyncio.sleep(sleep)
 
-        print('checked')
+#        print('checked')
 
         date = schedule_func.get_current_date()
         time = schedule_func.get_current_time()
