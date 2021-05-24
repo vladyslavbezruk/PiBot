@@ -35,8 +35,11 @@ async def check(sleep):
                 if subject['date'] == date and schedule_func.get_int_time(subject['time_end']) > max:
                     max = schedule_func.get_int_time(subject['time_end'])
 
-            if max == time:
+            if max == time and max > 0:
                 for chat_id in chats.chats.keys():
                     if name in chats.chats[chat_id]:
                         await bot.send_message(chat_id=chat_id, text=f"⁉Автоматичне сповіщення:\nЗаняття для групи {name} закінчились!")
-
+            elif max == time and max == 0:
+                for chat_id in chats.chats.keys():
+                    if name in chats.chats[chat_id]:
+                        await bot.send_message(chat_id=chat_id, text=f"⁉Автоматичне сповіщення:\nСьогодні немає занять для групи {name}!")

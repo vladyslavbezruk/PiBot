@@ -51,13 +51,13 @@ def remove(access, command):
 def getCommands(access):
 
     if check(access):
-        result = f'In access level {access} available commands:'
+        result = f'У вас рівень {access}. Ви маєте такі команди:'
 
         for command in accesses[access]:
             result += f'\n\t{command}'
 
     else:
-        result = f'There is no {access} level of access\n'
+        result = f'Немає команд для рівня {access}\n'
 
     return result
 
