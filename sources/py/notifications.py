@@ -23,7 +23,7 @@ async def check(sleep):
             schedule = schedule_func.get_subj_list(code)
             name = groups.getName(code)
 
-            flag = 0
+            max = 0
 
             for subject in schedule:
                 if subject['date'] == date and schedule_func.get_int_time(subject['time_begin']) - time == time_before:
@@ -32,10 +32,10 @@ async def check(sleep):
                         if name in chats.chats[chat_id]:
                             await bot.send_message(chat_id=chat_id, text=answer)
 
-                if subject['date'] == date and time < schedule_func.get_int_time(subject['time_end']):
-                    flag = 1
+                if subject['date'] == date and schedule_func.get_int_time(subject['time_end']) > max:
+                    max = schedule_func.get_int_time(subject['time_end'])
 
-            if flag == 0:
+            if max == time:
                 for chat_id in chats.chats.keys():
                     if name in chats.chats[chat_id]:
                         await bot.send_message(chat_id=chat_id, text=f"⁉Автоматичне сповіщення:\nЗаняття для групи {name} закінчились!")
