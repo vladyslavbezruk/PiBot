@@ -2,8 +2,7 @@ import os
 
 import asyncio
 
-accessesFilePath = os.path.join("..", "..", "resources", "json", "accesses.json")
-defAccessesFilePath = os.path.join("..", "..", "resources", "json", "defAccesses.json")
+accessesFilePath = os.path.join("..", "..", "resources", "json", "commands", "accesses.json")
 
 createSource = "../sh/createSource.sh"
 
@@ -13,12 +12,12 @@ schedulesFilePath = os.path.join("..", "..", "resources", "json", "schedules")
 
 scheduleFilePath = {}
 
-usersFilePath = os.path.join("..", "..", "resources", "json", "users.json")
+usersFilePath = os.path.join("..", "..", "resources", "json", "users", "users.json")
 
-groupsFilePath = os.path.join("..", "..", "resources", "json", "groups.json")
+groupsFilePath = os.path.join("..", "..", "resources", "json", "schedules", "groups.json")
 
-subjectsFilePath = os.path.join("..", "..", "resources", "json", "subjects.json")
+subjectsFilePath = os.path.join("..", "..", "resources", "json", "schedules", "subjects.json")
 
-chatsFilePath = os.path.join("..", "..", "resources", "json", "chats.json")
+chatsFilePath = os.path.join("..", "..", "resources", "json", "users", "chats.json")
 
-messagesFilePath = os.path.join("..", "..", "resources", "json", "messages.json")
+messagesFilePath = os.path.join("..", "..", "resources", "json", "users", "messages.json")

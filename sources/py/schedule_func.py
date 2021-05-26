@@ -6,6 +6,8 @@ from datetime import datetime #Узнаем текущее время
 
 from tree import *
 
+import  files
+
 from config import *
 
 import groups
@@ -26,14 +28,11 @@ def load():
         path = schedulesFilePath + '/' + filename
 
         if os.path.exists(path) == True:
-            with codecs.open(path, encoding='utf-8') as schedule_file:
-                schedule = json.loads(schedule_file.read())
+            schedule = files.loadFile(path)
 
             schedules[code] = schedule
 
-    with codecs.open(subjectsFilePath, encoding='utf-8') as subjects_file:
-        #Сохранем пары преподаватель-ссылка в виде словаря Python
-        all_subjects = json.loads(subjects_file.read())
+    all_subjects = files.loadFile(subjectsFilePath)
 
 ''' ---------ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ----------- '''
 

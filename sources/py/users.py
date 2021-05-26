@@ -8,6 +8,8 @@ import os
 
 import accesses
 
+import files
+
 from config import *
 
 from tree import *
@@ -17,9 +19,8 @@ users = {}
 def load(usersFilePath):
     global users
 
-    with codecs.open(usersFilePath, encoding='utf-8') as users_file:
-        users = json.loads(users_file.read())
-        
+    users = files.loadFile(usersFilePath)
+
     return users
 
 def create():
@@ -32,8 +33,7 @@ def create():
     users['user'] = []
    
 def save(usersFilePath):
-    with codecs.open(usersFilePath, "w", encoding='utf-8') as users_file:
-        json.dump(users, users_file)
+    files.saveFile(users, usersFilePath)
         
 def checkUser(access, t_id):
     if users.get(access) == None:

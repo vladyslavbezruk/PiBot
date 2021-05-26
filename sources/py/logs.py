@@ -8,6 +8,8 @@ import os
 
 import accesses
 
+import files
+
 from aiogram.types import *
 
 from config import *
@@ -26,8 +28,7 @@ def writeLog(text):
     logsFilePath = os.path.join("..", "..", "logs", filename)
 
     if os.path.exists(logsFilePath) == True:
-        with codecs.open(logsFilePath, encoding='utf-8') as logs_file:
-            logs = json.loads(logs_file.read())
+        logs = files.loadFile(logsFilePath)
     else:
         groups.update()
         gitPush()
@@ -36,5 +37,4 @@ def writeLog(text):
 
     logs[time] = text
 
-    with codecs.open(logsFilePath, "w", encoding='utf-8') as logs_file:
-        json.dump(logs, logs_file)
+    files.saveFile(logs, logsFilePath)

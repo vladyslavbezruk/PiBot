@@ -4,6 +4,8 @@ import codecs  #Читаем с учетом кодировки
 
 from config import *
 
+import files
+
 from tree import *
 
 import logs
@@ -15,14 +17,12 @@ chats = {}
 def load(chatsFilePath):
     global chats
 
-    with codecs.open(chatsFilePath, encoding = 'utf-8') as chats_file:
-        chats = json.loads(chats_file.read())
+    chats = files.loadFile(chatsFilePath)
 
     return chats
 
 def save(chatsFilePath):
-    with codecs.open(chatsFilePath, "w", encoding = 'utf-8') as chats_file:
-        json.dump(chats, chats_file)
+    files.saveFile(chats, chatsFilePath)
 
 def create(id):
     chat = {}
