@@ -8,4 +8,4 @@ chmod +x git-push.sh
 
 cd sources/py/
 
-python3 main.py
+python3.9 main.py
