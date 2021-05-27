@@ -21,3 +21,5 @@ subjectsFilePath = os.path.join("..", "..", "resources", "json", "schedules", "s
 chatsFilePath = os.path.join("..", "..", "resources", "json", "users", "chats.json")
 
 messagesFilePath = os.path.join("..", "..", "resources", "json", "users", "messages.json")
+
+descriptionsFilePath = os.path.join("..", "..", "resources", "json", "commands", "descriptions.json")

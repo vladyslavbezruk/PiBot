@@ -6,7 +6,11 @@ import wolframalpha
 
 import threading
 
+import commands
+
 import notifications
+
+import commands
 
 import users
 
@@ -20,6 +24,8 @@ import groups
 from tree import *
 
 groups.update()
+
+commands.load()
 
 schedule_func.load()
 

@@ -7,6 +7,7 @@
 from random import randrange
 
 import users
+
 import accesses
 
 import keyboard
@@ -42,6 +43,8 @@ import groups
 import messages
 
 import threading
+
+import commands
 
 from collections import Counter
 
@@ -90,19 +93,34 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    await message.answer(text=f"📜Перелік найважливіших команд:\n" +
-        "📨/send [текст] - відправити анонімне повідомлення (порада, повідомлення про помилку, тощо)\n" +
-        "✳/now - посилання на наступну пару\n" +
-        "✳/today - пари сьогодні\n" +
-        "✳/tomorrow - пари завтра\n" +
-        "✳/date - розклад по даті (Приклад: /date 08.03.2021)\n" +
-        "✳/week - розклад на тиждень\n" +
-        "✳/setgroup [група] - встановити групу (Приклад: /setgroup ІН-01/2 або /setgroup ІТ-01/1)\n" +
-        "⁉Важливо: вводити назву групи у форматі ІН-01/2 і тільки укр. мовою\n" +
-        "✳/calc [питання] - wolframalpha (Приклад: /calc x^2 = 4)\n" +
-        "✳/addGroup [група] - встановити групу для автоматичного сповіщення занять в цьому чаті\n" +
-        "✳/removeGroup [група] - видалити групу для автоматичного сповіщення занять в цьому чаті\n" +
-        "🆕/getCommands - список усіх команд доступних для вас")
+    if len(message.text) > len("/help "):
+        page = int(message.text.replace("/help ", ""))
+    else:
+        page = 0
+
+    access = users.getAccess(message.from_user.id)
+
+    descriptions = commands.getDescriptions(access)
+
+    count = commands.countCommands(access)
+
+    if page + 1 > round(count / commands_page):
+        await message.answer(text='Ви не можете це зробити!')
+        return
+
+    i = page * commands_page
+
+    answer = '📜Опис достуних Вам команд:\n'
+
+    while i < (page + 1) * commands_page and i < count:
+        answer += descriptions[i]
+
+    if (page > 0):
+        answer += f'Попередня сторінка: /help {page - 1}\n'
+    if not page + 2 > round(count / commands_page):
+        answer += f'Наступна сторінка: /help {page + 1}\n'
+
+    await message.answer(text=answer)
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
