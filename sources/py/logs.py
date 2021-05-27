@@ -31,7 +31,7 @@ def writeLog(text):
         logs = files.loadFile(logsFilePath)
     else:
         groups.update()
-        gitPush()
+#        gitPush()
 
         logs = {}
 
