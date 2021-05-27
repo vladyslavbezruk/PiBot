@@ -4,6 +4,8 @@
 Остальную логику разбивать по модулям.
 '''
 
+from math import ceil
+
 from random import randrange
 
 import users
@@ -104,7 +106,9 @@ async def echohelp(message: Message):
 
     count = commands.countCommands(access)
 
-    if page + 1 > round(count / commands_page):
+    max_page = ceil(float(count) / commands_page)
+
+    if page + 1 > max_page:
         await message.answer(text='Ви не можете це зробити!')
         return
 
@@ -114,10 +118,14 @@ async def echohelp(message: Message):
 
     while i < (page + 1) * commands_page and i < count:
         answer += descriptions[i]
+        i = i + 1
 
     if (page > 0):
-        answer += f'Попередня сторінка: /help {page - 1}\n'
-    if not page + 2 > round(count / commands_page):
+        if page - 1 != 0:
+            answer += f'Попередня сторінка: /help {page - 1}\n'
+        else:
+            answer += 'Попередня сторінка: /help\n'
+    if not page + 2 > max_page:
         answer += f'Наступна сторінка: /help {page + 1}\n'
 
     await message.answer(text=answer)

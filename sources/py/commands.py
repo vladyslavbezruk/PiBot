@@ -28,4 +28,4 @@ def getDescriptions(access):
 def countCommands(access):
     return len(accesses.accesses[access])
 
-load()
+#load()
