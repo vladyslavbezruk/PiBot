@@ -130,6 +130,27 @@ async def echohelp(message: Message):
 
     await message.answer(text=answer)
 
+@dp.message_handler(commands=['about'])
+async def echohelp(message: Message):
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/about') == False:
+        await noAccessMessage(message)
+        return 0
+
+    await message.answer(text='Цей бот був створений студентами спеціальності інформатика Сумського державного університету. ' +
+                              'Бот допомагає студентам СумДУ отримувати розклад занять у телеграм-чаті. ' +
+                              'Бот може надсилати автоматичні посилання на заняття до їх початку. ' +
+                              'Він також вміє розв’язувати математичні приклади і знає відповіді на деякі запитання. ' +
+                              'Надалі функціонал буде розширюватися.\n' +
+                              'Автори: @vladislavbezruk і @malloc_sizeof_ilya\n'
+                              'GitHub: https://github.com/Vladislav-Bezruk і https://github.com/Ilya-Piskurov'
+                         )
+
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
     await mDebug(message)

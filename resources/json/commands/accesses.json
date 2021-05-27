@@ -1,1 +1,43 @@
-{"admin": ["/send", "/addGroup", "/removeGroup", "/date", "/getCommandsAccess", "/getCommands", "/getAccess", "/update", "/getjson", "/getSource", "/shutdown", "/getid", "/help", "/start", "/calc", "/now", "/today", "/tomorrow", "/week", "/setgroup", "/save"], "user": ["/addGroup", "/removeGroup", "/send", "/date", "/getCommands", "/getAccess", "/help", "/start", "/calc", "/now", "/today", "/tomorrow", "/week", "/setgroup"]}
+{
+  "admin": [
+    "/about",
+    "/send",
+    "/addGroup",
+    "/removeGroup",
+    "/date",
+    "/getCommandsAccess",
+    "/getCommands",
+    "/getAccess",
+    "/update",
+    "/getjson",
+    "/getSource",
+    "/shutdown",
+    "/getid",
+    "/help",
+    "/start",
+    "/calc",
+    "/now",
+    "/today",
+    "/tomorrow",
+    "/week",
+    "/setgroup",
+    "/save"
+  ],
+  "user": [
+    "/about",
+    "/start",
+    "/help",
+    "/setgroup",
+    "/now",
+    "/today",
+    "/tomorrow",
+    "/week",
+    "/date",
+    "/addGroup",
+    "/removeGroup",
+    "/send",
+    "/getCommands",
+    "/getAccess",
+    "/calc"
+  ]
+}
