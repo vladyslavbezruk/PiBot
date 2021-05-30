@@ -50,6 +50,8 @@ def addUser(access, t_id, group):
     user['group'] = group
     users[access].append(user)
 
+    save(usersFilePath)
+
     logs.writeLog(f'Aded new user with id {t_id}')
 
 def searchUser(access, t_id):
