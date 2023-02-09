@@ -1,0 +1,4 @@
+urllib3>=1.25.8
+requests>=2.22.0
+aiogram>=2.13
+wolframalpha>=5.0.0
