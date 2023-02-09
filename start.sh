@@ -1,8 +1,12 @@
 #!/bin/bash
 
-chmod +x update.sh
-chmod +x createSource.sh
+chmod +x sources/sh/createSource.sh
 
-./update.sh
+chmod +x sources/sh/removeSource.sh
 
-python3 main.py
+chmod +x git-push.sh
+
+cd sources/py/
+
+python3.10 main.py
+
