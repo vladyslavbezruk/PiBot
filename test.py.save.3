@@ -1,0 +1,29 @@
+from telethon import TelegramClient
+from telethon.tl.types import UserStatusOnline, UserStatusOffline, ContactStatus
+from datetime import datetime
+from time import sleep
+import asyncio
+
+async def check():
+    api_id = 16415945
+    api_hash = 'ba1cf49ce4ad6033a0977a76578dc1d0'
+
+    while(1):
+        #sleep(5)
+        async with TelegramClient('anon', api_id, api_hash) as client:
+        #client.loop.run_until_complete(client.send_message('me', 'Hello, myself!'))
+
+            user = await client.get_entity('podoliak_anhelina')
+
+            try:
+                if isinstance(user.status, UserStatusOnline):
+                    print("Online")
+                elif isinstance(user.status, UserStatusOffline):
+                    print(str(user.status.was_online).replace("+00:00", ""))
+                else:
+                    print('Unable to get last seen')
+            except:
+                    print("Unable to get last seen")
+
+
+loop = asyncio.get_event_loop(
