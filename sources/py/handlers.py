@@ -170,8 +170,7 @@ async def echohelp(message: Message):
                               'Бот може надсилати автоматичні посилання на заняття до їх початку. ' +
                               'Він також вміє розв’язувати математичні приклади і знає відповіді на деякі запитання. ' +
                               'Надалі функціонал буде розширюватися.\n' +
-                              'Автори: @vbezruk і @javaKACATUK\n'
-                              'GitHub: https://github.com/vbezruk3 і https://github.com/Ilya-Piskurov'
+                              'Автори: Владислав Безрук та Ілля Піскурьов'
                          )
 
 @dp.message_handler(commands=['calc'])
