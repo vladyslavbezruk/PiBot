@@ -1,11 +1,11 @@
 # PiBot
-PiBot - telegram bot (beta)
+PiBot - telegram bot
 
 Authors:
 
-  (telegram) - @vladislavbezruk & @Hokage_Naruto_2020
+  (telegram) - @vladyslavbezruk & @Hokage_Naruto_2020
   
-  (git hub)  - https://github.com/Ilya-Piskurov & https://github.com/Vladislav-Bezruk
+  (git hub)  - https://github.com/Ilya-Piskurov & https://github.com/vladyslavbezruk
   
 Used in the project:
 
