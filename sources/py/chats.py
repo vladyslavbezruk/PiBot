@@ -1,18 +1,9 @@
-import json    #Работаем с json
-
-import codecs  #Читаем с учетом кодировки
-
-from config import *
-
-import files
-
-from tree import *
-
-import logs
-
-import groups
+import sources.py.files as files
+import sources.py.logs as logs
+from sources.py.tree import *
 
 chats = {}
+
 
 def load(chatsFilePath):
     global chats
@@ -21,13 +12,16 @@ def load(chatsFilePath):
 
     return chats
 
+
 def save(chatsFilePath):
     files.saveFile(chats, chatsFilePath)
+
 
 def create(id):
     chat = {}
 
     chat[id] = []
+
 
 def addChat(chat_id):
     logs.writeLog(f'Aded new chat with id {chat_id}')
@@ -36,11 +30,13 @@ def addChat(chat_id):
 
     save(chatsFilePath)
 
+
 def checkChat(chat_id):
     for key in chats.keys():
         if str(chat_id) == str(key):
             return True
     return False
+
 
 def findChat(chat_id):
     i = 0
@@ -51,6 +47,7 @@ def findChat(chat_id):
         i = i + 1
     return -1
 
+
 def removeChat(chat_id):
     i = findChat(chat_id)
 
@@ -59,11 +56,13 @@ def removeChat(chat_id):
 
     save(chatsFilePath)
 
+
 def checkGroup(chat_id, group):
     if checkChat(chat_id) == True:
         if group in chats[chat_id]:
             return True
     return False
+
 
 def addGroup(chat_id, group):
     if checkChat(chat_id) == False:
@@ -74,6 +73,7 @@ def addGroup(chat_id, group):
 
     save(chatsFilePath)
 
+
 def removeGroup(chat_id, group):
     if checkChat(chat_id) == False:
         addChat(chat_id)
@@ -82,5 +82,6 @@ def removeGroup(chat_id, group):
         chats[chat_id].remove(group)
 
     save(chatsFilePath)
+
 
 load(chatsFilePath)

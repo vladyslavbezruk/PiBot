@@ -1,13 +1,5 @@
-import json
-
-import asyncio
-
-import codecs
-
 import requests
-import urllib3
-
-import files
+import sources.py.files as files
 
 requests.packages.urllib3.disable_warnings()
 requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'

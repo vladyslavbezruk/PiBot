@@ -1,9 +1,7 @@
-from config import *
-from tree import *
-
-import json_func
-
 from aiogram.types import Message
+
+import sources.py.json_func as json_func
+from sources.py.tree import *
 
 def push(message: Message):
     global messages

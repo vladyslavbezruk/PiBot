@@ -1,39 +1,39 @@
-import json    #Работаем с json
+import sources.py.files as files
 
-import codecs  #Читаем с учетом кодировки
+from sources.py.tree import *
 
-import files
-
-from tree import *
-
-import os
-
-accesses    = {}
+accesses = {}
 defAccesses = {}
+
 
 def load(accessesFilePath):
     global accesses
 
     accesses = files.loadFile(accessesFilePath)
 
+
 def create():
     global accesses
 
     accesses = defAccesses
-   
+
+
 def save(accessesFilePath):
     files.saveFile(accesses, accessesFilePath)
+
 
 def check(access):
     if accesses.get(access) == None:
         return False
     return True
 
+
 def add(access, command):
     if check(access) and not accesses[access].count(command):
         accesses[access].append(command)
         return True
     return False
+
 
 def remove(access, command):
     if check(access) and accesses[access].count(command) > 0:
@@ -42,8 +42,8 @@ def remove(access, command):
     else:
         return False
 
-def getCommands(access):
 
+def getCommands(access):
     if check(access):
         result = f'У вас рівень {access}. Ви маєте такі команди:'
 
@@ -55,10 +55,12 @@ def getCommands(access):
 
     return result
 
+
 def checkCommand(access, command):
     if check(access) and accesses[access].count(command) > 0:
         return True
     else:
         return False
+
 
 load(accessesFilePath)

@@ -1,110 +1,58 @@
-'''
-Основной модуль для работы с ботом.
-Тут функции, которые осущетвляют ввод-вывод в Телеграм.
-Остальную логику разбивать по модулям.
-'''
-
-from math import ceil
-
-from random import randrange
-
-import users
-
-import accesses
-
-import keyboard
-
-import sys
-
-import notifications
-
 import datetime
-
-from schedule import * 
-
-import schedule_func
-
 import subprocess
-
-from main import bot, dp, client
-
-from aiogram.types import *
-
-from config import *
-
+import sys
 import time
-
-import wolframalpha
-
-import chats
-
-import logs
-
-import groups
-
-import messages
-
-import threading
-
-import commands
-
-#from telethon import TelegramClient
-#from telethon.tl.types import UserStatusOnline, UserStatusOffline, ContactStatus
-
-from collections import Counter
+from math import ceil
+from aiogram.types import *
+import sources.py.accesses as accesses
+import sources.py.chats as chats
+import sources.py.commands as commands
+import sources.py.keyboard as keyboard
+import sources.py.logs as logs
+import sources.py.messages as messages
+import sources.py.schedule_func as schedule_func
+import sources.py.users as users
+from main import bot, dp, client
+from sources.py.config import *
+from sources.py.schedule import *
 
 async def registerMessage(message: Message):
     await message.answer(text=f"🆕{message.from_user.first_name}, Ви новий користувач, ✍️ напишіть команду /start")
 
+
 async def noAccessMessage(message: Message):
     await message.answer(text=f"⛔️{message.from_user.first_name}, Ви не маєте доступу до цієї команди")
 
-async def invalidGroupMessage(message: Message):
-    await message.answer(text=f"⁉️{message.from_user.first_name}, у Вас не встановлена група, ✍️ напишіть команду /setgroup (ваша група)")
 
-#Сообщение о включении бота
+async def invalidGroupMessage(message: Message):
+    await message.answer(
+        text=f"⁉️{message.from_user.first_name}, у Вас не встановлена група, ✍️ напишіть команду /setgroup (ваша група)")
+
 async def send_to_admin(dp):
     logs.writeLog('Bot started')
 
     await bot.send_message(chat_id=admin_id, text="Bot started!")
+
 
 async def mDebug(message: Message):
     log_text = f"message = {message.text} username = @{message.from_user.username} name = {message.from_user.first_name} chat_id = {message.chat.id} user_id = {message.from_user.id}"
 
     logs.writeLog(log_text)
 
-    await bot.send_message(chat_id=admin_id, text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
+    await bot.send_message(chat_id=admin_id,
+                           text=f"Debug[{message.date}]:\n \tmessage = {message.text}\n \tusername = @{message.from_user.username}\n \tname = {message.from_user.first_name}")
 
 @dp.message_handler(commands=['start'])
 async def echo(message: Message):
     await mDebug(message)
 
-    #await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)
+    # await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)
 
     if users.checkUser(message.from_user.id) == False:
         users.addUser('user', message.from_user.id, 'None')
 
-    await message.answer(text=f"👋Привіт, {message.from_user.first_name}.\n✍️Відправ мені [/help] для того, щоб отримати список команд")
-
-'''
-@dp.message_handler(commands=['check'])
-async def echo(message: Message):
-    api_id = 16415945
-    api_hash = 'ba1cf49ce4ad6033a0977a76578dc1d0'
-
-    async with TelegramClient('anon', api_id, api_hash) as client:
-        client.loop.run_until_complete(client.send_message('me', 'Hello, myself!'))
-
-        user = await client.get_entity('vladyslavbezruk')
-
-        try:
-            if isinstance(user.status, UserStatusOnline):
-                print("Online")
-            elif isinstance(user.status, UserStatusOffline):
-                print(str(user.status.was_online).replace("+00:00", ""))
-        except:
-             print("Unable to get last seen")
-'''
+    await message.answer(
+        text=f"👋Привіт, {message.from_user.first_name}.\n✍️Відправ мені [/help] для того, щоб отримати список команд")
 
 @dp.message_handler(commands=['help'])
 async def echohelp(message: Message):
@@ -165,13 +113,15 @@ async def echohelp(message: Message):
         await noAccessMessage(message)
         return 0
 
-    await message.answer(text='Цей бот був створений студентами спеціальності інформатика Сумського державного університету. ' +
-                              'Бот допомагає студентам СумДУ отримувати розклад занять у телеграм-чаті. ' +
-                              'Бот може надсилати автоматичні посилання на заняття до їх початку. ' +
-                              'Він також вміє розв’язувати математичні приклади і знає відповіді на деякі запитання. ' +
-                              'Надалі функціонал буде розширюватися.\n' +
-                              'Автори: Владислав Безрук та Ілля Піскурьов'
-                         )
+    await message.answer(
+        text='Цей бот був створений студентами спеціальності інформатика Сумського державного університету. ' +
+             'Бот допомагає студентам СумДУ отримувати розклад занять у телеграм-чаті. ' +
+             'Бот може надсилати автоматичні посилання на заняття до їх початку. ' +
+             'Він також вміє розв’язувати математичні приклади і знає відповіді на деякі запитання. ' +
+             'Надалі функціонал буде розширюватися.\n' +
+             'Автори: @vladyslavbezruk і @starlord0208\n'
+             'GitHub: https://github.com/vladyslavbezruk і https://github.com/Ilya-Piskurov'
+    )
 
 @dp.message_handler(commands=['calc'])
 async def echohelp(message: Message):
@@ -180,11 +130,11 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/calc') == False:
         await noAccessMessage(message)
         return 0
-  
+
     query = message.text.replace("/calc ", "")
     res = client.query(query)
     output = next(res.results).text
@@ -198,7 +148,7 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/getjson') == False:
         await noAccessMessage(message)
         return 0
@@ -217,7 +167,7 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/update') == False:
         await noAccessMessage(message)
         return 0
@@ -229,7 +179,7 @@ async def echohelp(message: Message):
     schedule_func.load()
 
     await message.answer(text=result)
-   
+
 @dp.message_handler(commands=['getSource'])
 async def echohelp(message: Message):
     await mDebug(message)
@@ -237,24 +187,16 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/getSource') == False:
         await noAccessMessage(message)
         return 0
 
-    logs.writeLog('Sended source')
+    logs.writeLog('Sended sources')
 
     subprocess.call([f'./{createSource}'])
     await bot.send_document(chat_id=message.chat.id, document=open('../../PiBot.zip', 'rb'))
     subprocess.call([f'./{removeSource}'])
-
-@dp.message_handler(commands=['temp'])
-async def echohelp(message: Message):
-    import os
-    os.system('sensors >> info.txt')
-    await message.answer(text=open("info.txt").read())
-    os.system('rm info.txt')
-    #await bot.send_document(chat_id=message.chat.id, document=open('info.txt', 'rb'))
 
 def compare(a, b, size):
     for i in range(size):
@@ -268,18 +210,18 @@ async def echohelp(message: Message):
     await mDebug(message)
 
     time = datetime.now()
-    
+
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/shutdown') == False:
         await noAccessMessage(message)
         return 0
 
     if compare(str(time), str(message.date), 18):
         await message.answer(text="Goodbye ...")
- 
+
         accesses.save(accesses.accessesFilePath)
         users.save(users.usersFilePath)
 
@@ -342,7 +284,7 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/save') == False:
         await noAccessMessage(message)
         return 0
@@ -351,7 +293,7 @@ async def echohelp(message: Message):
 
     accesses.save(accesses.accessesFilePath)
     users.save(users.usersFilePath)
-    
+
     await message.answer(text="All saved!")
 
 @dp.message_handler(commands=['setgroup'])
@@ -361,14 +303,14 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/setgroup') == False:
         await noAccessMessage(message)
         return 0
-        
+
     group = message.text.replace("/setgroup ", "")
 
-    if (group not in groups.groups.keys()):
+    if (not groups.checkGroup(group)):
         await message.answer(text=f"⁉️{message.from_user.first_name}, немає такої групи")
         return 0
 
@@ -393,7 +335,7 @@ async def echohelp(message: Message):
     subject = args[1]
     link = args[2]
 
-    if (group not in groups.groups.keys()):
+    if (not groups.checkGroup(group)):
         await message.answer(text=f"⁉️{message.from_user.first_name}, немає такої групи")
         return 0
 
@@ -408,13 +350,13 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/getid') == False:
         await noAccessMessage(message)
         return 0
-        
+
     await message.answer(text=f"Your id - {str(message.from_user.id)}")
-    
+
 @dp.message_handler(commands=['addGroup'])
 async def echohelp(message: Message):
     await mDebug(message)
@@ -430,7 +372,7 @@ async def echohelp(message: Message):
     group = str(message.text.replace("/addGroup ", ""))
     chat_id = str(message.chat.id)
 
-    if group not in groups.groups.keys():
+    if (not groups.checkGroup(group)):
         await message.answer(text=f"Немає такої групи як {group}")
         return
     if chats.checkGroup(chat_id, group) == False:
@@ -467,11 +409,11 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/now') == False:
         await noAccessMessage(message)
         return 0
-    
+
     group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
 
     if group == 'None':
@@ -481,7 +423,7 @@ async def echohelp(message: Message):
     group = groups.getCode(str(group))
 
     result = help_get_url(str(group))
-    
+
     await message.answer(result)
 
 @dp.message_handler(commands=['today'])
@@ -491,11 +433,11 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/today') == False:
         await noAccessMessage(message)
         return 0
-    
+
     group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
 
     if group == 'None':
@@ -537,11 +479,11 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/tomorrow') == False:
         await noAccessMessage(message)
         return 0
-    
+
     group = users.get(users.getAccess(message.from_user.id), message.from_user.id, 'group')
 
     if group == 'None':
@@ -560,7 +502,7 @@ async def echohelp(message: Message):
     if users.checkUser(message.from_user.id) == False:
         await registerMessage(message)
         return 0
-        
+
     if users.checkCommand(message.from_user.id, '/week') == False:
         await noAccessMessage(message)
         return 0
@@ -575,7 +517,6 @@ async def echohelp(message: Message):
 
     result = help_week(str(group))
     await message.answer(text=result)
-
 
 @dp.message_handler(commands=['send'])
 async def echohelp(message: Message):
@@ -598,11 +539,11 @@ async def echohelp(message: Message):
 
     await message.answer(text='Анонімне повідомлення відправлено!')
 
-@dp.message_handler(content_types = ContentType.TEXT)
+@dp.message_handler(content_types=ContentType.TEXT)
 async def echoMessage(message: Message):
     await mDebug(message)
 
     if chats.checkChat(message.chat.id) == False:
         chats.addChat(message.chat.id)
 
-        await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup = keyboard.keyboard)
+        await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)
