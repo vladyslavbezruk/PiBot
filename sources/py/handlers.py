@@ -2,6 +2,7 @@ import datetime
 import subprocess
 import sys
 import time
+import os
 from math import ceil
 from aiogram.types import *
 import sources.py.accesses as accesses
@@ -159,6 +160,25 @@ async def echohelp(message: Message):
         await bot.send_document(chat_id=message.chat.id, document=open(scheduleFilePath[schedule], 'rb'))
 
         time.sleep(1)
+
+@dp.message_handler(commands=['restart'])
+async def echohelp(message: Message):
+    await mDebug(message)
+
+    if users.checkUser(message.from_user.id) == False:
+        await registerMessage(message)
+        return 0
+
+    if users.checkCommand(message.from_user.id, '/restart') == False:
+        await noAccessMessage(message)
+        return 0
+
+    await message.answer(text=f"Restarting ...")
+
+    accesses.save(accesses.accessesFilePath)
+    users.save(users.usersFilePath)
+
+    logs.writeLog('Restaring ...')
 
 @dp.message_handler(commands=['update'])
 async def echohelp(message: Message):
@@ -545,5 +565,6 @@ async def echoMessage(message: Message):
 
     if chats.checkChat(message.chat.id) == False:
         chats.addChat(message.chat.id)
+
 
         await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)

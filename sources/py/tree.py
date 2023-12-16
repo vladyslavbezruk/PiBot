@@ -6,6 +6,8 @@ createSource = "../sh/createSource.sh"
 
 removeSource = "../sh/removeSource.sh"
 
+startBotFile = "../../start.sh"
+
 schedulesFilePath = os.path.join("../..", "resources", "json", "schedules")
 
 scheduleFilePath = {}

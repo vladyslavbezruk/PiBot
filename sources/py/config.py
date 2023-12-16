@@ -12,5 +12,5 @@ time_before = 5
 
 commands_page = 5
 
-admin_id = 671836800
-admin_id2 = 761202580
+admin_id = 0000
+admin_id2 = 0000

@@ -24,8 +24,11 @@ async def check(sleep):
             result = groups.update()
             logs.writeLog(result)
             schedule_func.load()
-
-        await bot.send_message(chat_id='-4029427516', text=f".")
+           
+        try:
+            await bot.send_message(chat_id='-4000366525', text=f".")
+        except:
+            print('Error when bot trying to send message .')
 
         if datef.today().strftime("%A") not in ['Thursday', 'Friday', 'Saturday', 'Sunday']:
 
