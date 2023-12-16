@@ -566,4 +566,5 @@ async def echoMessage(message: Message):
     if chats.checkChat(message.chat.id) == False:
         chats.addChat(message.chat.id)
 
+
         await bot.send_message(chat_id=message.chat.id, text="Кнопки:", reply_markup=keyboard.keyboard)

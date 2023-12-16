@@ -24,6 +24,7 @@ async def check(sleep):
             result = groups.update()
             logs.writeLog(result)
             schedule_func.load()
+           
         try:
             await bot.send_message(chat_id='-4000366525', text=f".")
         except:
