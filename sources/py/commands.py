@@ -1,10 +1,7 @@
-import accesses
-
-from config import *
-
-from tree import *
-
-import files
+import sources.py.accesses as accesses
+import sources.py.files as files
+from sources.py.config import *
+from sources.py.tree import *
 
 descriptions = {}
 
@@ -27,5 +24,3 @@ def getDescriptions(access):
 
 def countCommands(access):
     return len(accesses.accesses[access])
-
-#load()

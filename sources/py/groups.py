@@ -1,20 +1,8 @@
-import json    #Работаем с json
-
-import codecs  #Читаем с учетом кодировки
-
-from tree import *
-
-import os
-
-from config import *
-
-import json_func
-
-import files
-
-import schedule_func
-
-from time import sleep
+import sources.py.files as files
+import sources.py.json_func as json_func
+import sources.py.schedule_func as schedule_func
+from sources.py.config import *
+from sources.py.tree import *
 
 groups = files.loadFile(groupsFilePath)
 
@@ -22,15 +10,21 @@ def getUrl(code):
     return site + code
 
 def getCode(name):
-    for group in groups.keys():
-        if group.lower() == name.lower():
-            return groups[group]
+    for code in groups.keys():
+        if groups[code].lower() == name.lower():
+            return code
     return -1
 
-def getName(code):
-    for group in groups.keys():
-        if groups[group].lower() == code.lower():
-            return group
+def getName(group_code):
+    for code in groups.keys():
+        if code == group_code:
+            return groups[code]
+
+def checkGroup(name):
+    for code in groups.keys():
+        if groups[code].lower() == name.lower():
+            return True
+    return False
 
 def getSchedule(code):
     url = getUrl(code)
@@ -51,12 +45,28 @@ def getSchedule(code):
     except:
         print('Error while downloading schedule ' + code)
 
+def updateGroups():
+    try:
+        global groups
+
+        path = groupsFilePath
+
+        files.saveFile(json_func.downloadJson(site_groups), path)
+
+        groups = files.loadFile(groupsFilePath)
+ 
+        print('Оновлено групи')
+    except:
+        print('Не було оновлено групи')
+
 def update():
+    updateGroups()
+    
     flag = 0
     result = 'Оновлено розклад для: '
 
-    for group in groups.keys():
-        code = groups[group]
+    for code in groups.keys():
+        group = groups[code]
         filename = 'schedule-' + code + '.json'
         path = schedulesFilePath + '/' + filename
 

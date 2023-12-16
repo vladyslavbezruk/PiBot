@@ -1,18 +1,7 @@
-import json    #Работаем с json
-
-import codecs  #Читаем с учетом кодировки
-
-import logs
-
-import os
-
-import accesses
-
-import files
-
-from config import *
-
-from tree import *
+import sources.py.accesses as accesses
+import sources.py.files as files
+import sources.py.logs as logs
+from sources.py.tree import *
 
 users = {}
 
@@ -24,26 +13,25 @@ def load(usersFilePath):
     return users
 
 def create():
-
     global users
 
     users = {}
-    
+
     users['admin'] = []
     users['user'] = []
-   
+
 def save(usersFilePath):
     files.saveFile(users, usersFilePath)
-        
+
 def checkUser(access, t_id):
     if users.get(access) == None:
         return False
-    
+
     for user in users[access]:
         if user['id'] == t_id:
             return True
     return False
-    
+
 def addUser(access, t_id, group):
     user = {}
     user['id'] = t_id
@@ -63,12 +51,12 @@ def searchUser(access, t_id):
 
 def checkUser(t_id):
     access = getAccess(t_id)
-    
+
     if access == None:
         return False
     else:
         return True
-    
+
 def set(access, t_id, setting, value):
     if checkUser(t_id):
         users[access][searchUser(access, t_id)][setting] = value
@@ -83,8 +71,8 @@ def getAccess(t_id):
             if user['id'] == t_id:
                 return access
     return None
-    
+
 def checkCommand(t_id, command):
     return accesses.checkCommand(getAccess(t_id), command)
-                
+
 load(usersFilePath)
